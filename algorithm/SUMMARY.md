@@ -1,12 +1,12 @@
 # Table of contents
 
 * [Cheating Sheet](https://docs.google.com/document/d/e/2PACX-1vTWWQ4NpAEUm\_yhh4ntvwjzEFpybUW4PnGNXuFLXXhp0UZDHk3v5epXsoUmSwKstvA-NGtlg1tQCEA3/pub)
-* [Basic Knowledge](README.md)
-  * [Parameter passing](basic-knowledge/parameter-passing.md)
-  * [Classes, objects and references](basic-knowledge/classes-objects-and-references.md)
-  * [The objected-oriented paradigm in java](basic-knowledge/the-objected-oriented-paradigm-in-java.md)
-* [Summary](<README (1).md>)
+* [Summary](README.md)
   * [Problem Solving](summary/problem-solving.md)
+* [Basic Knowledge](data-stucture-java/basic-knowledge/README.md)
+  * [Parameter passing](data-stucture-java/basic-knowledge/parameter-passing.md)
+  * [Classes, objects and references](data-stucture-java/basic-knowledge/classes-objects-and-references.md)
+  * [The objected-oriented paradigm in java](data-stucture-java/basic-knowledge/the-objected-oriented-paradigm-in-java.md)
 * [Hybrid Data Structure](hybrid-data-structure/README.md)
   * [Thought](hybrid-data-structure/thought.md)
   * [Find the Median from Data Stream/Sliding Window](hybrid-data-structure/find-the-median-from-data-stream-sliding-window/README.md)
@@ -57,3 +57,4 @@
     * [Question2: Implement Queue with Linkedlist](linkedlist-and-string-and-array-practice/practice-3/question2-implement-queue-with-linkedlist.md)
     * [Question3: Merge Two Sorted LinkedList](linkedlist-and-string-and-array-practice/practice-3/question3-merge-two-sorted-linkedlist.md)
     * [Question 4: Intersection of Two Arrays](linkedlist-and-string-and-array-practice/practice-3/question-4-intersection-of-two-arrays.md)
+* [Algorithm1 :Two Points](algorithm1-two-points.md)
