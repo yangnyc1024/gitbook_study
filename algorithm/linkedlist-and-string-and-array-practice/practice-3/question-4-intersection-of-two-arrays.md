@@ -29,7 +29,7 @@ int[] intersection(int[] num1, int[] num2) {
             j++;
         }
     }
-    return resuilt.toArray();w
+    return resuilt.toArray();
 }
 ```
 
