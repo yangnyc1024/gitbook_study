@@ -51,6 +51,7 @@
   * [Array/ List](data-stucture-java/array-list.md)
   * [LinkedList](data-stucture-java/linkedlist.md)
   * [String](data-stucture-java/string.md)
+* [HashMap](hashmap.md)
 * [LinkedList \&String& Array Practice](linkedlist-and-string-and-array-practice/README.md)
   * [Practice 3](linkedlist-and-string-and-array-practice/practice-3/README.md)
     * [Question1: Implement Stack with Linkedlist](linkedlist-and-string-and-array-practice/practice-3/question1-implement-stack-with-linkedlist.md)
