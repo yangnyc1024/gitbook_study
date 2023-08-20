@@ -53,6 +53,7 @@
   * [String](data-stucture-java/string.md)
 * [HashMap](hashmap.md)
 * [LinkedList \&String& Array Practice](linkedlist-and-string-and-array-practice/README.md)
+  * [LinkedList](linkedlist-and-string-and-array-practice/linkedlist.md)
   * [Practice 3](linkedlist-and-string-and-array-practice/practice-3/README.md)
     * [Question1: Implement Stack with Linkedlist](linkedlist-and-string-and-array-practice/practice-3/question1-implement-stack-with-linkedlist.md)
     * [Question2: Implement Queue with Linkedlist](linkedlist-and-string-and-array-practice/practice-3/question2-implement-queue-with-linkedlist.md)
