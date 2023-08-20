@@ -60,3 +60,4 @@
     * [Question3: Merge Two Sorted LinkedList](linkedlist-and-string-and-array-practice/practice-3/question3-merge-two-sorted-linkedlist.md)
     * [Question 4: Intersection of Two Arrays](linkedlist-and-string-and-array-practice/practice-3/question-4-intersection-of-two-arrays.md)
 * [Algorithm1 :Two Points](algorithm1-two-points.md)
+* [Miscellaneous](miscellaneous.md)
