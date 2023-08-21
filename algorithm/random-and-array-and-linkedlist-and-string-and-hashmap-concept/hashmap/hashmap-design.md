@@ -1,12 +1,9 @@
-# HashMap
-
-
-
-
+# HashMap Design
 
 
 
 ```java
+// Some code
 // Some code
 public static class MyHashMap<String, Integer> {
     public static class Entry<String, Integer>{ //本质上是个ListNode
