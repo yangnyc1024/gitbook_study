@@ -1,13 +1,4 @@
-# Problem 1 Add Binary
-
-Example:&#x20;
-
-* s = '121' --> index =2
-* int number = s.charAt(2) - '0'
-
-需要两个指针，从a/b.length -1 一直--
-
-
+# Problem 3 Add Strings
 
 ```java
 public String addBinary(String a, String b) {
@@ -24,8 +15,8 @@ public String addBinary(String a, String b) {
         if (j >= 0) {
             sum += b.charAt(j) - '0';
         }
-        carry = sum / 2; 
-        sb.append(sum % 2);
+        carry = sum / 10; 
+        sb.append(sum % 10);
         i--;
         j--;
     }
@@ -35,7 +26,3 @@ public String addBinary(String a, String b) {
     return sb.reverse().toString();
 }
 ```
-
-TC: O(m+ n)
-
-SC: O(max(m, n))
