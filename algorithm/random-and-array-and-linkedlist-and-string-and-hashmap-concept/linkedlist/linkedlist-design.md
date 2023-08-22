@@ -139,12 +139,12 @@ class LinkedList {
             deleteTail();
             return;
         }
-        
+        ListNode toBeDeletePrev = head;
         for (int i = 0; i &#x3C; index - 1; i++){
-            prev
-            cur = cur.next;
+            toBeDeletePrev = toBeDeletePrev.next;
         }
-        
+        toBeDeletePrev.next = toBeDeletePrev.next.nextl
+        size--;
     }
 
 }
