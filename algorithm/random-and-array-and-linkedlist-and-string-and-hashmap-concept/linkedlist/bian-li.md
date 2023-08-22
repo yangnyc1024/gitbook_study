@@ -24,3 +24,17 @@ public void traversal(ListNode head) {
 ```
 
 遍历circular LinkedList
+
+```java
+public void traversal(ListNode head) {
+    if (head == null) {
+        return;
+    }
+    ListNode cur = head;
+    while (cur.next != head) {
+        System.out.printlin(cur.value);
+        cur = cur.next;
+    }
+    System.out.println(cur.value);
+}
+```
