@@ -9,6 +9,12 @@ Example:&#x20;
 
 
 
+Mid Level:
+
+*
+
+
+
 ```java
 public String addBinary(String a, String b) {
     int i = a.length() - 1;
