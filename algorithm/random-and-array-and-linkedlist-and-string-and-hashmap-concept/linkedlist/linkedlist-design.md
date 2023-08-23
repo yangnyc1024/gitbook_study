@@ -13,7 +13,7 @@ Middle Level:
 * addHead/addTail/addIndex
 * deleteHead/deleteTail/deleteIndex
   * 为啥deleteTail/deleteIndex会比较麻烦？
-* size/isEmpty/searchByValue
+* size/isEmpty/get/getSize/searchByValue
 
 TC\&SC: O(n)
 
@@ -40,7 +40,7 @@ class LinkedList {
         this.size = 0;
     }
     
-    public ListNode seachByValue(int value){
+    public ListNode searchByValue(int value){
         ListNode cur = head;
         while (cur != null) {
             if (cur.value == value) {
@@ -349,14 +349,25 @@ class LinkedList {
         size--;
     }
     public void deleteNode(ListNode toBeDeleted) {
-        ListNode prev = toBedeleted.prev;
-        ListNode next = toBedeleted.next;
-        if (prev == null) { //  toBedeleted is head
+        ListNode prevNode = toBedeleted.prev;
+        ListNode nextNode = toBedeleted.next;
+        if (prevNode == null) { //  toBedeleted is head
             ListNode temp = head;
             head = head.next;
             head.prev = null;
             temp.next = null;
         }
+        if (nextNode == null) {
+            ListNode temp = tail;
+            tail = tail.prev;
+            tail.next = null;
+            temp.prev = null;
+        }
+        prev.next = nextNode;
+        next.prev = prevNode;
+        toBeDeletePrev.prev = null;
+        toBeDeletePrev.next = null;
+        size--;
     }
 }
 ```
@@ -389,7 +400,7 @@ class LinkedList {
         this.size = 0;
     }
     
-    public ListNode seachByValue(int value){
+    public ListNode searchByValue(int value){
         ListNode cur = head;
         while (cur != null) {
             if (cur.value == value) {
@@ -399,16 +410,23 @@ class LinkedList {
         }
         return null;
     }
+    public ListNode get(int index) {
+        
+    }
     
     public getSize(){
-    
+        return this.size;
     }
     
     public boolean isEmpty(){
-    
+        return this.size == 0;
     }
     
     public void printAllNodes(){
+        if (head == null) {
+            return;
+        }
+        if 
     }
     
     // 增
@@ -468,7 +486,7 @@ class LinkedList {
         this.size = 0;
     }
     
-    public ListNode seachByValue(int value){
+    public ListNode searchByValue(int value){
         ListNode cur = head;
         while (cur != null) {
             if (cur.value == value) {
