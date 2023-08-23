@@ -51,6 +51,16 @@ class LinkedList {
         return null;
     }
     
+    public ListNode get(int index) {
+        if (index &#x3C; 0 || index > size) {
+            return null;
+        }
+        for (int i = 0; i &#x3C; index; i++) {
+            cur = cur.next;
+        }
+        return cur.value;
+    }
+    
     public getSize(){
         return this.size;
     }
@@ -220,6 +230,16 @@ class LinkedList {
             cur = cur.next;
         }
         return null;
+    }
+    
+    public ListNode get(int index) {
+        if (index < 0 || index > size) {
+            return null;
+        }
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
+        return cur.value;
     }
     
     public getSize(){
@@ -411,7 +431,13 @@ class LinkedList {
         return null;
     }
     public ListNode get(int index) {
-        
+        if (index < 0 || index > size) {
+            return null;
+        }
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
+        return cur.value;
     }
     
     public getSize(){
@@ -426,7 +452,12 @@ class LinkedList {
         if (head == null) {
             return;
         }
-        if 
+        ListNode cur = head;
+        while (cur.next != head) {
+            System.out.println(cur);
+            cur = cur.next;
+        }
+        System.out.println(cur);
     }
     
     // 增
@@ -495,6 +526,16 @@ class LinkedList {
             cur = cur.next;
         }
         return null;
+    }
+    
+    public ListNode get(int index) {
+        if (index < 0 || index > size) {
+            return null;
+        }
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
+        return cur.value;
     }
     
     public getSize(){
