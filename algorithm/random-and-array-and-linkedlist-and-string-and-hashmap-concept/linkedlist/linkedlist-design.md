@@ -349,7 +349,14 @@ class LinkedList {
         size--;
     }
     public void deleteNode(ListNode toBeDeleted) {
-    
+        ListNode prev = toBedeleted.prev;
+        ListNode next = toBedeleted.next;
+        if (prev == null) { //  toBedeleted is head
+            ListNode temp = head;
+            head = head.next;
+            head.prev = null;
+            temp.next = null;
+        }
     }
 }
 ```
