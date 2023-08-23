@@ -160,7 +160,7 @@ class LinkedList {
         for (int i = 0; i &#x3C; index - 1; i++){
             toBeDeletePrev = toBeDeletePrev.next;
         }
-        toBeDeletePrev.next = toBeDeletePrev.next.nextl
+        toBeDeletePrev.next = toBeDeletePrev.next.next;
         size--;
     }
 }
@@ -171,6 +171,21 @@ class LinkedList {
 
 
 ## Design Double LinkedList
+
+
+
+High Level
+
+
+
+Middle Level:
+
+* addHead/addTail/addIndex
+* deleteHead/deleteTail/deleteIndex
+  * 为啥deleteTail/deleteIndex会比较麻烦？
+* size/isEmpty/searchByValue
+
+TC\&SC: O(n)
 
 ```java
 class ListNode{ 
@@ -187,10 +202,12 @@ class LinkedList {
     // Field 属性：静态的属性
     // Method 行为：动态的行为
     ListNode head;
+    ListNode tail;
     int size;
     
     public LinkedList(){
         this.head = null;
+        this.tail = null;
         this.size = 0;
     }
     
@@ -224,20 +241,27 @@ class LinkedList {
     // 增
     public void addHead(int val){
         ListNode newNode = new ListNode(val);
-        newNode.next = head;
-        head = newNode;
-        size++;
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        }
+        else {
+            newNode.next = head;
+            head.prev = newNode;
+            head = newNode;
+        }
+        size++
     }
     public void addTail(int val){
         ListNode newNode = ListNode(val);
         if (head == null) {
             head = newNode;
+            tail = newNode;
         }
         else {
-            ListNode cur = head;
-            while (cur.next != null) {
-                cur = cur.next;
-            }
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
         }
         size++;
     }
@@ -247,57 +271,56 @@ class LinkedList {
         }
         if (index == 0) {
             addHead(val);
-            return;
         }
         if (index == size - 1) {
             addTail(val);
-            return;
         }
         ListNode cur = head;
         ListNode newNode = new ListNode(val);
-        //要想在index 这个位置插入一个node，需要找到index -1的这个node，然后在这个node之后加入新的node
         for (int i = 0; i < index - 1; i++) {
-           cur = cur.next;  
+            cur.next = cur;
         }
-        //在中间插入node的方法一定是 先保留后面的node 再做插入
-        newNode.next = cur.next;
-        cur.next = newNode;
-        size+=;
+        ListNode prev = cur;
+        ListNode next = cur.next;
+        newNode.next = next;
+        next.prev = newNode;
+        prev.next = newNode;
+        newNode.prev = prev;
+        size++;  
     }
     // 删
     public void deleteHead() {
         if (head == null) {
             return;
         }
-        head = head.next;
+        if (head.next == null) {
+            head = null;
+            tail = null;
+            size = 0;
+            return;
+        }
+        ListNode newHead = head.next;
+        newHead.prev = null;
+        head.next = null;
+        head = newHead;
         size--;
+        return;
     }
     
-public void deleteTail() {
-
-
-        if (head == null) {
+    public void deleteTail() {
+         if (head == null) {
             return;
         }
         if (head.next == null) {
-            deleteHead();
+            head = null;
+            tail = null;
+            size = 0;
             return;
         }
-        ListNode cur = head;
-        ListNode nextNode = head.next;
-        while (cur.next != null && nextNode.next != null) {
-            cur = cur.next;
-            nextNode = nextNode.next;
-        }
-        cur.next = null;
-        // ListNode prev = null;
-        // ListNode cur = head;
-        // while(cur.next != null) {
-            //现在的cur，就是下一轮的prev
-            //prev = cur;
-            //cur = cur.next;
-        //}
-        // prev.next = null;
+        ListNode temp = tail;
+        tail = tail.prev;
+        temp.prev = null;
+        tail.next = null;
         size--;
     }
     
@@ -317,8 +340,16 @@ public void deleteTail() {
         for (int i = 0; i < index - 1; i++){
             toBeDeletePrev = toBeDeletePrev.next;
         }
-        toBeDeletePrev.next = toBeDeletePrev.next.nextl
+        ListNode prev = toBeDeletePrev.prev;
+        ListNode next = toBeDeletePrev.next;
+        prev.next = next;
+        next.prev = prev;
+        toBeDeletePrev.prev = null;
+        toBeDeletePrev.next = null;
         size--;
+    }
+    public void deleteNode(ListNode toBeDeleted) {
+    
     }
 }
 ```
