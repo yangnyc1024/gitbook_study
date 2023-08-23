@@ -4,18 +4,16 @@
 
 1）如何遍历
 
-2）如何design
-
-* addHead/addTail
-* addIndex
-* deleteHead/deleteTail
-* find
-*
+2）如何design + 找中点 + reverse
 
 
 
-### Single LinkedList
+key
 
+* 小心不要丢head，小心不要丢any ListNode
+* 小心null pointer exception
+* trick，处理后面的先
+* trick，先处理null，一个，甚至两个的corner case
 
 
 
@@ -24,27 +22,10 @@
 
 
 
-### Double LinkedList
-
-```java
 
 
 
 
-public void addHead(int val) {
-    ListNode newNode = new ListNode(val);
-    if (head == null) {
-        head = newNode;
-        tail = newNode;
-    }
-    else {
-        newNode.next = head;
-        head.prev = newNode;
-        head = newNode;
-    }
-    size++;
-}
-```
 
 
 

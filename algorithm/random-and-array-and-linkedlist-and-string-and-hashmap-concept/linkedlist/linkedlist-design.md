@@ -422,7 +422,7 @@ class LinkedList {
     
     public ListNode searchByValue(int value){
         ListNode cur = head;
-        while (cur != null) {
+        while (cur != head) {
             if (cur.value == value) {
                 return cur;
             }
@@ -461,25 +461,161 @@ class LinkedList {
     }
     
     // 增
-    public void addHead(){
-    
+    public void addHead(int val){
+        // corner case : only have zero or one?
+        ListNode newNode = new ListNode(val);
+        if (head == null) {
+            head = newNode;
+            head.next = head;
+        }
+        if (head.next == null) {
+            head.next = newNode;
+            newNode.next = head;
+            head = newNode;
+        }
+        ListNode cur = head;
+        // find tail
+        while (cur.next != head) {
+            cur = cur.next;
+        }
+        cur.next = newNode;
+        newNode.next = head;
+        head.next = null;
+        head = newNode;
+        size--;
     }
     public void addTail(){
-    
+        // find tail
+        // corner case : only have zero or one?
+        ListNode newNode = new ListNode(val);
+        if (head == null) {
+            head = newNode;
+            head.next = head;
+        }
+        ListNode cur = head;
+        // find tail
+        while (cur.next != head) {
+            cur = cur.next;
+        }
+        cur.next = newNode;
+        newNode.next = head;
+        head.next = null;
+        head = newNode;
+        size++;
     }
     public void addIndex(int index, int val){
-    
+        if (index < 0) {
+            return;
+        }
+        if (index > size) {
+            index = index % size;
+        }
+        // corner case
+        if (index == 0) {
+            addHead(val);
+        }
+        if (index == size - 1) {
+            addTail(val);
+        }
+        ListNode cur = head;
+        ListNode newNode = new ListNode(val)
+        // find index - 1 th Node
+        for (i = 0; i < index - 1; i++) {
+            cur = cur.next;
+        }
+        
+        // find index th Node 
+        ListNode nextNode = cur.next;
+        
+        // add newNode between them
+        newNode.next = nextNode;
+        cur.next = newNode;
+        size++;
     }
     // 删
     public void deleteHead() {
-    
+        // corner case
+        if (head == null) {
+            return;
+        }
+        if (head.next == null) {
+            head = null;
+            size--;
+            return;
+        }
+        
+        // find head.next
+        ListNode nextNode = head.next;
+        
+        // find tail
+        ListNode cur = head;
+        while (cur.next != head) {
+            cur = cur.next;
+        }
+        ListNode prev = cur;
+        
+        // link tail and head.next
+        prev.next =nextNode;
+        
+        // clear anything related to head
+        head.next = null;
+        
+        // reset head
+        head = nextNode;
+        
+        // size--
+        size--;
     }
     public void deleteTail() {
-    
+        // corner case
+        if (head == null) {
+            return;
+        }
+        if (head.next = null) {
+            head = null;
+            size--;
+            return;
+        }
+        // find prev: the previous Node of tail
+        ListNode cur = head;
+        ListNode prev = null;
+        // link head and prev
+        while (cur.next != null) {
+            prev = cur;
+            cur = cur.next;
+        }
+            // prev is the previous node of tail, cur is the tail now
+        prev.next = head;
+        // clear tail's pointer
+        cur.next = null;
+        size--;
     }
     
     public void deleteAtIndex(int index){
-    
+     // corner case
+        if (index < 0) {
+            return;
+        }
+        if (index > size) {
+            index = index % size;
+        }
+        if (index == 0) {
+            deleteHead();
+        }
+        if (index == size - 1) {
+            deleteTail();
+        }
+        ListNode cur = head;
+        for (int i = 0; i < index - 1; i++) {
+            cur = cur.next;   
+        }
+     
+     // find index - 1 th ListNode
+     
+     // find index + 1th ListNode
+         cur.next = cur.next.next;
+         size--;
+         return;
     }
 
 }
