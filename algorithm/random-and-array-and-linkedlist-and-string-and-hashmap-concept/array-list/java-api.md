@@ -2,6 +2,6 @@
 description: Java APIAPI
 ---
 
-# Java API
+# API
 
 API
