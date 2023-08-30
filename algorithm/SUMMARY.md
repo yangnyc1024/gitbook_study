@@ -44,7 +44,7 @@
     * [Question 1 Power Function](two-points-and-binary-search-and-pure-recursion/pure-recursion/question-1-power-function.md)
     * [Question 2](two-points-and-binary-search-and-pure-recursion/pure-recursion/question-2.md)
   * [Binary Search Practice](two-points-and-binary-search/binary-search-practice/README.md)
-    * [Question 4](two-points-and-binary-search-and-pure-recursion/binary-search-practice/question-4.md)
+    * [Question 4 Last Occurrence](two-points-and-binary-search-and-pure-recursion/binary-search-practice/question-4-last-occurrence.md)
     * [Question 1 Classical Binary Search](two-points-and-binary-search-and-pure-recursion/binary-search-practice/question-1-classical-binary-search.md)
     * [Question 3 First Occurrence](two-points-and-binary-search-and-pure-recursion/binary-search-practice/question-3-first-occurrence.md)
     * [Question 2 Search in Sorted Matrix](two-points-and-binary-search-and-pure-recursion/binary-search-practice/question-2-search-in-sorted-matrix.md)
