@@ -49,7 +49,7 @@
     * [Question 3 First Occurrence](two-points-and-binary-search-and-pure-recursion/binary-search-practice/question-3-first-occurrence.md)
     * [Question 4 Last Occurrence](two-points-and-binary-search-and-pure-recursion/binary-search-practice/question-4-last-occurrence.md)
     * [Question 5 Closest Element to target](two-points-and-binary-search-and-pure-recursion/binary-search-practice/question-5-closest-element-to-target.md)
-    * [Question 6 Closest Element to Target](two-points-and-binary-search/binary-search-practice/question-6-closest-element-to-target.md)
+    * [Question 6 K Closest Element to Target](two-points-and-binary-search-and-pure-recursion/binary-search-practice/question-6-k-closest-element-to-target.md)
     * [Question 7 K Closest in Sorted Array](two-points-and-binary-search/binary-search-practice/question-7-k-closest-in-sorted-array.md)
     * [Question 8 Search Unknown Value](two-points-and-binary-search/binary-search-practice/question-8-search-unknown-value.md)
     * [Question 9 Search in Bitonic Array](two-points-and-binary-search/binary-search-practice/question-9-search-in-bitonic-array.md)

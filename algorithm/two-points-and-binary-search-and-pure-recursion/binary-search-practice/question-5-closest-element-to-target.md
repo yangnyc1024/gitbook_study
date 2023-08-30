@@ -1,6 +1,7 @@
 # Question 5 Closest Element to target
 
 ```java
+
 /*
 key: find two element, one is larger or equal, the other is smaller or equal
 */
@@ -25,11 +26,11 @@ public class Solution {
       else {
         right = mid;
       }
-      if (Math.abs(array[left] - target) < Math.abs(array[right] - target)) {
-        return left
-      }
-      return right;
     }
+    if (Math.abs(array[left] - target) < Math.abs(array[right] - target)) {
+        return left;
+      }
+    return right;
   }
 }
 ```
