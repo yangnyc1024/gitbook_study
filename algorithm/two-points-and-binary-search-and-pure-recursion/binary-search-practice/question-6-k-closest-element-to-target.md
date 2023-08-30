@@ -1,5 +1,7 @@
 # Question 6 K Closest Element to Target
 
+## Solution 1 Binary Search
+
 ```java
 public class Solution {
   public int[] kClosest(int[] array, int target, int k) {
@@ -61,3 +63,11 @@ public class Solution {
   }
 }
 ```
+
+### Solution 2 sliding window
+
+minimize the score of sliding window, which the score is the |window中离target最远的元素-target｜
+
+
+
+TC & SC: O(n - k), O(1)

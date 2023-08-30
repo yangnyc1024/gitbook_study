@@ -1,20 +1,20 @@
-# Question 8 Search Unknown Value
+# Question 9 Search Unknown Value
 
 
 
-Method 1 Brute Force
+## Method 1 Brute Force
 
 
 
-Method 2这题目是sorted==》 binary search
+## Method 2这题目是sorted==》 binary search
 
 
 
+## Method 2.1 只有右边不断扩展
 
 
 
-
-Method 2.2 左边也跟着跳
+## Method 2.2 左边也跟着跳
 
 ```java
 int search(UnboundedArray arr, int target) {
