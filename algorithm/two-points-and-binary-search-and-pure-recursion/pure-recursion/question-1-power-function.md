@@ -68,3 +68,12 @@ public int power(int a, int b) {
     // step 4 recursive rule
 }
 ```
+
+
+
+
+
+如果我要算a的b次方，b一定可以表示成为log2(n) +1 个二进制位
+
+* 13 = 1 \* 2^3  + 1 \* 2^2 + 0^ 2^0 +&#x20;
+* a^n = a^(n的二次方表达)
