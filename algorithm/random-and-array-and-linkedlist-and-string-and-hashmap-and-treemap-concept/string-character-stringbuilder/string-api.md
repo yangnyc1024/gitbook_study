@@ -56,3 +56,69 @@ description: API
 
 
 
+## API 12: string replaceAll(String regex, String replacement)
+
+
+
+
+
+## API 13: String substring(int beginIndex):\[index....]
+
+
+
+
+
+
+
+## API 14: String substring(int beginIdnex, int endIndex) \[beginIndex, endIndex)
+
+
+
+## API 15: char\[] toCharArray()
+
+
+
+
+
+## API 16: String toLowerCase()
+
+
+
+## API 17: String toUpperCase()
+
+
+
+## API 18: String toString()
+
+
+
+## API 19: String trim()
+
+
+
+## API 20: repeat(int count)
+
+
+
+## API 21: String\[] split(String regex)
+
+
+
+## API 22: String\[] split(String regex, int limit)
+
+
+
+## API 23 startsWith(String prefix)
+
+
+
+## API 24 endsWith(String suffix)
+
+
+
+## API 25 intern()
+
+
+
+
+
