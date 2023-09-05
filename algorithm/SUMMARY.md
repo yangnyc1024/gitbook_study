@@ -13,6 +13,7 @@
   * [Array/ List](random-and-array-and-linkedlist-and-string-and-hashmap-and-treemap-concept/array-list/README.md)
     * [API](random-and-array-and-linkedlist-and-string-and-hashmap-and-treemap-concept/array-list/api.md)
   * [String/Character/ StringBuilder](random-and-array-and-linkedlist-and-string-and-hashmap-and-treemap-concept/string-character-stringbuilder/README.md)
+    * [String常量池](random-and-array-and-linkedlist-and-string-and-hashmap-and-treemap-concept/string-character-stringbuilder/string-chang-liang-chi.md)
     * [String API](random-and-array-and-linkedlist-and-string-and-hashmap-and-treemap-concept/string-character-stringbuilder/string-api.md)
     * [Character API](random-and-array-and-linkedlist-and-string-and-hashmap-and-treemap-concept/string-character-stringbuilder/character-api.md)
     * [StringBuilder API](random-and-array-and-linkedlist-and-string-and-hashmap-and-treemap-concept/string-character-stringbuilder/stringbuilder-api.md)
