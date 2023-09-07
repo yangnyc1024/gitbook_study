@@ -1,4 +1,4 @@
-# Tree Concept 1
+# Tree Concept
 
 ## What is binary tree?
 
@@ -44,3 +44,10 @@
 
 
 
+Perfect = complete? full? balanced?
+
+complete --> full? balanced?
+
+full --> balanced? complete?
+
+balanced --> full complete?
