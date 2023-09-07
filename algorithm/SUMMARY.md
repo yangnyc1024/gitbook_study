@@ -70,6 +70,7 @@
     * [Question 7 Smallest Element Larger than Target](two-points-and-binary-search-and-pure-recursion/binary-search-practice/question-7-smallest-element-larger-than-target.md)
     * [Question 8 Search in Bitonic Array](two-points-and-binary-search-and-pure-recursion/binary-search-practice/question-8-search-in-bitonic-array.md)
     * [Question 9 Search Unknown Value](two-points-and-binary-search-and-pure-recursion/binary-search-practice/question-9-search-unknown-value.md)
+* [Tree](tree.md)
 * [Hybrid Data Structure](hybrid-data-structure/README.md)
   * [Thought](hybrid-data-structure/thought.md)
   * [Find the Median from Data Stream/Sliding Window](hybrid-data-structure/find-the-median-from-data-stream-sliding-window/README.md)
