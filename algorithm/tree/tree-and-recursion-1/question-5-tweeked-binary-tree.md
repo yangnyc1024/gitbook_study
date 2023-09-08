@@ -1,0 +1,5 @@
+# Question 5 Tweeked Binary Tree
+
+这个不代表是整棵树是完全的symmetric或者是identical，就是可以着一层是symmetric，下一层是idnetical的mix
+
+如果是要同时找symmetric或者identical，需要multi ReturnType
