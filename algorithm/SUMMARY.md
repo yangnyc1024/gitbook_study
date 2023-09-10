@@ -82,6 +82,8 @@
     * [Question 7 Binary Tree Upside Down](tree/tree-and-recursion-1/question-7-binary-tree-upside-down.md)
     * [Problem 8 Count Univalue Subtree](tree/tree-and-recursion-1/problem-8-count-univalue-subtree.md)
     * [Problem 9](tree/tree-and-recursion-1/problem-9.md)
+  * [Tree and Backtracking & Pure Recursion ](tree/tree-and-backtracking-and-pure-recursion/README.md)
+    * [Problem 4 Binary Tree Path](tree/tree-and-backtracking-and-pure-recursion/problem-4-binary-tree-path.md)
 * [Hybrid Data Structure](hybrid-data-structure/README.md)
   * [Thought](hybrid-data-structure/thought.md)
   * [Find the Median from Data Stream/Sliding Window](hybrid-data-structure/find-the-median-from-data-stream-sliding-window/README.md)
