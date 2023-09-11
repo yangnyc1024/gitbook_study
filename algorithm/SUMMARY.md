@@ -27,6 +27,7 @@
   * [HashSet](concept-random-and-array-and-linkedlist-and-string-and-hashmap-and-treemap/hashset.md)
   * [TreeMap(Balanced Binary Search Tree)](concept-random-and-array-and-linkedlist-and-string-and-hashmap-and-treemap/treemap-balanced-binary-search-tree.md)
 * [Practice: Array& LinkedList & String& HashMap ](practice-array-and-linkedlist-and-string-and-hashmap/README.md)
+  * [Design LinkedList & Stack & Queue \&HashMap](practice-array-and-linkedlist-and-string-and-hashmap/design-linkedlist-and-stack-and-queue-and-hashmap.md)
   * [Practice 1](practice-array-and-linkedlist-and-string-and-hashmap/practice-1/README.md)
     * [Problem 1 Add Binary](practice-array-and-linkedlist-and-string-and-hashmap/practice-1/problem-1-add-binary.md)
     * [Problem 2 Plus One](practice-array-and-linkedlist-and-string-and-hashmap/practice-1/problem-2-plus-one.md)
