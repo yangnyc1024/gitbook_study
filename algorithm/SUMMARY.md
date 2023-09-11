@@ -43,7 +43,7 @@
     * [Question2 Swap Nodes in Pairs](practice-array-and-linkedlist-and-string-and-hashmap/practice-2/question2-swap-nodes-in-pairs.md)
     * [Question3 Reverse LinkedList II](practice-array-and-linkedlist-and-string-and-hashmap/practice-2/question3-reverse-linkedlist-ii.md)
     * [Question4 Reverse Vowels of a String](practice-array-and-linkedlist-and-string-and-hashmap/practice-2/question4-reverse-vowels-of-a-string.md)
-    * [Question 5 Reverse Wrods in a String](practice-array-and-linkedlist-and-string-and-hashmap/practice-2/question-5-reverse-wrods-in-a-string.md)
+    * [Question 5 Reverse Words in a String](practice-array-and-linkedlist-and-string-and-hashmap/practice-2/question-5-reverse-words-in-a-string.md)
     * [Question 6 Reverse String](practice-array-and-linkedlist-and-string-and-hashmap/practice-2/question-6-reverse-string.md)
     * [Question 7 Reverse String II](practice-array-and-linkedlist-and-string-and-hashmap/practice-2/question-7-reverse-string-ii.md)
     * [Question 8 Valid Palindrome](practice-array-and-linkedlist-and-string-and-hashmap/practice-2/question-8-valid-palindrome.md)
