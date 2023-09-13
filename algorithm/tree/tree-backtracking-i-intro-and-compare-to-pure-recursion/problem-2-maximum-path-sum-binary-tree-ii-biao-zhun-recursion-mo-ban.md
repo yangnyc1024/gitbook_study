@@ -1,4 +1,8 @@
-# Problem 2 Maximum Path Sum Binary Tree II
+---
+description: recursion
+---
+
+# Problem 2 Maximum Path Sum Binary Tree II 标准recursion模版
 
 ```java
 /*
