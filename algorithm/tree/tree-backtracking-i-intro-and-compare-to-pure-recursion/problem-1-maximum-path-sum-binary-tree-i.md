@@ -59,6 +59,7 @@ public class Solution {
       return 0;
     }
     if (cur.left == null && cur.right == null) {
+      // 这里正好不用返回
       return cur.key;
     }
     int leftMaxPath = helper(cur.left, globalMax);
