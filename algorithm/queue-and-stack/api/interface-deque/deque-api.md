@@ -39,3 +39,17 @@ API 11: getLast()
 API 12: peekLast()
 
 ## 用LinkedList Class
+
+insert
+
+* api不同，只有在blackstack才能测试出不同
+
+remove
+
+* 区分只有有没有拿出null在用class的时候
+* 两组的api不同的，是返回null/exception
+
+receive
+
+* 两组的api不同的，是返回null/exception?
+
