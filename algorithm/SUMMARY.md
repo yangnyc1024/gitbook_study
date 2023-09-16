@@ -31,6 +31,7 @@
     * [Interface Queue](queue-and-stack/api/interface-queue/README.md)
       * [Queue API](queue-and-stack/api/interface-queue/queue-api.md)
     * [Interface Deque & Queue & Stack](queue-and-stack/api/interface-deque-and-queue-and-stack/README.md)
+      * [Deque API](queue-and-stack/api/interface-deque-and-queue-and-stack/deque-api.md)
       * [Stack API](queue-and-stack/api/interface-deque-and-queue-and-stack/stack-api.md)
       * [Queue API](queue-and-stack/api/interface-deque-and-queue-and-stack/queue-api.md)
   * [Design Stack & Queue & Deque](queue-and-stack/design-stack-and-queue-and-deque/README.md)
