@@ -1,4 +1,4 @@
-# Problem 4 Binary Tree Path
+# Problem 5 Binary Tree Path
 
 ```java
 // Some code
@@ -65,7 +65,7 @@ class Solution {
     private void backTracking(List<String> result, List<TreeNode> current, TreeNode root) {
         // 每一层加一个点
         current.add(root);
-        // 什么时候手机solution： leaf节点收集solution
+        // 什么时候收集solution： leaf节点收集solution
         if (root.left == null && root.right == null) {
             // 注意这一行
             current.remove(current.size() - 1);
