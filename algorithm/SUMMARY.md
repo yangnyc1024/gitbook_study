@@ -45,6 +45,8 @@
     * [Constructor Summary](queue-and-stack/priority-queue/constructor-summary.md)
     * [Deep Dive](queue-and-stack/priority-queue/deep-dive.md)
     * [Deep Dive: PriorityQueue需要如何比较两个item(自己定义的/原本就有的)](queue-and-stack/priority-queue/deep-dive-priorityqueue-xu-yao-ru-he-bi-jiao-liang-ge-item-zi-ji-ding-yi-de-yuan-ben-jiu-you-de.md)
+    * [Practice](queue-and-stack/priority-queue/practice/README.md)
+      * [Design Heap](queue-and-stack/priority-queue/practice/design-heap.md)
 * [Practice: Array& LinkedList & String& HashMap ](practice-array-and-linkedlist-and-string-and-hashmap/README.md)
   * [Design LinkedList & Stack & Queue \&HashMap](practice-array-and-linkedlist-and-string-and-hashmap/design-linkedlist-and-stack-and-queue-and-hashmap/README.md)
     * [HashMap Design](practice-array-and-linkedlist-and-string-and-hashmap/design-linkedlist-and-stack-and-queue-and-hashmap/hashmap-design.md)
