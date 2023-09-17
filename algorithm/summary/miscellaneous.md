@@ -51,3 +51,9 @@ Question: queue 用哪组API
 
 * 做题的角度，还是用offer，poll，peek
 * 工作的时候用add，remove，element
+
+
+
+
+
+<mark style="color:red;">PriorityQueue does not allow null elements</mark>
