@@ -144,3 +144,81 @@ public class Solution {
 }
 
 ```
+
+Method 2: Pure Recursion
+
+```java
+// Some code
+/*
+Clarification & Assumption
+  - input: a binary tree node
+  - output: the length of maximum path from any node to any leaf node
+High Level
+  - pure recursion from bottom to up
+
+Example: 
+              5
+            /.  \
+          3.     2. 
+      /    \.    /.  \ 
+      1.   0          11
+      5,
+      for 3, 
+                          
+Middle Level
+  - function, 
+    - given the cur root, return the length of maximum path from any leaf to cur root
+    - with globalMax
+  - Base case
+    - cur.left == null && cur.right == null
+    - return 1;
+  - subproblem
+    - leftResult, rightResult
+  - recursive rule
+    - cur.left != null && cur.right == null
+    - cur.left == null && cur.right != null
+    - cur.left != null && cur.right != null
+    if (cur.left.val > cur.val) curLeftInher += leftResult; update globalMax
+    if (cur.right.val > cur.val) curRightInher += rightResult; update globalMax
+  - return?
+     return max(curleftInher, curRightInher) + 1;
+      
+TC & SC: O(n), O(height)
+*/
+/*
+maxPathEndCur: have already add cur
+globalMathPathEndBeforeCur: have not add cur
+
+*/
+public class Solution {
+  public int longest(TreeNode root) {
+    // Write your solution here
+    int[] globalMax = new int[]{0};
+    if (root == null) {
+      return globalMax[0];
+    }
+    helper(root, globalMax);
+    return globalMax[0];
+  }
+  private int helper(TreeNode cur, int[] globalMax) {
+    if (cur == null) {
+      return 0;
+    }
+    if (cur.left == null && cur.right == null) {
+      globalMax[0] = Math.max(globalMax[0], 1);
+      return 1;
+    }
+    int leftBeginMaxPath = helper(cur.left, globalMax);
+    int rightBeginMaxPath = helper(cur.right, globalMax);
+    int curResult = 1;
+    if (cur.left != null && cur.left.key > cur.key) {
+      curResult = Math.max(curResult, leftBeginMaxPath + 1);
+    }
+    if (cur.right != null && cur.right.key > cur.key) {
+      curResult = Math.max(curResult, rightBeginMaxPath + 1);
+    }
+    globalMax[0] = Math.max(globalMax[0], curResult);
+    return curResult;
+  }
+}
+```
