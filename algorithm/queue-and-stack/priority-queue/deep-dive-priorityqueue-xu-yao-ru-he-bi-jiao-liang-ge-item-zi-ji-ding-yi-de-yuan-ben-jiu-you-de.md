@@ -1,5 +1,7 @@
 # Deep Dive: PriorityQueue需要如何比较两个item(自己定义的/原本就有的)
 
+## Summary
+
 * 如果你本身就有自然序列/comparable，那么就写一个comparator<mark style="color:red;">（类 或者换comparator）</mark>
   * 可以共享定义
   * 可以一个定义有多个comparator
@@ -7,9 +9,81 @@
 
 
 
-## Method 1. Object本身实现Comparable Interface
+Method 1. Object 本身实现Comparable Interface: Override compareTo(E e) Method in Comparable interface
+
+[https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html](https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html)
+
+Method 2: 实现Comparator Interface Override compare(E e1, E e2) Method in Comparator interface
+
+[https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html](https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html)
+
+| 接口名                                                                              | 方法名                      |
+| -------------------------------------------------------------------------------- | ------------------------ |
+| <p>interface Comparable&#x3C;E> {</p><p>    int compareTo(E ele);</p><p>}</p>    | int compareTo(T o)       |
+| <p>interface Comparator&#x3C;E> {</p><p>    int compare(E o1, E o2);</p><p>}</p> | int compare(T o1, T o2); |
+
+## Method 1. Implementation Comparable
+
+### Class 1: 原本就存在于Java中的的Object实现Comparable Interface
+
+```java
+// Some code
+
+interface Comparable<E> {
+    int compareTo(E ele);
+}
+
+class Integer implements Comparable<Integer> {
+    private int value;
+    public Integer(int value){
+        this.value = value;
+    }
+    @Override
+    public int compareTo(Integer another) {
+        if (this.value == another.value) {
+            return 0;
+        }
+        return this.value < another.value? -1: 1;
+    }
+}
 
 
+// 例子
+public static void main(String[] args){
+    Integer one = new Integer(1);
+    Integer two = new Integer(2);
+    System.out.println(one.compareTo(two));
+}
+```
+
+### Class 2: 我们自己定义的Class Implement Comparable
+
+```java
+// Some code
+class MyInteger implements Comparable<MyInteger> {
+    private int value;
+    public MyInteger(int value) {
+        this.value = value;
+    }
+    @Override
+    public int compareTo(MyInteger another) {
+        if (this.equals(another)) {
+            return 0;
+        }
+        return this.value > another.value ? -1: 1;
+    }
+    public static void main(String[] args) {
+        PriorityQueue<MyInteger> minHeap = new PrirotyQueue<>();
+        MyInteger myIntegerOne = new MyInteger(1);
+        MyInteger myIntegerTwo = new MyInteger(2);
+        minHeap.offer(new MyInteger(1));
+        minHeap.offer(new MyInteger(2));
+        int result = myIntegerOne.compareTo(myIntegerTwo); //1
+        System.out.println("result" + result);
+        System.out.println(minHeap.poll().value); //2
+    }
+}
+```
 
 ## Method 2.实现Comparator Interface Override compare(E e1, E e2) Method in Comparator interface
 
