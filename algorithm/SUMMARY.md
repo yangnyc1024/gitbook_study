@@ -120,6 +120,7 @@
     * [Problem 3 Sum Root to Leaf Numbers](tree-with-pure-recursion-and-backtracking/tree-backtracking-ii-compare-to-tree-pure-recursion/problem-3-sum-root-to-leaf-numbers.md)
     * [Problem 4 Binary Tree Longest Consecutive Sequence](tree-with-pure-recursion-and-backtracking/tree-backtracking-ii-compare-to-tree-pure-recursion/problem-4-binary-tree-longest-consecutive-sequence.md)
     * [Problem 5 Binary Tree Longest Consecutive Sequence II](tree-with-pure-recursion-and-backtracking/tree-backtracking-ii-compare-to-tree-pure-recursion/problem-5-binary-tree-longest-consecutive-sequence-ii.md)
+* [Tree Traversal](tree-traversal.md)
 * [Hybrid Data Structure](hybrid-data-structure/README.md)
   * [Thought](hybrid-data-structure/thought.md)
   * [Find the Median from Data Stream/Sliding Window](hybrid-data-structure/find-the-median-from-data-stream-sliding-window/README.md)
