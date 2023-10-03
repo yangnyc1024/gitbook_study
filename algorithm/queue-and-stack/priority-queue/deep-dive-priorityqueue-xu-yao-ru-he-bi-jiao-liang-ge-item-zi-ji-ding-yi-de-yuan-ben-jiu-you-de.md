@@ -423,3 +423,65 @@ public static void main(String[] args) {
 }
 
 ```
+
+#### 进化Version 2: 你别那么麻烦，如果你只是用一给，用这一次就是为了给我PriortyQueue里面传进来一个，那么没有必要定一个class，可以定一个没有名字，匿名内部类。重点在于告诉我们里面那个comapre方法长什么样子就可以了
+
+```java
+// Some code
+PriorityQueue<Integer> maxHeap = new PrirorityQueue<>(16, 
+    new Comparator<Integer>() {
+        @Override
+        public int compare(Integer i1, Integer i2) {
+            if (i1.equals(i2)) {
+                return 0;
+            }
+            return i1 < i2 ? 1: -1;
+        }
+    }
+);
+```
+
+new了一个匿名类（没有名字的）Comparator这个interface的实现类，里面的方法我给你了如下
+
+```java
+// Some code
+@Override
+public int compare(Integer i1, Integer i2) {
+    if (i1.equals(i2)) {
+        return 0;
+    }
+    return i1 < i2 ? 1: -1;
+}
+```
+
+#### 进化 Version 3: Lambda Expressions
+
+```java
+// Some code
+PriortyQueue<Integer> maxHeap = new PriorityQueue<>(
+    (Integer i1, Integer i2) ->  {
+    if (i1.equals(i2)) {
+       return 0;
+     }
+     return i1 < i2 ? 1: -1;
+     }
+);
+```
+
+#### 进化 Version 4
+
+```java
+// Some code
+# Declaration 1: 
+PriortyQueue<MyInteger> maxHeap = 
+new PriorityQueue<>((s1, s2) -> s1.value < s2.value? 1: s1.value > s2.value ? -1 : 0);
+# Declaration 2:
+PriortyQueue<MyInteger> maxHeap = 
+new PriorityQueue<>((s1, s2) -> Integer.valueOf(s2.value).compareTo(s1.value));
+# Declaration 3:
+PriortyQueue<MyInteger> maxHeap = 
+new PriorityQueue<>((s1, s2) -> Integer.compare(s2.value, s1.value));
+
+```
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-10-03 at 12.39.06 AM.png" alt=""><figcaption></figcaption></figure>
