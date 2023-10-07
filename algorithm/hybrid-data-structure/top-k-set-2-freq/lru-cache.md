@@ -4,6 +4,15 @@ description: https://leetcode.com/problems/lru-cache/
 
 # LRU cache
 
+
+
+## What is cache
+
+* 为了不每次都重新检索，所先把检索的结果存下来，下次用户访问的时候直接给存好的检索结果
+* 想到的是Map\<key, value>, get a key by O(1)
+* look up operation(memo)，如果计算过了，get上次计算的过，否则就重新算一遍
+* Cache 的本质就是map，只不过区别是，他是一个<mark style="color:blue;">有capacity的map</mark>
+
 ## Summary
 
 * hybrid注意data structure, 先考虑每个元素cell里面有什么：
