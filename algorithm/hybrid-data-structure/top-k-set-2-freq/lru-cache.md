@@ -47,6 +47,12 @@ description: https://leetcode.com/problems/lru-cache/
 
 ## Method 1 TreeSet/ TreeMap + Map
 
+#### Step 1 Use Case API design
+
+
+
+#### Step 2: Detail Logic
+
 get(key):&#x20;
 
 * case 1 : map 里面有这个key
@@ -78,18 +84,6 @@ timeStamp:&#x20;
 capacity
 
 * 设计为当前LRU class的一个field
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -205,6 +199,48 @@ class LRUCache {
 * 增删改查全是O(1)
   * Queue是逻辑数据结构，底层实现的是LinkedList
   * 而DoubleLinkedList是因为O(1)的删除
+* 那你得给我这个node reference，有了这个node reference,我做什么都是O(1),关键问题是，人家User insert/update/remove/query，人家给你的是key，不是node reference
+* 打工人上线: Map\<Key, DoublyListNode> locationMap + DoubleLinkedList(datainfo) DLL
+
+#### Step 1 Use Case API design
+
+* get
+* put
+
+#### Step 2: Detail Logic
+
+get(key):&#x20;
+
+* case 1 : map 里面有这个key
+  * get the key==>  通过map拿到装有data的ListNode ==> ListNode里面的东西就是return的东西
+  * update time order ==> remove this ListNode from LinkedList, then insert into Head
+* case 2: map里面没有这个key
+  * return null
+* overall: O(logn)
+
+put(key, value):
+
+* case 1: map 里面有这个key
+  * update the value ==> 通过map拿到装有data的ListNode  ==》 update ListNode
+  * update the order ==> remove this ListNode from LinkedList, then insert into head
+* case 2: map 里面没有这个key
+  * case 2.1 the cache is not full (check map 的size到不到capacity)
+    * put the key value there
+    * update the time order ==> insert into Head
+  * case 2.2 现在满了
+    * delete the oldest one ==> 踢出tail node
+    * put the kye value there ==> insert into map and LL
+    * update the time order ==> head
+* overall: O(1)
+
+timeStamp:&#x20;
+
+* 设计为当前LRU class里的一个feild
+* updated 准则，任何operation都需要update当前的信息
+
+capacity
+
+* 设计为当前LRU class的一个field
 
 ```java
 
