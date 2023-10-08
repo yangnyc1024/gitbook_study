@@ -47,6 +47,52 @@ description: https://leetcode.com/problems/lru-cache/
 
 ## Method 1
 
+get(key):&#x20;
+
+* case 1 : map 里面有这个key
+  * 透过Map拿到Entry node（return的data就在里面）
+  * update这个Entry Node的时间信息（TreeSet里的这个Entry做update--> delete + insert）
+* case 2: map里面没有这个key
+  * return null
+* overall: O(logn)
+
+put(key, value):
+
+* case 1: map 里面有这个key
+  * 想当于update这个key-value pair里的value
+  * 通过Map拿到Entry Node
+    * update 这个Entry Node的value信息
+    * update 这个Entry Node的时间信息
+* case 2: map 里面没有这个key
+  * case 2.1 现在没有满
+    * 直接放一个新的Entry（update two maps）
+  * case 2.2 现在满了
+    * 踢出一个leat recently used：也就是TreeSet里面时间戳
+* overall: O(logn)
+
+timeStamp:&#x20;
+
+* 设计为当前LRU class里的一个feild
+* updated 准则，任何operation都需要update当前的信息
+
+capacity
+
+* 设计为当前LRU class的一个field
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 * 注意put的details操作
 
 ```java
