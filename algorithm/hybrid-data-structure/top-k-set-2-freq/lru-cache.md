@@ -15,7 +15,13 @@ description: https://leetcode.com/problems/lru-cache/
 
 
 
+## What is used:
 
+* 所有的增改查insert, update query都是used
+* put operation == insert/ update
+* get operation == query
+* remove operation == delete
+* 注意，很多时候改，以为着是删/增
 
 ## 数据结构界的打工人：Map&#x20;
 
