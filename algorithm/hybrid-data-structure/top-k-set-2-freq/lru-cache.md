@@ -297,3 +297,4 @@ class LRUCache {
  */
 ```
 
+Method 3 TreeMap
