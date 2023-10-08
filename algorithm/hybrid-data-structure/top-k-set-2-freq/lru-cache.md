@@ -45,7 +45,7 @@ description: https://leetcode.com/problems/lru-cache/
 
 
 
-## Method 1
+## Method 1 TreeSet/ TreeMap + Map
 
 get(key):&#x20;
 
@@ -196,7 +196,15 @@ class LRUCache {
 }
 ```
 
-Method 2
+## Method 2 DoubleLinkedList
+
+* 除了treeSet还有什么数据结构可以保持时间顺序？-----Queue=》 FIFO时间顺序
+* Queue逻辑上的数据结构==〉 怎么实现Queue
+  * Queue\<Integer> queue = new ArrayDeque<>();
+  * Queue\<Integer> queue = new LinkedList<>();
+* 增删改查全是O(1)
+  * Queue是逻辑数据结构，底层实现的是LinkedList
+  * 而DoubleLinkedList是因为O(1)的删除
 
 ```java
 
