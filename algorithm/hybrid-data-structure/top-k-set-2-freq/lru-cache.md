@@ -13,6 +13,20 @@ description: https://leetcode.com/problems/lru-cache/
 * look up operation(memo)，如果计算过了，get上次计算的过，否则就重新算一遍
 * Cache 的本质就是map，只不过区别是，他是一个<mark style="color:blue;">有capacity的map</mark>
 
+
+
+
+
+## 数据结构界的打工人：Map&#x20;
+
+* Look up something（找什么，就是你所储存的东西） by something(透过什么来找，这个就是key)
+* 经典的Use Case: 我需要知道我自己定义的Entry Reference在哪里，但是我propose的结果不具备优秀的查找功能
+  * Map\<Key, Entry Reference> locationMap
+  * key通过什么找reference，Entry Reference你其他的数据结构储存
+* Example： Array Based PriorityQueue Update(key) Function
+  * Map\<key, index> indexMapForKeyinHeap  + Heap
+* 所有的操作，只要给我一个Key我都是可以拿到Entry Node, 又有了可以对时间排序的TreeSet/TreeMap
+
 ## Summary
 
 * hybrid注意data structure, 先考虑每个元素cell里面有什么：
