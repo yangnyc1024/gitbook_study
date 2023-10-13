@@ -152,7 +152,7 @@
     * [LRU cache](hybrid-data-structure/top-k-set-2-freq/lru-cache.md)
     * [LFU cache](hybrid-data-structure/top-k-set-2-freq/lfu-cache.md)
   * [Practice](hybrid-data-structure/practice/README.md)
-    * [Problem First Non-Repeating Characters](hybrid-data-structure/practice/problem-first-non-repeating-characters.md)
+    * [Problem 2 First Non-Repeating Characters](hybrid-data-structure/practice/problem-2-first-non-repeating-characters.md)
 * [Graph](graph/README.md)
   * [Summary](graph/summary.md)
   * [All reachable problem ---island](graph/all-reachable-problem-island.md)

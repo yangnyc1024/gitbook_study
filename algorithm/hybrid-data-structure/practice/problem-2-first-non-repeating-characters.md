@@ -1,4 +1,4 @@
-# Problem First Non-Repeating Characters
+# Problem 2 First Non-Repeating Characters
 
 * use case: O(1) time + first
 * 关键词，first: 必须keep时序
@@ -136,3 +136,64 @@ API 1: new coming character:
 API 2: who is the first?
 
 * 看看你define的DLL里哪一段是代表时间序列
+
+
+
+
+
+<pre class="language-java"><code class="lang-java">// Some code
+<strong>public class Solution{
+</strong><strong>    static class Node {
+</strong><strong>        Node prev;
+</strong><strong>        Node next;
+</strong><strong>        Character ch;
+</strong><strong>    }
+</strong><strong>    Node(Character ch) {
+</strong><strong>        this.ch = ch;
+</strong><strong>    }
+</strong><strong>    private Node head;
+</strong><strong>    private Node tail;
+</strong><strong>    private Map&#x3C;Character, Node> map;
+</strong><strong>    
+</strong><strong>    public Solution{
+</strong><strong>        head = new Node(null);
+</strong><strong>        head.prev = head.next = head;
+</strong><strong>        tail = head;
+</strong><strong>        map = new HashMap&#x3C;>();
+</strong><strong>    }
+</strong><strong>    public void read(char ch) {
+</strong><strong>        // case 1
+</strong><strong>        if (!map.containsKey(ch)) {
+</strong><strong>            Node node = new Node(ch);
+</strong><strong>            append(Node);
+</strong><strong>        }
+</strong><strong>        // case 2.2
+</strong><strong>        else if (map.get(ch) != null) {
+</strong><strong>            remove(map.get(ch));
+</strong><strong>        }
+</strong><strong>        // case 2.1, 2nd timt to see ==> do nothing
+</strong><strong>    }
+</strong><strong>    private void append(Node node) {
+</strong><strong>        map.put(node.ch, node);
+</strong><strong>        tail.next = node;
+</strong><strong>        node.prev = tail;
+</strong><strong>        node.next = head;
+</strong><strong>        tail = tail.next;
+</strong><strong>    }
+</strong><strong>    private void remove(Node node) {
+</strong><strong>        node.prev.next = node.next;
+</strong><strong>        node.next.prev = node.prev;
+</strong><strong>        if (node == tail) {
+</strong><strong>            tail = node.prev;
+</strong><strong>        }
+</strong><strong>        node.prev = node.next = null;
+</strong><strong>        map.put(node.ch, null);
+</strong><strong>    }
+</strong><strong>    public Character firstNonRepeating() {
+</strong><strong>        if (head == tail) {
+</strong><strong>            return null;
+</strong><strong>        }
+</strong><strong>        return head.next.ch;
+</strong><strong>    }
+</strong><strong>}
+</strong></code></pre>
