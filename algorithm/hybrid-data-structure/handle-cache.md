@@ -1,6 +1,0 @@
----
-description: Cache
----
-
-# Handle Cache
-
