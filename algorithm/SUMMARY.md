@@ -154,6 +154,7 @@
   * [Practice](hybrid-data-structure/practice/README.md)
     * [Problem 2 First Non-Repeating Characters](hybrid-data-structure/practice/problem-2-first-non-repeating-characters.md)
     * [Problem 3 Implementation All O(1) data structure](hybrid-data-structure/practice/problem-3-implementation-all-o-1-data-structure.md)
+    * [Problem 4 Design Underground System](hybrid-data-structure/practice/problem-4-design-underground-system.md)
 * [Graph](graph/README.md)
   * [Summary](graph/summary.md)
   * [All reachable problem ---island](graph/all-reachable-problem-island.md)
