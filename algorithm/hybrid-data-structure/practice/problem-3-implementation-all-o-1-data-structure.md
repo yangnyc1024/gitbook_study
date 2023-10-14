@@ -111,26 +111,83 @@ class Node{
 // Some code
 
 public class AllOne {
+    MAp<String, FreqNode> map;
+    FreqNopde head;
+    FreqNode tail;
     public AllOne() {
-    
-    
+        this.map = new HashMap<>();
+        this.head = this.tail = new FreqNode(-1);
+        head.next = tail;
+        tail.prev = head;
+        //如果不允许用dummy Node implement: this.head = this.tail = null;
     }
     
     public void inc(String key) {
-    
+        FreqNode = temp = map.get(key);
+        if (temp == null) {
+            FreqNode firstNode = this.head.next;
+            if (firstNode.freq == 1) {
+                firstNode.values.add(key);
+                map.put(key, firstNode);
+            }else {
+                FreqNode newNode = insertNode(head, 1);
+                newNode.values.add(key);
+                map.put(key, firstNode);
+            }
+        } else {
+            FreqNode next = temp.next;
+            if (next.freq! = temp.freq + 1) {
+                next = insertNode(temp, temp.freq + 1);
+            }
+            next.values.add(key);
+            temp.values.remove(key);
+            map.put(key, next);
+            if (temp.values.size() == ) {
+                deleteNode(temp);
+            }
+        }
     }
 
     public void dec(String key) {
-    
+        FreqNode temp = map.get(key);
+        if (temp == null) {
+            return;
+        } else {
+            if (temp.freq == 1) {
+                temp.values.remove(key);
+                if (temp.values.size() == 0) {
+                    deleteNode(temp);
+                }
+                map.remove(key);
+                return;
+            }
+            FreqNode previous = temp.prev;
+            if (previous.freq != temp.freq - 1) {
+                previous = insertNode(previous, temp.freq - 1);
+            }
+            temp.values.remove(key);
+            previous.values.add(key);
+            map.put(key, previous);
+            if (temp.values.size() == 0) {
+                deleteNode(temp);
+            }
+        }
     }
     
     public String getMapKey() {
-    
-    
+        if (head.next == tail) {
+            return "";
+        }
+        FreqNode maxNode = tail.prev;
+        return maxNode.values.iterator().next();
     }
     
     public String getMinKey() {
-    
+        if (head.next == tail) {
+            return "";
+        }
+        FreqNode minNode = head.next;
+        return minNode. values.iterator().next();
     }
     
     class FreqNode {
@@ -154,7 +211,7 @@ public class AllOne {
         return newNode;
     }
     
-    private FreqNode insertNode(FreqNode current, int freq) {
+    private void deleteNode(FreqNode current) {
         FreqNode next = current.next;
         FreqNode prev = current.prev;
         prev.next = next;
