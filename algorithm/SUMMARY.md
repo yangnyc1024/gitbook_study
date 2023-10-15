@@ -169,6 +169,7 @@
     * [Question 2 Keys and Rooms](graph/graph-practice-ii/question-2-keys-and-rooms.md)
     * [Question 3 Evaluate Division](graph/graph-practice-ii/question-3-evaluate-division.md)
     * [Question 4 Account Merge](graph/graph-practice-ii/question-4-account-merge.md)
+  * [Graph Theory IV:  BFS application shortest path](graph/graph-theory-iv-bfs-application-shortest-path.md)
 * [Dynamic Programming](dynamic-programming/README.md)
   * [Summary](dynamic-programming/summary.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
