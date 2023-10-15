@@ -173,6 +173,7 @@
   * [Graph Theory IV:  BFS application shortest path](graph/graph-theory-iv-bfs-application-shortest-path/README.md)
     * [Question 1 Jump Game](graph/graph-theory-iv-bfs-application-shortest-path/question-1-jump-game.md)
     * [Question 2 Word Ladder I](graph/graph-theory-iv-bfs-application-shortest-path/question-2-word-ladder-i.md)
+    * [Question 3 Seven Puzzle](graph/graph-theory-iv-bfs-application-shortest-path/question-3-seven-puzzle.md)
 * [Dynamic Programming](dynamic-programming/README.md)
   * [Summary](dynamic-programming/summary.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
