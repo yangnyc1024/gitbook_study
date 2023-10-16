@@ -46,8 +46,9 @@ public int[] nextGreatElement(int[] nums1, int[] nums2) {
         monoStack.offerLast(nums2[i]);
     }
     for (int i = 0; i < nums1.length; i++) {
-        result[i] = 
+        result[i] = resultMap.getOrDefault(nums1[i], -1);
     }
+    return result;
 }
 
 ```
