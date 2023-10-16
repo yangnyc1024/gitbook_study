@@ -126,7 +126,7 @@
   * [MonoStack](queue-and-stack/monostack/README.md)
     * [Intro](queue-and-stack/monostack/intro.md)
     * [Question 0 Daily Temperature母体](queue-and-stack/monostack/question-0-daily-temperature-mu-ti.md)
-    * [Page 2](queue-and-stack/monostack/page-2.md)
+    * [Question 1 Next Greater Element I](queue-and-stack/monostack/question-1-next-greater-element-i.md)
   * [Priority Queue](queue-and-stack/priority-queue/README.md)
     * [API Summary](queue-and-stack/priority-queue/api-summary.md)
     * [Constructor Summary](queue-and-stack/priority-queue/constructor-summary.md)
