@@ -183,6 +183,8 @@
     * [Question 3 Seven Puzzle](graph/graph-theory-iv-bfs-application-shortest-path/question-3-seven-puzzle.md)
     * [Question 1](graph/graph-theory-iv-bfs-application-shortest-path/question-1.md)
     * [Question 2 Word Ladder kBFS version](graph/graph-theory-iv-bfs-application-shortest-path/question-2-word-ladder-kbfs-version.md)
+    * [Series V & VI](graph/graph-theory-iv-bfs-application-shortest-path/series-v-and-vi.md)
+    * [Question 6 0-1 Matrix](graph/graph-theory-iv-bfs-application-shortest-path/question-6-0-1-matrix.md)
 * [Dynamic Programming](dynamic-programming/README.md)
   * [Summary](dynamic-programming/summary.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
