@@ -181,6 +181,8 @@
     * [Question 1 Jump Game](graph/graph-theory-iv-bfs-application-shortest-path/question-1-jump-game.md)
     * [Question 2 Word Ladder I](graph/graph-theory-iv-bfs-application-shortest-path/question-2-word-ladder-i.md)
     * [Question 3 Seven Puzzle](graph/graph-theory-iv-bfs-application-shortest-path/question-3-seven-puzzle.md)
+    * [Question 1](graph/graph-theory-iv-bfs-application-shortest-path/question-1.md)
+    * [Question 2 Word Ladder kBFS version](graph/graph-theory-iv-bfs-application-shortest-path/question-2-word-ladder-kbfs-version.md)
 * [Dynamic Programming](dynamic-programming/README.md)
   * [Summary](dynamic-programming/summary.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
