@@ -101,6 +101,20 @@ Follow Up:
 
 ## Review Algorithm: BFS
 
+**同样的逻辑，同样的操作(expansion and generation), 注意防止多次generate或者expand**
 
+#### 去重的位置
+
+* <mark style="color:blue;">既可以在exapansion的时候去重。</mark>
+  * 允许一个点被generate多次，但是只对第一次exapnd的这个点进行访问，后面我发现再expand到已经visited过的node，直接ignore
+* <mark style="color:blue;">也可以在Generation的时候去重。</mark>
+  * 不允许一个点被generate多次，每一个点如果你最多只放进queue一次，那么它也就至多被拿出来一次
+* <mark style="color:blue;">优缺点比较</mark>
+  * Expansion去重：必然正确，但是缺点为空间复杂度高（queue size不能保证最大的O(V)）
+  * Generation去重：空间好，Queue的wize至多不会超过O(V)，缺点是<mark style="color:orange;">不一定正确（connectivity and reachable problem一定正确，但是shortest path and etc 不一定正确）</mark>
+
+```java
+public List<GraphNode>
+```
 
 ## Build Graph
