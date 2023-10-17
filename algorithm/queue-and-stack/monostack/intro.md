@@ -7,6 +7,7 @@ description: Intro
 ## Summary
 
 * 单调栈就是个stack, Mono Stack is a Stack
+  * 思考：单调栈栈内元素的意义，等待发现右边比自己大/小的元素？
 * 分类
   * 单调递增/单调递减
 * use case
