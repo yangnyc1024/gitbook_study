@@ -185,6 +185,8 @@
     * [Question 2 Word Ladder kBFS version](graph/graph-theory-iv-bfs-application-shortest-path/question-2-word-ladder-kbfs-version.md)
     * [Series V & VI](graph/graph-theory-iv-bfs-application-shortest-path/series-v-and-vi.md)
     * [Question 6 0-1 Matrix](graph/graph-theory-iv-bfs-application-shortest-path/question-6-0-1-matrix.md)
+    * [Question 7 Rotten Orange](graph/graph-theory-iv-bfs-application-shortest-path/question-7-rotten-orange.md)
+    * [Question 7 Walls and gates](graph/graph-theory-iv-bfs-application-shortest-path/question-7-walls-and-gates.md)
 * [Dynamic Programming](dynamic-programming/README.md)
   * [Summary](dynamic-programming/summary.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
