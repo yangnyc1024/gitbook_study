@@ -1,0 +1,106 @@
+# Question 0 基本component
+
+## Graph Node
+
+```java
+// Some code
+class GraphNode {
+    int id;
+    List<GraphNode> neighbors;
+    
+    // assume the graphNode has already overridden hashCode(), equals(), toString();
+    @Override
+    public int hashCode(){
+    
+    }
+    
+    @Override
+    public int equals() {
+    }
+    
+    @Override
+    public int toString() {
+    }
+}
+```
+
+## Review Algorithm: DFS 1
+
+1. <mark style="color:blue;">一点出发，遍历到我们能遍历到的所有点</mark>
+
+* 每个点可能被到达多次（环，多个父亲节点）
+* Logic
+  * 如果访问到当前的点，赶紧回头（不访问）
+    * 否则，访问这个点，同时继续访问他的neighbors
+
+```java
+
+public List<GraphNode> DFSMarkVisitedOne(GraphNode start) {
+    List<GraphNode> result = new ArrayList<>();
+    Set<GraphNode> visited = new HashSet<>();
+    DFSMarkVisitedOne(start, visited, result);
+    return result;
+}
+
+private void DFSMarkVisitedOne(GraphNode curNode, Set<GraphNode> visited, List<GraphNode> result) {
+    if (visited.contains(curNode)) {
+        return;
+    }
+    visited.add(curNode);
+    result.add(curNode);
+    for (GraphNode nei: curNode.neighbors) {
+        DFSMarkVisitedOne(nei, visited, result);
+    }
+}
+```
+
+2. <mark style="color:blue;">对于不联通图中有多个联通分量</mark>
+
+* 要想遍历出所有的点，不可能从一个点出发
+* 有几个联通分量，需要从几个点出发/需要出发几次，每一次从一个新的connect里挑选一个点出发
+
+```java
+// Some code
+
+//有多少个联通分量
+public int DFSMarkVisitedOne(List<GraphNode> nodeList) {
+
+    Set<GraphNode> visited = new HashSet<>();
+    int numberOfConnectedComponent = 0;
+    for (GraphNode eachNode : nodeList) {
+        if (!visited.contains(curNode)) {
+            DFSMarkVisitedOne(curNode, visited);
+            numberOfConnectedComponent++;
+        }
+    }
+    return numberOfConnectedComponent;
+}
+
+private void DFSMarkVisitedOne(GraphNode curNode, Set<GraphNode> visited, List<GraphNode> result) {
+    if (visited.contains(curNode)) {
+        return;
+    }
+    visited.add(curNode);
+    result.add(curNode);
+    for (GraphNode nei: curNode.neighbors) {
+        DFSMarkVisitedOne(nei, visited, result);
+    }
+}
+```
+
+Follow Up:
+
+* 联通分量里最多的点是多少？
+  * 记录每个联通分量里的点数，每次出发都得记录一下这次出发遍历；轭多少点
+  * Maximum it
+* 有多少个联通分量包含最多的点？
+  * 实际记录下来这个联通分量有哪些点，有多少点
+  * 筛选出拥有最多联通分量点数的所有联通分量
+
+
+
+## Review Algorithm: BFS
+
+
+
+## Build Graph
