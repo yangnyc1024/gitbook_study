@@ -217,4 +217,123 @@ public boolean BFS(GraphNode start, GraphNode target) {
 }
 ```
 
-## The  Representation of the Graph in these questions
+## 对边的遍历：Backtracking(see the future section)
+
+## The Representation of the Graph in these questions
+
+### 面试中图论的基本要素
+
+* 图论面试的第零步: this is actually a graph problem (model)
+* 面试中第一步： graph building (u - v) 构图请单独写一个helper function
+
+
+
+### 题库喜欢的表示方法1: int\[]\[] graph
+
+* list of all edges,甚至可以是权重
+* 本质就是更新这两个map
+  * Map\<Integer, Map\<Integer, Integer>> graph = new HashMap<>()
+    * Map\<u, Map\<v, weight>> graph
+  * Map\<Integer, Integer> IndegreeMap = new HashMap<>();
+    * Map\<u, indegree>
+
+#### Case 1: Telling me is an Undirected Graph
+
+<pre class="language-java"><code class="lang-java"><strong>// 这两行声明再其他函数里
+</strong><strong>Map&#x3C;Integer, Map&#x3C;Integer, Integer>> graph = new HashMap&#x3C;>();
+</strong><strong>Map&#x3C;Integer, Integer> IndegreeMap = new HashMap&#x3C;>();
+</strong><strong>
+</strong><strong>private void buildGraph(int[][] edges, Map&#x3C;Integer, Map&#x3C;Integer, Integer>> graph, Map&#x3C;Integer, Integer> IndegreeMap) {
+</strong><strong>    for (int[] edge: edges) {
+</strong><strong>        int u = edge[0];
+</strong><strong>        int v = edge[1];
+</strong><strong>        int weight = edge[2];
+</strong><strong>        //两边都要放
+</strong><strong>        graph.putIfAbsent(u, new HashMap&#x3C;>());
+</strong><strong>        graph.putIfAbsent(v, new HashMap&#x3C;>());
+</strong><strong>        graph.get(u).put(v, weight);
+</strong><strong>        graph.get(v).put(u, weight);
+</strong><strong>    }
+</strong><strong>}
+</strong></code></pre>
+
+#### Case 2: Telling me is a Directed Graph
+
+```java
+// 这两行声明再其他函数里
+Map<Integer, Map<Integer, Integer>> graph = new HashMap<>();
+Map<Integer, Integer> IndegreeMap = new HashMap<>();
+
+private void buildGraph(int[][] edges, Map<Integer, Map<Integer, Integer>> graph, Map<Integer, Integer> IndegreeMap) {
+    for (int[] edge: edges) {
+        int u = edge[0];
+        int v = edge[1];
+        int weight = edge[2];
+        // u --> v u里面加v，但是v的入度更新
+        graph.putIfAbsent(u, new HashMap<>());
+        graph.get(u).put(v, weight);
+        IndegreeMap.put(v, IndegreeMap.getOrDefault(v, 0) + 1);
+    }
+}
+```
+
+### 题库喜欢的表达方法2: int\[]\[] matrix 扔给你个地图
+
+* example: grid/matrix == \[\[0   0 (0,1)   1   1  ], \[0 1(1, 1)  1   2], \[0    1   1  0(2,3)], \[0  0  1  0]]
+* 坐标当点：
+  * 方向：二方向/四方向/八方向
+
+#### Question 1: 用每个点的matrix坐标表示一个node会不会超界
+
+```java
+private boolean isValid(int[][] grid, int i, int j) {
+    return i >= 0 && i < grid.length && j >=0 && j < grid[0].length;
+}
+
+// with blocker && visited[i][j] version
+private static final int BLOCKER = 1;
+private boolean isValid(int[][] grid, int i, int j) {
+    return i >= 0 && i < grid.length && j >=0 && j < grid[0].length && grid[i][j]!= BLOCKER && !visited[i][j];
+}
+```
+
+#### Question 2 方向怎么办?
+
+
+
+```java
+// Case 1: 二方向（随机选两个）或者四方向
+private static final int[][] DIRS = {{-1, 0}, {1, 0}; {0, -1}; {0, 1}};
+// 上，下，左，右
+
+// Case 2: 八方向
+private static final int[][] DIRS = {
+ {-1, 0}, {1, 0}, {0, -1}, {0, 1},
+ {-1, -1}, {1, -1}, {-1, 1}, {1, 1};
+}
+// 上，下，左，右，左上，左下，右上，右下
+
+// Case 3: 跳马八方向
+private static final int[][] DIRS = {
+ {-2, -1}, {-2, 1}, {-1, -2}, {-1, 2},
+ {1, -2}, {1, 2}, {2, -1}, {2, 1};
+}
+```
+
+
+
+#### Use Case: 给你一个点(curX, curY) 能不能访问所有邻居
+
+```java
+public void printAllNeighbors(int[][] grid, int curX, int curY, boolean[][] visited) {
+    for (int[] dir: DIRS) {
+         int neiX = curX + dir[0];
+         int neiY = curY + dir[1];
+         if (isValid(grid, neiX, neiY, visited)) {
+              System.out.println(grid[neiX][neiY]);
+              // DFS(neiX, neiY,...) or Queue.offer...
+         }
+    }
+
+}
+```
