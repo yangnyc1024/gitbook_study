@@ -1,4 +1,4 @@
-# Question 0 基本component
+# Question 0 Traversal & Reachable模版
 
 ## Graph Node
 
@@ -24,7 +24,7 @@ class GraphNode {
 }
 ```
 
-## Review Algorithm: DFS 1
+## DFS对点的遍历
 
 1. <mark style="color:blue;">一点出发，遍历到我们能遍历到的所有点</mark>
 
@@ -99,7 +99,7 @@ Follow Up:
 
 
 
-## Review Algorithm: BFS
+## BFS对点的遍历
 
 **同样的逻辑，同样的操作(expansion and generation), 注意防止多次generate或者expand**
 
@@ -114,7 +114,36 @@ Follow Up:
   * Generation去重：空间好，Queue的wize至多不会超过O(V)，缺点是<mark style="color:orange;">不一定正确（connectivity and reachable problem一定正确，但是shortest path and etc 不一定正确）</mark>
 
 ```java
-public List<GraphNode>
+public List<GraphNode> BFS(GraphNode start) {
+    List<GraphNode> result= new ArrayList<>();
+    Set<GraphNode> visited = new HashSet<>();
+    Deque<GraphNode> queue = new ArrayDeque<>();
+    
+    queue.offer(start);
+    visited.add(start);
+    
+    while (!queue.isEmpty()) {
+        GraphNode curNode = queue.poll();
+        result.add(curNode.id);
+        for (GraphNode nei: curNode.neighbors) {
+            if (!visited.contains(nei)) {
+                queue.offer(nei);
+                visited.add(nei);
+            }
+        }
+    }
+    return result;
+}
 ```
 
-## Build Graph
+## DFS对connection& reachable
+
+
+
+
+
+
+
+
+
+## BFS对connection& reachable
