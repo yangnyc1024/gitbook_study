@@ -138,7 +138,28 @@ public List<GraphNode> BFS(GraphNode start) {
 
 ## DFS对connection& reachable
 
-
+```java
+public boolean DFSMarkVisitedOne(GraphNode start, GraphNode target) {
+    Set<GraphNode> visited = new HashSet<>();
+    return DFSMarkVisitedOne(start, visited, target);
+}
+// boolean means 从curNode是否能到target
+private boolean DFSMarkVisitedOne(GraphNode curNode, Set<GraphNode> visited,  GraphNode target){
+    if (visited.contains(curNode)) {
+        return false;
+    }
+    visited.add(curNode);
+    if (curNode.equals(target)) { // 注意这里是用equals
+        return true;
+    }
+    for (GraphNode nei: curNode.neighbors) {
+        if (DESMarkVisitedOne(nei, visited, target)) {
+            return true;
+        }
+    }
+    return false;
+} 
+```
 
 
 
@@ -147,3 +168,53 @@ public List<GraphNode> BFS(GraphNode start) {
 
 
 ## BFS对connection& reachable
+
+```java
+// BFS all in Generation;
+public boolean BFS(GraphNode start, GraphNode target) {
+    Set<GraphNode> visited = new HashSet<>();
+    Deque<GraphNode> queue = new ArrayDeque<>();
+    
+    
+    queue.offer(start);
+    visited.offer(start);
+    
+    while (!queue.isEmpty()) {
+        GraphNode curNode = queue.poll();
+        for (GraphNode nei: curNode.neighbors) {
+            if (nei.equals(target)) {
+                return true;
+            }
+            if (!visited.contains(nei)) {
+                visited.add(nei);
+                queue.offer(nei);
+            }
+        }
+    }
+    return false; // unreachable
+
+}
+
+
+// BFS all in Expansion
+
+public boolean BFS(GraphNode start, GraphNode target) {
+    Set<GraphNode> visited = new HashSet<>();
+    Deque<GraphNode> queue = new ArrayDeque<>();
+    
+    while (!queue.isEmpty()) {
+        GraphNode curNode = queue.poll();
+        if (visited.contains(curNode)) {
+            continue;
+        }
+        if (curNode.equals(target)) {
+            return true;
+        }
+        for (GraphNode nei: curNode.neighbors) {
+            queue.offer(nei);
+        }
+    }    
+}
+```
+
+## The  Representation of the Graph in these questions
