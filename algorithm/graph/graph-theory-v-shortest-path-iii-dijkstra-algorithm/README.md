@@ -39,7 +39,144 @@
 
 
 
-**Use Case 1: 求出一个点到一个点的最短路径**
+### **General Implementation for Dijkstra**
+
+```java
+class GraphNode{
+    String node;
+    int weight;
+    public GraphNode(String node, int weight) {
+        this.node;
+        this.weight;
+    }
+}
+public int findShortestPath(String start, String end, Map<String, List<GraphNode>> graph) {
+    // mapping for node and index
+    Map<String, Integer> nodeToIndex = new HashSet<>(); //这个Map可以不要，根据你的构图
+    int index = 0;
+    for (String node: graph.keySet()) {
+        nodeToIndex.put(node, index++);
+    }
+    int n = graph.size();
+    int[] distances = new int[n];
+    Arrays.fill(distances, Integer.MAX_VALUE);
+    boolean[] visited = new boolean[];    
+    distance[nodeToIndex.get(start)] = 0;
+    
+    //至多node轮
+    for (int i = 0; i < n -1; i++) { //明确告诉你Dijkstra最多有多少轮
+        int u = selectMinimumIndex(distances, visited); // 从当前cost最低点出发
+        visited[u] = true; // u 是个index不是这个点
+        for (GraphNode v: graph.getOrDefault(indexToNode(u, nodeToIndex), new ArrayList<>())) {
+            int vIndex = nodeToIndex.get(v.node);
+            if (!visited[vIndex] && distances[u] != Integer.MAX_VALUE && distances[u] + v.weight < distance[vIndex]) {
+                distances[vIndex] = distance[u] + v.weight;
+            }
+        }
+    }
+    return distances[nodeToIndex.get(end)];
+}
+
+private String indexToNode(int index, Map<String, Integer> nodeToIndex) {
+    for (Map.Entry<String, Integer> entry: nodeToIndex.entrySet()) {
+        if (entry.getValue().equals(index)) {
+            return entry.getKey();
+        }
+    }
+    return null;
+}
+private int seletecMinimumIndex(int[] distances, boolean[] visited) {
+    int minIndex = -1;
+    int minValue = Integer.MAX_VALUE;
+    for (int i = 0; i < distance.length; i++) {
+        if (!visited[i] && distances[i] < minValue) {
+            minValue = distance[i];
+            minIndex = 1;
+        }
+    }
+    return minIndex;
+}
+```
 
 
+
+
+
+
+
+### **General Implementation for Dijkstra 现代版**
+
+```java
+class GraphNode{
+    String label;
+    int cost;// 到目前为止的cost，src到这个node的距离和
+    public GraphNode(String label, int cost) {
+        this.label;
+        this.cost;
+    }
+}
+public int findShortestPath(String start, String end, Map<String, List<GraphNode>> graph) {
+    if (start.equals(end)) return 0;
+    PriorityQueue<GraphNode> minHeap = new PriorityQueue<> ((node1, node2) -> .compare(node1.cost, node2.cost));
+    Map<String, Integer> shortestPath = new HashMap<>();
+    
+    minHeap.offer(new GraphNode(Sstart, 0));
+    
+    while (!minHeap.isEmpty()) {
+        GraphNode currentNode = minHeap.poll();
+        String currentLabel = currentNode.label;
+        int currentCost = currentNode.cost;
+        // 第一次exapnd到target就可以结束了，上面的实现没有加
+        if(currentLabel.equals(end)) {
+            return currentCost;
+        }
+        // 已经exapnd过的点不再expand
+        if (shortestPath.containsKey(currentLabel)) {
+            continue;
+        }
+        shortestPath.put(currentLabel, currentCost);
+        
+        for(GraphNode neighbor: graph.getOrDefualt(currentLabel, new ArrayList<>()) {
+            String neighborLabel = neighbor.label;
+            int totalCostToNeighbor = currentCost + neighbor.cost;
+            // given graph 初始化cost储存的是weight
+            
+            if (!shortestPath.containsKey(neighborLabel)) {
+                minHeap.offer(new GraphNode(neighborLabel, totalCostToNeighbor));
+            }
+            /*
+            case 1: neighbor node 已经被expand过了
+                无视
+            case 2: neighbor node虽然没有被exapnd过， 被generate过了
+                Map<Node, Integer> already_generateMap: <Node, 上一次generate的cost>
+                如果这一次generate的totalCostToNeighbor比上一次低才generate
+            case 3: 这个node还没有被generate过
+                直接generate
+            */
+        }
+        return -1;
+}
+```
+
+Quesiton: 我能不能对于这种被generate的点，直接在PriorityQueue里更新的Entry？
+
+* 优化JAva PQ: Search + update: 除非自己实现PriorityQueue, MappedPriorityQueue
+* TreeSet/ TreeMap update: remove + insert
+
+TC\&SC
+
+* TC:普通的遍历算法O(|V| + |E|) ==> O((|V| +|E|) \* log |E|)
+  * Dijkstra: O(|V+E| \* log(E))
+  * 除非你做了generation的优化，我保证了每个点至多被generate一次O((V+E)log(V))
+* SC: O(E) or O(V) if you optimize for generation
+
+
+
+## **Use Case 2: 求出从一个点到所有点的最短路径**
+
+
+
+
+
+## **Use Case 3: Dijkstra在面试中的难点: Multiple-Dimension Node**
 
