@@ -197,6 +197,7 @@
     * [Question 5 Walls and gates](graph/graph-theory-iv-and-v-shortest-path-bfs/question-5-walls-and-gates.md)
   * [Graph Theory V: Shortest Path III Dijkstra Algorithm](graph/graph-theory-v-shortest-path-iii-dijkstra-algorithm/README.md)
     * [Question 1](graph/graph-theory-v-shortest-path-iii-dijkstra-algorithm/question-1.md)
+    * [Problem 6 Trapping Rain Water II](graph/graph-theory-v-shortest-path-iii-dijkstra-algorithm/problem-6-trapping-rain-water-ii.md)
 * [Dynamic Programming](dynamic-programming/README.md)
   * [Summary](dynamic-programming/summary.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
