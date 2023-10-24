@@ -48,8 +48,16 @@ public class maxHeap {
             index = candidateChild
         }
     }
-    private void percolatedUp() {
-    
+    private void percolatedUp(int index) {
+        while (index > 0) {
+            int parent = (index - 1) / 2;
+            if (array[index] > array[parentIndex]) {
+                swap(array, index, parentIndex);
+            } else {
+                break;
+            }
+            index =parentIndex;
+        }
     }
     private void heapify() {
     
