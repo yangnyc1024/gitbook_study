@@ -211,6 +211,7 @@
   * [Graph Theory VIII Introduction to Disjoint Set(Union Find)](graph/graph-theory-viii-introduction-to-disjoint-set-union-find/README.md)
     * [基础](graph/graph-theory-viii-introduction-to-disjoint-set-union-find/ji-chu.md)
     * [Question 1: Graph Valid Tree](graph/graph-theory-viii-introduction-to-disjoint-set-union-find/question-1-graph-valid-tree.md)
+    * [Question 2 Number of Island II](graph/graph-theory-viii-introduction-to-disjoint-set-union-find/question-2-number-of-island-ii.md)
 * [Dynamic Programming](dynamic-programming/README.md)
   * [Summary](dynamic-programming/summary.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
