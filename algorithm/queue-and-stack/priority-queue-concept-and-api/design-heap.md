@@ -1,8 +1,4 @@
----
-description: Implementation
----
-
-# Heap Implementation
+# Design Heap
 
 ## 重点（保持堆序性+ complete tree）
 

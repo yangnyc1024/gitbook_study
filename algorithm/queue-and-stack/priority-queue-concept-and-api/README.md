@@ -1,4 +1,8 @@
-# Priority Queue
+---
+description: API
+---
+
+# Priority Queue Concept & API
 
 All Implemented Interfaces:
 
