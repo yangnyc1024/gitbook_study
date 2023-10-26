@@ -138,6 +138,8 @@
   * [Practice PriorityQueue](queue-and-stack/practice-priorityqueue/README.md)
     * [Question 0 Compartor小练习](queue-and-stack/practice-priorityqueue/question-0-compartor-xiao-lian-xi.md)
     * [Question 1 Implement MaxHeap](queue-and-stack/practice-priorityqueue/question-1-implement-maxheap.md)
+    * [Question 1s Implement MinHeap](queue-and-stack/practice-priorityqueue/question-1s-implement-minheap.md)
+  * [Practice Top K and Kth Problem](queue-and-stack/practice-top-k-and-kth-problem.md)
 * [Hybrid Data Structure](hybrid-data-structure/README.md)
   * [Thought and Tools](hybrid-data-structure/thought-and-tools/README.md)
     * [Tool: Quick Select](hybrid-data-structure/thought-and-tools/tool-quick-select.md)

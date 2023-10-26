@@ -1,4 +1,4 @@
-# Question 1 Implement MaxHeap
+# Question 1s Implement MinHeap
 
 ```java
 public class maxHeap {
@@ -91,12 +91,28 @@ public class maxHeap {
         // 先放在最后一个，有一个位置， pUp()
         if (isFull()) {
             int[] newHeap = new int[(int)array.length * 2.0];
-            for(int i = 0 ; i )
+            for(int i = 0 ; i < this.array.length; i++) {
+                newHeap[i] = array[i];
+            }
+            this.array = newHeap; // 一定不能忘
         }
+        // step 1: 放在最后一个
+        array[size] = newElement;
+        // step 2: 可能位置不对，把它放到对的位置
+        this.size++;
+        percolateUp(size - 1);
     }
     
-    public int update() {
-    
+    public int update(int index, int newValue) {
+        int meidiaode = array[index];
+        array[index] = newValue;
+        //得跟这个位置以前的value进行比较，如果比以前的值大，可能往上走，如果没有就往下走
+        if (newValue > meidiaole) {
+            percolateUp(index);
+        } else {
+            percolateDown(index);
+        }
+        return meidiaode;
     }
 }
 ```
