@@ -62,7 +62,7 @@ $$y \in [C] = \{1, 2, \cdots, C\}$$
 
 $$\pi_c(x) = P[Y= c | X= x]$$
 
-![](<../.gitbook/assets/Screenshot 2023-06-04 at 1.50.49 PM.png>)
+![](<../../.gitbook/assets/Screenshot 2023-06-04 at 1.50.49 PM.png>)
 
 
 
@@ -78,7 +78,7 @@ $$\pi_c(x) = P[Y= c | X= x]$$
 
 但是会导致常常under coverage？尤其是在deep learning的时候
 
-![](<../.gitbook/assets/Screenshot 2023-06-04 at 1.57.58 PM.png>)
+![](<../../.gitbook/assets/Screenshot 2023-06-04 at 1.57.58 PM.png>)
 
 
 

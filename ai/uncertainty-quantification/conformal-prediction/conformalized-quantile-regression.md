@@ -34,7 +34,7 @@ residuals as $$Z_i = |Y_i - \hat{f}(X_i)|$$ ? no... we need a difference score w
 
 ## Split conformal + quantile regression
 
-![](<../.gitbook/assets/Screenshot 2023-06-04 at 11.20.36 AM.png>)
+![](<../../.gitbook/assets/Screenshot 2023-06-04 at 11.20.36 AM.png>)
 
 
 
