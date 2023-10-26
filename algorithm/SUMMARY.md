@@ -140,6 +140,7 @@
     * [Question 0 Implement MaxHeap](queue-and-stack/practice-priorityqueue/question-0-implement-maxheap.md)
     * [Question 0s Implement MinHeap](queue-and-stack/practice-priorityqueue/question-0s-implement-minheap.md)
     * [Question 1 Determine if it is a heap](queue-and-stack/practice-priorityqueue/question-1-determine-if-it-is-a-heap.md)
+    * [Question 2 Determine given Binary Tree is minHeap](queue-and-stack/practice-priorityqueue/question-2-determine-given-binary-tree-is-minheap.md)
   * [Practice Top K and Kth Problem](queue-and-stack/practice-top-k-and-kth-problem.md)
 * [Hybrid Data Structure](hybrid-data-structure/README.md)
   * [Thought and Tools](hybrid-data-structure/thought-and-tools/README.md)
