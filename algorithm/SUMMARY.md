@@ -220,6 +220,7 @@
     * [Question 3 Similar String Groups](graph/graph-theory-viii-introduction-to-disjoint-set-union-find/question-3-similar-string-groups.md)
     * [Side Topic: 如何在图中判断是否有环](graph/graph-theory-viii-introduction-to-disjoint-set-union-find/side-topic-ru-he-zai-tu-zhong-pan-duan-shi-fou-you-huan.md)
     * [Question 5 Redundant Connection](graph/graph-theory-viii-introduction-to-disjoint-set-union-find/question-5-redundant-connection.md)
+    * [Question 6 Redundant Connection](graph/graph-theory-viii-introduction-to-disjoint-set-union-find/question-6-redundant-connection.md)
 * [Dynamic Programming](dynamic-programming/README.md)
   * [Summary](dynamic-programming/summary.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
