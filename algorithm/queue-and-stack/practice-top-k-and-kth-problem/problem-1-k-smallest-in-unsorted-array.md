@@ -98,7 +98,7 @@ SC: O(1)
 
 
 ```java
-public int[] kSmallest(int[] array. int k) {
+public int[] kSmallest(int[] array, int k) {
     PriorityQueue<Integer> minHeap = new ArrayQueue<>();
     for (int num: array) {
         minHeap.offer(num);
@@ -119,6 +119,7 @@ public int[] kSmallest(int[] array. int k) {
 
 
 ```java
+public int[] kSmallest(int[] array, int k)
 ```
 
 TC: O(n + k logn)
@@ -139,3 +140,13 @@ SC: O(1)
 
 ```java
 ```
+
+这个方法能用heapify优化么？
+
+* 这个方法是把前k个元素放到heap里，是k size heap
+* heapify应该是O(k)，不应该是O(n)---> 我们只应该heapify前k个元素)
+* \---> 本质上实现一个带range的heapify
+
+```java
+```
+
