@@ -35,8 +35,6 @@ public class Solution {
   * 不仅是可以和mergeSort一样能达到nlogn的时间
   * 而且人家是space O(1)
 
-
-
 ```java
 class solution {
     public int[] kSmallest(int[] array, int k) {
@@ -48,10 +46,10 @@ class solution {
             // 接下来调整0到array.length - 1 - i
             percolateDown(array, 0, array.length - 1 - i);
         }
-    }
-    int[] result = new int[k];
-    for (int i = 0; i < k; i++) {
-        result[i] = array[i];
+        int[] result = new int[k];
+        for (int i = 0; i < k; i++) {
+            result[i] = array[i];
+        }
     }
     private void heapify(int[] arr) {
         for (int i = arr.length/ 2 - i ; i >= 0; i--) {
@@ -82,4 +80,62 @@ class solution {
 }
 ```
 
-TC : O(n) + O()
+TC : O(n) + O(klogn) + O(k) ==> O(nlogn)
+
+SC: O(1)
+
+
+
+
+
+#### Method 2 MinHeap（两种）
+
+方法论：当题目求的topK和Kth和你的heap比较的优先级一致的时候，全放进去，poll K次
+
+* TC: O(nlogn)
+* SC: O(n)
+
+
+
+```java
+public int[] kSmallest(int[] array. int k) {
+    PriorityQueue<Integer> minHeap = new ArrayQueue<>();
+    for (int num: array) {
+        minHeap.offer(num);
+    }
+    int[] result = new int[Math.min(minHeap.size()),k];
+    for(int i = 0; i < result.length; i++) {
+        result[i] = minHeap.poll();
+    }
+    return result;
+}
+```
+
+
+
+* 自己实现heapify且直接poll up前k个
+* 和前面不一样，前面那个是sort好，再解决，这个是每次都poll直到第k次，所以时间会变成O(klog n)
+
+
+
+```java
+```
+
+TC: O(n + k logn)
+
+SC: O(1)
+
+
+
+
+
+#### Method 3: MaxHeap（两种）
+
+方法论：当题目求的topK和Kth和你的Heap比较的优先级不一样
+
+* 你的heap里装的是：<mark style="color:red;">到目前为止</mark><mark style="color:purple;">topK candidate</mark>
+  * 手头先攥k个，这些是候选人
+  * 然后再撸那些没看过的元素，如果你看到更优先，我们得淘汰手头最不优先的
+
+```java
+```
