@@ -40,7 +40,9 @@ public class Solution {
 ```java
 class solution {
     public int[] kSmallest(int[] array, int k) {
-        heapify(array); // 把你给我的array变成一个heap
+        heapify(array); // 把你给我的array变成一个heap 
+            // 你heap完没有按顺序啊，所以我每次只能拿出来在最前面的那个
+            // 所以后面每一步，我需要从第0个，一个个percolateDown，确保从第0个到第k-1个都是排好序的
         for (int i = 0 ; i < array.length; i++) {
             swap(array, 0, array.length - 1 - i);//这一步意味着倒数第i个元素已经完成了排序
             // 接下来调整0到array.length - 1 - i
@@ -62,19 +64,19 @@ class solution {
         arr[j] = temp;
     }
     private void percolateDown(int[] array, int index, int size) {
-        while (index* 2 + 2 <= size) {
-            int leftChildIdx = 2 * index  + 1;
-            int rightChildIdx = 2 * index + 2;
-            int candidateIdx = leftChildIdx;
-            if (rightChildIdx < size  && array[leftChildIdx] < array[rightChildIdx]) {
-                candidateIdx = rightChildIdx;
-            } 
-            if (array[index] < array[candidateIdx]) {
-                swap(array, index, candidateIdx);
-            } else {
+        while ( 2* index + 2 <= size) {
+            int leftChild = 2 * index + 1;
+            int rightChild = 2 * index + 2;
+            int candidateChild = leftChild;
+            if (rightChild <= size && array[rightChild] > array[leftChild]) {
+                candidateChild = rightChild;
+            }
+            if (array[index] > array[candidateChild]){
+                swap(array, index, candidateChild);
+            } else{
                 break;
             }
-            index = candidateIdx;
+            index = candidateChild;
         }
     }
 }
