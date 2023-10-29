@@ -119,14 +119,58 @@ public int[] kSmallest(int[] array, int k) {
 
 
 ```java
-public int[] kSmallest(int[] array, int k)
+public int[] kSmallest(int[] array, int k) {
+    // sanity check
+    int[] result = new int[k];
+    
+    // step 1: heapify all elements in array
+    heapify(array);
+    
+    // step 2: each time poll out the first one
+        // poll the first element in the array until we get k elements
+        // swap the first and the array.length - 1 - i element;
+        // percolateDown the first element;
+    
+    for (int i = 0; i < k; i ++) {
+        result[i] = array[0];
+        swap(array, 0, array.length - 1 - i);
+        percolateDown(array, i, array.length - i); // the last element is size
+    }
+    return result;
+}
+
+private void heapify(int[] array) {
+    for (int i = array/ 2 - 1; i >= 0; i++) {
+        percolateDown(array, i , array.length);
+    }
+}
+
+private void swap(int[] array, int i, int j) {
+    int temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+}
+private void percolateDown(int[] array, int index, int size) { //这里的size是0，size-1的点
+    while (index * 2 + 2 <= size) {
+        int leftChild = 2 * index + 1;
+        int rightChild = 2 * index + 2;
+        int candidate = leftChild;
+        if (rightChild < size. && array[leftChild] < array[rightChild]) {
+            candidate = rightChild;
+        }
+        if (array[index] < array[candidate]) {
+            swap(arary, index, candidate);
+        } else {
+            break;
+        }
+        index = candidate;
+    } 
+}
 ```
 
 TC: O(n + k logn)
 
 SC: O(1)
-
-
 
 
 
@@ -139,6 +183,51 @@ SC: O(1)
   * 然后再撸那些没看过的元素，如果你看到更优先，我们得淘汰手头最不优先的
 
 ```java
+public class KSmallest{
+    
+    public int[] kSmallest(int[] array, int k) {
+        // sanity check
+        if (array.length == 0 || k == 0) {
+            return new int[]{0};
+        }
+        // build the pq
+        //PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(k , new Comparator<Integer>() {
+            //@Override
+            //public int compare(Integer o1, Integer o2) {
+                //if (o1.equals(o2) {
+                    //return 0;
+                //}
+                //return o1 > o2 ? -1: 1;
+            //}
+        //})        
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collection.reverseOrder());
+        
+        // offer pq in and poll when pq.size() > k
+        //for (int i = 0; i < array.length; i++) {
+            //if (i < k) {
+               // maxHeap.offer(array[i]);
+            //}
+            //else if (array[i] < maxHeap.peek()) {
+                //maxHeap.poll();
+                //maxHeap.offer(array[i]);
+            //}
+        //}    
+        for (int i = 0; i < array.length; i++) {
+            maxHeap.offer(array[i]);
+            if (maxHeap.size() > k) {
+                maxHeap.poll();
+            }
+        }  
+        
+        // post processing return all result
+        
+        int[] result = new int[k];
+        for (int i = k -1; i >= 0; i--) {
+            result[i] = maxHeap.poll();
+        }
+        return result;
+    }
+}
 ```
 
 这个方法能用heapify优化么？
@@ -148,5 +237,24 @@ SC: O(1)
 * \---> 本质上实现一个带range的heapify
 
 ```java
+public int[] kSmallest(int[] array, int k) {
+    heapify(array, 0 , k -1);
+    // step 1: build the similuated heap in [0, k- 1]
+    
+    // step 2: try to find the good candidate if array[new] < array[0]
+        // swap, percolatedDown
+    // step 3:
+        // get the result out from small to large 
+        // 你应该每次都是从0th拿出来，但是还是需要percolateDown
+
+}
 ```
 
+TC: O(k + (n - k) log k)
+
+SC: O(1)
+
+* &#x20;拓展：percolate and heapify只针对left = 0的代码
+  * 如果你想要拓展，必须保证left对应第一个元素，采用offset或者\[left, right]
+* This one also works for online algorithm
+* 体现出实时性，如果不需要读完完整的input就可以实时的知道，到目前为止的结果，这就是online算法。不然我们就称之为offline算法
