@@ -222,6 +222,7 @@
     * [Question 5 Redundant Connection](graph/graph-theory-viii-introduction-to-disjoint-set-union-find/question-5-redundant-connection.md)
     * [Question 6 Redundant Connection](graph/graph-theory-viii-introduction-to-disjoint-set-union-find/question-6-redundant-connection.md)
     * [Question 7 Sentence Similarity](graph/graph-theory-viii-introduction-to-disjoint-set-union-find/question-7-sentence-similarity.md)
+    * [Question 8 Graph coneectivity With Threshold](graph/graph-theory-viii-introduction-to-disjoint-set-union-find/question-8-graph-coneectivity-with-threshold.md)
 * [Dynamic Programming](dynamic-programming/README.md)
   * [Summary](dynamic-programming/summary.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
