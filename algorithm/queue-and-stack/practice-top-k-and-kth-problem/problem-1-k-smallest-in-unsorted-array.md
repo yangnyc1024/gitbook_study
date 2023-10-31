@@ -243,10 +243,51 @@ public int[] kSmallest(int[] array, int k) {
     
     // step 2: try to find the good candidate if array[new] < array[0]
         // swap, percolatedDown
+    for (int i = k; i < array.length; i++) {
+        if (array[i] < array[0]) { // new candidate is better the worst one
+            swap(array, 0, i);
+            percolateDown(array, 0, i);
+        }
+    }
     // step 3:
         // get the result out from small to large 
         // 你应该每次都是从0th拿出来，但是还是需要percolateDown
+    int[] result = new int[k];
+    for (i = k - 1; i >= 0; i--) { //注意第一个已经先拿出来，所以一共是k个
+        result[i] = array[0];
+        swap(array, 0, i);
+        percolateDown(array, 0, i);
+    }
+    return result;
+}
 
+private void swap(int[] array, int i, int j) {
+    int temp = int[i];
+    int[i] = int[j];
+    int[j] = temp; 
+}
+private void percolateDown(int[] array, int index, int size) {
+    while (index * 2 + 2 < size) {
+        int leftChild = index * 2 + 1;
+        int rightChild = index * 2 +2;
+        int candidate = leftChild;
+        if (rightChild < size && array[rightChild] > array[leftChild]) {
+            candidate = rightChild;
+        }
+        if (array[candiate] > array[index]) {
+            swap(array, candidate, index);
+        }
+        else {
+            break;
+        }
+        index = candidate;
+    }
+}
+private void heapify(int[] array, int left, int right) {
+    int size = right - left + 1;
+    for (int i = size / 2 - 1; i >= 0; i--) { [left, left + size/ 2 - 1]
+        percolateDown(arr, i, size);
+    }
 }
 ```
 
