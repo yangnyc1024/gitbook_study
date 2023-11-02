@@ -207,6 +207,7 @@
     * [Question 4 Rotten Orange](graph/graph-theory-iv-and-v-shortest-path-bfs/question-4-rotten-orange.md)
     * [Question 5 Walls and gates](graph/graph-theory-iv-and-v-shortest-path-bfs/question-5-walls-and-gates.md)
   * [Graph Theory VI: Shortest Path III Dijkstra Algorithm](graph/graph-theory-vi-shortest-path-iii-dijkstra-algorithm/README.md)
+    * [Dijkstra Algorithm基本过程与理解](graph/graph-theory-vi-shortest-path-iii-dijkstra-algorithm/dijkstra-algorithm-ji-ben-guo-cheng-yu-li-jie.md)
     * [Question 1](graph/graph-theory-vi-shortest-path-iii-dijkstra-algorithm/question-1.md)
     * [Problem 6 Trapping Rain Water II](graph/graph-theory-vi-shortest-path-iii-dijkstra-algorithm/problem-6-trapping-rain-water-ii.md)
   * [Graph Theory VII Topological Order](graph/graph-theory-vii-topological-order/README.md)
