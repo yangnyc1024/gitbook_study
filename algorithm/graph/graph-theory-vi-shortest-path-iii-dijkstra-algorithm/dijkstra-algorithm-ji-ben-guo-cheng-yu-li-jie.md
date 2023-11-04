@@ -18,6 +18,17 @@
 * Dijkstra：需要有一个Starting Node（题目给的），<mark style="color:purple;">每一次从到目前为止Cost最低的点出发（Expand）</mark>，generate所有它的邻居，直到我们Expand到targetNode/所有Node为止！
 * <mark style="color:blue;">**每当一个点被Expand的时候，它的最短路径（从start到他）就确定了**</mark>
 
+
+
+注意expand& generate
+
+* expand表示你接下来要访问的
+  * 所以你一旦访问了，就表示确定了，所以对于dijkstra来说，每次要访问的(expand)，一旦他被访问了，从源头点到该点的最短就确定了
+  * 如果记录的每点cost最小，也就是costMark(x) = min Cost(源头，x)
+    * min cost（源头，x）= minCost （源头，y） + minCost（y，x）
+    * 这个成立的唯一条件，就是cost是正的\&cost函数是monotonicity increasing的？
+* generate表示你potential需要访问的点
+
 **Greedy算法**
 
 * 不看所有解，我觉得按着某一种方法（aha point）去走，我就得到最优解
@@ -56,25 +67,25 @@ class GraphNode{
 }
 public int findShortestPath(String start, String end, Map<String, List<GraphNode>> graph) {
     // mapping for node and index
-    Map<String, Integer> nodeToIndex = new HashSet<>(); //这个Map可以不要，根据你的构图
+    Map<String, Integer> nodeToIndex = new HashSet<>(); //这个Map可以不要，根据你的构图决定
     int index = 0;
     for (String node: graph.keySet()) {
         nodeToIndex.put(node, index++);
     }
-    int n = graph.size();
-    int[] distances = new int[n];
-    Arrays.fill(distances, Integer.MAX_VALUE);
+    int n = graph.size(); //有几个node
+    int[] distances = new int[n]; //这个是记录node的对应的distance //有点像dp
+    Arrays.fill(distances, Integer.MAX_VALUE); //现在把distance全部记录最大 
     boolean[] visited = new boolean[];    
     distance[nodeToIndex.get(start)] = 0;
     
     //至多node轮
-    for (int i = 0; i < n -1; i++) { //明确告诉你Dijkstra最多有多少轮
-        int u = selectMinimumIndex(distances, visited); // 从当前cost最低点出发
-        visited[u] = true; // u 是个index不是这个点
-        for (GraphNode v: graph.getOrDefault(indexToNode(u, nodeToIndex), new ArrayList<>())) {
+    for (int i = 0; i < n - 1; i++) { //明确告诉你Dijkstra最多有多少轮
+        int uIndex = selectMinimumIndex(distances, visited); // 从当前cost最低点出发// 这部分可以被pq优化
+        visited[uIndex] = true; // u 是个index不是这个点,所以你要反向找回那个node
+        for (GraphNode v: graph.getOrDefault(indexToNode(uIndex, nodeToIndex), new ArrayList<>())) {
             int vIndex = nodeToIndex.get(v.node);
-            if (!visited[vIndex] && distances[u] != Integer.MAX_VALUE && distances[u] + v.weight < distance[vIndex]) {
-                distances[vIndex] = distance[u] + v.weight;
+            if (!visited[vIndex] && distances[uIndex] != Integer.MAX_VALUE && distances[uIndex] + v.weight < distance[vIndex]) {
+                distances[vIndex] = distance[uIndex] + v.weight;
             }
         }
     }
@@ -95,14 +106,20 @@ private int seletecMinimumIndex(int[] distances, boolean[] visited) {
     for (int i = 0; i < distance.length; i++) {
         if (!visited[i] && distances[i] < minValue) {
             minValue = distance[i];
-            minIndex = 1;
+            minIndex = i;
         }
     }
     return minIndex;
 }
 ```
 
+这个array版本的实现
 
+* 缺点：时间肯定不如现代版本的heap/treeMap/treeSet版本实现
+* 优点：元和可读性以及区分性: already\_expanded & already\_generated
+  * if (distances\[uIndex] + v.weight < distances\[vIndex]) {distances\[vIndex] = distance\[uIndex] +v.weight};
+  * 在这个视线里面，如果一个点被generate多次，不管后面的generate比前面generate得到的结果好还是坏
+  * distances\[i]只要visited是false i的状态都是already\_generated but not yet expand。存储的只会是最优解，一旦visited\[i] mark成为true了，说明被expanded
 
 
 
@@ -122,7 +139,7 @@ class GraphNode{
 public int findShortestPath(String start, String end, Map<String, List<GraphNode>> graph) {
     if (start.equals(end)) return 0;
     PriorityQueue<GraphNode> minHeap = new PriorityQueue<> ((node1, node2) -> .compare(node1.cost, node2.cost));
-    Map<String, Integer> shortestPath = new HashMap<>();
+    Map<String, Integer> shortestPath = new HashMap<>(); //这个其实是你mark Visited，这里把mark和map合起来了嘛。。
     
     minHeap.offer(new GraphNode(Sstart, 0));
     
@@ -134,7 +151,7 @@ public int findShortestPath(String start, String end, Map<String, List<GraphNode
         if(currentLabel.equals(end)) {
             return currentCost;
         }
-        // 已经exapnd过的点不再expand
+        // 已经expand过的点不再expand
         if (shortestPath.containsKey(currentLabel)) {
             continue;
         }
@@ -149,13 +166,14 @@ public int findShortestPath(String start, String end, Map<String, List<GraphNode
                 minHeap.offer(new GraphNode(neighborLabel, totalCostToNeighbor));
             }
             /*
-            case 1: neighbor node 已经被expand过了
-                无视
-            case 2: neighbor node虽然没有被exapnd过， 被generate过了
-                Map<Node, Integer> already_generateMap: <Node, 上一次generate的cost>
-                如果这一次generate的totalCostToNeighbor比上一次低才generate
-            case 3: 这个node还没有被generate过
-                直接generate
+            其实可以完全分开
+                case 1: neighbor node 已经被expand过了
+                    无视
+                case 2: neighbor node虽然没有被exapnd过， 被generate过了
+                    Map<Node, Integer> already_generateMap: <Node, 上一次generate的cost>
+                    如果这一次generate的totalCostToNeighbor比上一次低才generate
+                case 3: 这个node还没有被generate过
+                    直接generate
             */
         }
         return -1;
@@ -164,8 +182,9 @@ public int findShortestPath(String start, String end, Map<String, List<GraphNode
 
 Quesiton: 我能不能对于这种被generate的点，直接在PriorityQueue里更新的Entry？
 
-* 优化JAva PQ: Search + update: 除非自己实现PriorityQueue, MappedPriorityQueue
-* TreeSet/ TreeMap update: remove + insert
+* 不行，但是可以进行如下操作
+* 优化Java PQ: Search + update: 除非自己实现PriorityQueue, MappedPriorityQueue
+* 选择TreeSet/ TreeMap update: remove + insert
 
 TC\&SC
 
@@ -181,3 +200,26 @@ TC\&SC
 shortestPaths 里其实存的就是每一个点的最短路径值，而我们只要把遇到target node就return的这个限制条件去掉就好
 
 ## **Use Case 3: Dijkstra在面试中的难点: Multiple-Dimension Node**
+
+多维度：
+
+* 如果你保证，Expand点或者generate点的顺序是单调的，就可以在第一次遇到它就终止算法
+* 如果你能保证你generate点的时候，从小到达的单调递增的来generate，甚至可以在generate mark visited
+* 如果你能保证你expand点的顺序是单调的，那就可以在第一次expand到他的时候终止
+
+
+
+
+
+
+
+
+
+#### Summary
+
+* Dijkstra算法中每exapnd一次，就确定了从点A到点B的最短路径，往后只能增大不能减少！如果求的是从一个点到所有点的最短路径，也只需要做一次！One to ALL！
+* 是否可以在Generate的时候Mark Visited：不一定
+* 时空复杂度: O(|V| +|E|) log(|E|)
+  * 每个点允许被generate多次但是最多只能被expand一次
+  * 如果我们自己实现MappedPriorityQueue，那么可以实现Node只能被Generated一次，但是非常复杂情况不如用TreeMap/TreeSet代替更为简洁
+* MappedPriortyQueue：Use case是我们遇到一个已经generated的点的时候，Map找到Node Position，UpdatedValue +上下调整
