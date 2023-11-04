@@ -3,7 +3,7 @@
 ## Series S2: 求一点出发到一点/其他所有点的最短路径
 
 * 使用条件：边上的权证可以有且不相同但必须为正值
-* Series S1:讲了五个series
+* Series S1:讲了五个series（见前面的shortest path）
 
 
 
@@ -206,6 +206,14 @@ shortestPaths 里其实存的就是每一个点的最短路径值，而我们只
 * 如果你保证，Expand点或者generate点的顺序是单调的，就可以在第一次遇到它就终止算法
 * 如果你能保证你generate点的时候，从小到达的单调递增的来generate，甚至可以在generate mark visited
 * 如果你能保证你expand点的顺序是单调的，那就可以在第一次expand到他的时候终止
+
+
+
+小心， 走exactly K步能得到的距离和最小 不等与
+
+* first time走k步的city，因为可能还有些点没有看到
+* K步之内的距离和最小，因为这里说的是我要走K步呀
+* 思考：说白了，因为dijkstra解决的是，<mark style="color:red;">某个点，到某个点的最短路径，但是这里的问题没有给出到底到哪个点的？</mark>
 
 
 
