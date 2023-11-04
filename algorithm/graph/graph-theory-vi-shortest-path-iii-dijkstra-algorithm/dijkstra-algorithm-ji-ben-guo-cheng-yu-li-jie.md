@@ -201,23 +201,29 @@ shortestPaths 里其实存的就是每一个点的最短路径值，而我们只
 
 ## **Use Case 3: Dijkstra在面试中的难点: Multiple-Dimension Node**
 
-多维度：
+#### Example
+
+* 告诉你地图中所有城市的道路，求从一个start城市出发，走exactly K步能哦租到的所有城市中，总距离和距离当前城市最近的城市
+* graph representation？明白什么是点，什么是边，每个点能去哪些点
+  * 为什么不用这个edge不好用，因为没法快速的知道，每个点能去哪些点
+  * 比较好的表达方式 adjacency list
+    * Map\<Node, Map\<Node, Integer>> weightGraph
+    * Map\<Node, List\<Node>> unidirectedGraph
+
+
+
+#### 小心
+
+* 走exactly K步能得到的距离和最小 不等与
+* first time走k步的city，因为可能还有些点没有看到
+* K步之内的距离和最小，因为这里说的是我要走K步呀
+* 思考：说白了，因为dijkstra解决的是，<mark style="color:red;">某个点，到某个点的最短路径，但是这里的问题没有给出到底到哪个点的？——》所以你就都看step = K——》让每次expand出来的点的step是排好序的</mark>
+
+#### 多维度问题的关系
 
 * 如果你保证，Expand点或者generate点的顺序是单调的，就可以在第一次遇到它就终止算法
 * 如果你能保证你generate点的时候，从小到达的单调递增的来generate，甚至可以在generate mark visited
 * 如果你能保证你expand点的顺序是单调的，那就可以在第一次expand到他的时候终止
-
-
-
-小心， 走exactly K步能得到的距离和最小 不等与
-
-* first time走k步的city，因为可能还有些点没有看到
-* K步之内的距离和最小，因为这里说的是我要走K步呀
-* 思考：说白了，因为dijkstra解决的是，<mark style="color:red;">某个点，到某个点的最短路径，但是这里的问题没有给出到底到哪个点的？</mark>
-
-
-
-
 
 
 
