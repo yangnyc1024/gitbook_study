@@ -1,4 +1,8 @@
-# Question 1 Maximum Cost of Trip With K Highways
+# Question 1 Shortest Time to Office Mr Gao
+
+### Question
+
+Mr Gao always takes public transportation to the office. His home is quite far away from the office, so he needs to transit multiple times across different stations. The time that he spends between each station is different. We can imagine the route will look like an unary direction graph.
 
 ```java
 class Node {
