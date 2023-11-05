@@ -246,6 +246,7 @@
     * [Problem 3: Optimize Water Distribution in a Village](graph/graph-theory-xi-minimum-spanning-tree-ii/problem-3-optimize-water-distribution-in-a-village.md)
   * [Graph Theory Backtracking in Graph](graph/graph-theory-backtracking-in-graph/README.md)
     * [Problem 3 Unique Path](graph/graph-theory-backtracking-in-graph/problem-3-unique-path.md)
+    * [Problem 1 Subset I (combination)母题](graph/graph-theory-backtracking-in-graph/problem-1-subseticombination-mu-ti.md)
 * [Dynamic Programming](dynamic-programming/README.md)
   * [Summary](dynamic-programming/summary.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
