@@ -57,7 +57,7 @@ class Solution {
     private int dijsktra(int i , Map<Integer, List<int[]>> graph, PriorityQueue<Node> maxHeap, boolean[] visited, int totalStep) {
         int max = -1;
         maxHeap.offer(new Node(i, 0, 0));
-        while (maxHeap.isEmpty()) {
+        while (!maxHeap.isEmpty()) {
             Node cur = maxHeap.poll();
             visited[cur.id] = true;
             if (cur.step == totalStep) {
