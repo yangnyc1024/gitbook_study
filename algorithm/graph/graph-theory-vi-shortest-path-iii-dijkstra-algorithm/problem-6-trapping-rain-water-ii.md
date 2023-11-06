@@ -24,14 +24,14 @@
 generate 要做什么
 
 * 计算neighbor的蓄水量
+  * 蓄水量 = max（cur.普及高度 - cur.高度，0）
 * update到neighbor为止的普及高度
+  * <mark style="color:green;">cost 就是普及高度 ，所以neighbor.普及高度 = max (cur.普及高度， neighbor的高度) (since cur.普及高度>0) = cur.普及高度 + max(0， neighbor的高度 - cur.普及高度)</mark>
+    * cost 就是普及高度
+    * cost(开始的点（外围一圈最小点）， x.neighbor) = cost(开始的点， x) + cost (x, neighbor)
+    * 所以edge上的weight应该是这玩意 max(0， neighbor的高度 - cur.普及高度)
 
 
-
-cost(开始的点（外围一圈最小点）， x.neighbor) = cost(开始的点， x) + cost (x, neighbor)
-
-* cost 就是普及高度
-* neighbor.普及高度 = max (该点.普及高度， neighbor的高度)
 
 ````java
 
