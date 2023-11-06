@@ -28,7 +28,10 @@ generate 要做什么
 
 
 
+cost(开始的点（外围一圈最小点）， x.neighbor) = cost(开始的点， x) + cost (x, neighbor)
 
+* cost 就是普及高度
+* neighbor.普及高度 = max (该点.普及高度， neighbor的高度)
 
 ````java
 
