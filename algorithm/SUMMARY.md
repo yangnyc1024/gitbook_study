@@ -28,6 +28,7 @@
 * [Two Points & Binary Search & Pure Recursion](two-points-and-binary-search-and-pure-recursion/README.md)
   * [Two Points](two-points-and-binary-search-and-pure-recursion/two-points/README.md)
     * [Question Valid Triangle Number](two-points-and-binary-search-and-pure-recursion/two-points/question-valid-triangle-number.md)
+    * [Question The Latest Time to Catch a Bus](two-points-and-binary-search-and-pure-recursion/two-points/question-the-latest-time-to-catch-a-bus.md)
   * [Pure Recursion](two-points-and-binary-search-and-pure-recursion/pure-recursion/README.md)
     * [Question 1 Power Function](two-points-and-binary-search-and-pure-recursion/pure-recursion/question-1-power-function.md)
     * [Question 2](two-points-and-binary-search-and-pure-recursion/pure-recursion/question-2.md)

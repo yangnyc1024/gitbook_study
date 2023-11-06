@@ -42,7 +42,7 @@ public int triangleNumber(int[] nums) {
     }
     Arrays.sort(nums);
     int count = 0;
-    for (int largeEdgeIndex = 2; largeEdgeIndex < nums.length; largeEdgeIndex++) {
+    for (int largeEdgeIndex = 2; largeEdgeIndex < nums.length; largeEdgeIndex++) { //固定的边是最长的longest Edge
         count += sumLargerThan(nums, nums[i], 0, largeEdgeIndex - 1); // 你要找的点是在这个最大边之前
     }
     return count;
