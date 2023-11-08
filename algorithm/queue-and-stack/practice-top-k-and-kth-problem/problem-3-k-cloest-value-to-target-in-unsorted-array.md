@@ -51,3 +51,44 @@ public int[] findKCloset(int[] array, int k , int target) {
 ```
 
 #### Method 3: use MinHeap
+
+
+
+```java
+class Solution {
+    class Pair {
+        private int diff;
+        private int value;
+        public Pair(int diff, int value) {
+            this.diff = diff;
+            this.value = value;
+        }
+        public int getValue() {
+            return this.value;
+        }
+    }
+    public int[] findKCloset(int[] array, int k, int target) {
+        // sanity check
+        if (array == null || array.legnth == 0 || k > array.length || k < 0) {
+            return array;
+        }
+        
+        // use minHeap, order by pair.diff
+        int[] result = new int[k];
+        PriorityQueue<Pair> minHeap = new PriorityQueue<>((pairOne, pairTwo) -> Integer.compare(pairOne.diff, pairTwo,dff));
+        
+        // put all elements in
+        for (int i = 0; i < array.length; i++) {
+            int diff = MAth.abs(array[i] - target);
+            minHeap.offer(new Pair(diff, array[i]));
+        }
+        
+        
+        // return all related value
+        for (int i = 0; i < k; i++) {
+            result[i] = minHeap.poll().getValue();
+        }
+        return result;
+    }
+}
+```
