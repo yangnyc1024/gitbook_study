@@ -41,9 +41,11 @@ Step 2: 方法论
 
 
 
-#### Method: MinHeap
+#### Method1: MinHeap
 
 ```java
+//用新的class的version
+
 class Solution {
     class WordInfo {
         String word;
@@ -93,5 +95,142 @@ class Solution {
 
 ```
 
+```java
+class Solution {
+    public List<String> topKFrequent(String[] words, int k) {
+        LinkedList<String> result = new LinkedList<>();
+        if (words == null || k< = 0) {
+            return result;
+        }
+        Map<String, Integer> wordsFrequency = buildFrequency(words);
+        PriorityQueue<Map.Entry(String, Integer)> minHeap = new PrirotyQueue<> (
+            (e1, e2) -> {
+                if (e1.getValue().equals.(e2.getValue())) {
+                    return e2.getKey().compareTo(e1.getKey());
+                }
+                return Integer.compare(e1.getValue(), e2.getValue());
+            }
+        )
+        for (Map.Entry(String, Integer) entry: wordsFrequency.entrySet()) {
+            minHeap.offer(entry);
+            if (minHeap.size() > k) {
+                mimHeap.poll();
+            }
+        }
+        while (!minHeap.isEmpty()) {
+            return.addFirst(minHeap.poll().getKey());
+        }
+        return result;
+    }
+    private Map<String, Integer> buildFrequency(String[] words) {
+        Map<String, Integer> map = new HashMap<>();
+        for (String word: words) {
+            int wordCount = map.getOrDefault(word, 0) + 1;
+            map.put(word, wordCount);
+        }
+        return map;
+    }
+
+}
+```
 
 
+
+Method 2: MaxHeap
+
+```java
+// 不自己build Map Entry
+class Solution {
+    public List<String> topKFrequent(String[] words, int k) {
+        List<String> result = new ArrayList<>();
+        if (words == null || k <= 0) {
+            return result;
+        }
+        Map<String, Integer> wordsFrequency = buildFrequency(words);
+        PriorityQueue<Map.Entry<String, Integer>> maxHeap = new PriorityQueue<> (
+            (e1, e2) -> {
+                if (e1.getValue().equals(e2.getValue())) {
+                    return e1.getKey().compareTo(e2.getKey());
+                }
+                return Integer.compare(e2.getValue(), e1.getValue());
+            }
+        );
+        for (Map.Entry(String, Integer) entry: wordsFrequency.entrySet()) {
+            maxHeap.offer(entry);
+        }
+        while (k > 0) {
+            result.add(maxHeap.poll().getKey());
+            k--;
+        }
+        return result;
+    }
+    private Map<String, Integer> buildFrequency(String[] words) {
+        Map<String, Integer> map = new HashMap<>();
+        for (String word: words) {
+            int wordCount = map.getOrDefault(word, 0) + 1;
+            map.put(word, wordCount);
+        }
+        return map;
+    }
+}
+```
+
+```java
+// Some code
+
+
+class Solution {
+    class WordInfo { 
+        String word;
+        Integer frequency;
+        public wordInfo(String word, Integer frequency) {
+            this.word;
+            this.frequency = frequency;
+        }
+    }
+    public List<String> topKFrequent(String[] words, int k) {
+        List<String> result = new ArrayList<>();
+        // sanity check
+        if (words == null || words.length == 0) {
+            return result;
+        }
+        
+        // build the freq Map,
+        Map<String, Integer> wordsFrequency= buildMap(words);
+        
+        
+        //  build the minHeap with element wordInfo
+        PriortyQueue<WordInfo> maxHeap = new PriortyQueue<>(new Comparator<WordInfo>(){
+            @Override
+            public int compare(WordInfo word1, WordInfo  word2) {
+                if (word1.frequency.equals(word2.frequency)) {
+                    return word1.word.compareTo(word2.word);
+                }
+                return Integer.compare(word2.frequency, word1.frequency);
+            }
+        });
+        
+        
+        // put all new wordInfo into heap
+        for (String eachWord: wordsFrequency.keySet()) {
+            maxHeap.offer(new WordInfo(eachWord, wordsFrequency.get(eachWord)));
+        }    
+        
+        // poll all wordInfo out & put into the result list
+        k = Math.min(k, maxHeap.size());
+        while (k > 0) {
+            result.add(maxHeap.poll().word);
+            k--;
+        }
+        return result;
+    }
+    private Map<String, Integer> buildFrequency(String[] words) {
+        Map<String. Integer> map = new HashMap<>();
+        for (String word: words){
+            int wordCount = map.getOrDefault(word, 0) + 1;
+            map.put(word, wordCount);
+        }
+        return map;
+    }
+}
+```
