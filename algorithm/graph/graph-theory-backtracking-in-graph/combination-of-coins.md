@@ -43,7 +43,13 @@ private void backTracking(List<List<Integer>> result, List<Integer> current, int
 
 
 
+#### TC& SC&#x20;
 
+实际上M1和M2都是在对25a + 10b + 5c + d = 99求解，只是具体的实现不一样
+
+* 所以这几种算法都是在尝试a\&b\&c\&d的所有可能性
+* 所以这两种做法的复杂度是一样的
+* 从减值的角度看，两种做法都在cur\_sum超过target就行了剪枝，是一样优秀的
 
 
 

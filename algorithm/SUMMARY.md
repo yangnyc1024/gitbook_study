@@ -249,6 +249,8 @@
     * [Problem 1 Subset I (combination)母题](graph/graph-theory-backtracking-in-graph/problem-1-subseticombination-mu-ti.md)
     * [Problem 3 Unique Path](graph/graph-theory-backtracking-in-graph/problem-3-unique-path.md)
     * [Combination of coins](graph/graph-theory-backtracking-in-graph/combination-of-coins.md)
+    * [Question Combinations & Iterator for Combination](graph/graph-theory-backtracking-in-graph/question-combinations-and-iterator-for-combination.md)
+    * [Side Topic: Iterator in Java](graph/graph-theory-backtracking-in-graph/side-topic-iterator-in-java.md)
 * [Dynamic Programming](dynamic-programming/README.md)
   * [Summary](dynamic-programming/summary.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
