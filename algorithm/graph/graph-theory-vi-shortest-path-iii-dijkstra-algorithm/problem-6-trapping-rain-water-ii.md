@@ -33,102 +33,21 @@ generate 要做什么
 
 
 
-````java
-
-class Solution {
-    public class Cell implements Comparable<Cell> {
-        int x;
-        int y;
-        int cost;
-        Cell (int x, int y, int cost) {
-            this.x = x;
-            this.y = y;
-            this.cost = cost;
-        }
-        @Override
-        public int hashCode() {
-            int hashCode = this.x + 31;
-            hashCode = hashCode * this.y  + 31;
-            return hashCode;
-        }
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj) return true;
-            if (obj == null) return false;
-            if (this.getClass() != obj.getClass()) {
-                return false;
-            }
-            Cell that = (Cell) obj;
-            return this.x == that.x && this.y == that.y;
-        }
-        @Override
-        public int compareTo(Cell that) {
-            int result = Integer.compare(this.cost, that.cost);
-            int result_x  = Integer.compare(this.x, that.x);
-            int result_y = Integer.compare(this.y, that.y);
-            if (result == 0) {
-                return result_x;
-            }
-            else if (result == 0 && result_x == 0) {
-                return result_y;
-            }
-            return result;
-        }
+```java
+class Element implements Comparable<Element> {
+    int x;
+    int y;
+    int pujiHeightl
+    public Element(int x, int y, int pujiHeight) {
+        this.x = x;
+        this.y = y;
+        this.pujiHeight = pujiHeight;
     }
-    private final static int[][] DIRS = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-    public int trapRainWater(int[][] heightMap) {
-        // sanity check
-        if (heightMap == null || heightMap[0] == null || heightMap.length == 0 || heightMap[0].length == 0) {
-            throw new IndexOutOfBoundsException("out of bound");
-        }
-        int m = heightMap.length;
-        int n = heightMap[0].length;
-
-        // visited boolean matrix
-        boolean[][] visited = new boolean[m][n];
-
-        // bfs & dfs
-        PriorityQueue<Cell> pq = new PriorityQueue<>();
-        initializePQueue(pq, heightMap, m, n, visited);
-        int result = 0;
-        while (!pq.isEmpty()) {
-            int size = pq.size();
-            for (int i = 0; i < size; i++) {
-                Cell cur = pq.poll();
-                for (int[] dir: DIRS) {
-                    int neiX = cur.x + dir[0];
-                    int neiY = cur.y + dir[1];
-                    if (!isValid(neiX, neiY, heightMap)) {
-                        continue;
-                    }
-                    if (visited[neiX][neiY]) {
-                        continue;
-                    }
-                    result += Math.max(0, cur.cost - heightMap[neiX][neiY]);
-                    pq.offer(new Cell(neiX, neiY, Math.max(heightMap[neiX][neiY], cur.cost)));
-                    visited[neiX][neiY] = true;
-                }
-            }
-        }
-        return result;
-    }
-    private boolean isValid(int x, int y, int[][] heightMap) {
-        return x >= 0 && x < heightMap.length && y >= 0 && y < heightMap[0].length;
-    }
-    private void initializePQueue(PriorityQueue<Cell> pq, int[][] heightMap, int m, int n, boolean[][] visited) {
-        for (int i = 0; i < m ; i++) {
-            pq.offer(new Cell(i, 0, heightMap[i][0]));
-            visited[i][0] = true;
-            pq.offer(new Cell(i, n -1, heightMap[i][n - 1]));
-            visited[i][n - 1]  = true;
-        }
-        for (int j = 0; j < n; j++) {
-            pq.offer(new Cell(0, j, heightMap[0][j]));
-            visited[0][j] = true;
-            pq.offer(new Cell(m -1, j, heightMap[m - 1][j]));
-            visited[m -1][j] = true;
-        }
+    @Override
+    public int compareTo(Element other) {
+        return Integer.compare(this.pujiHeight, other.pujiHeight);
     }
 }
+private static final int[][] dirs = new int[][]{{-1, 0}, {1,0)}, {0, 1}, {0 , -1}}
+public int trainRainWater;
 ```
-````
