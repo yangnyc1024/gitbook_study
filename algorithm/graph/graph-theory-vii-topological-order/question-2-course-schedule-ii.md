@@ -76,3 +76,9 @@ public List<List<Integer>> findOrder(int numCourses, int[][] prerequisites) {
     }
 ```
 ````
+
+
+
+
+
+More interesting implement could be seen in previous 基本功和母体
