@@ -86,7 +86,13 @@ else
 * Queue: Deque\<Node> queue = new ArrayDeque<>();
 * Topological Result: List\<Node> result
 
-Step 1: 先generate所有入度为0的点
+<mark style="color:purple;background-color:purple;">Step 1：先generate所有入度为0的点</mark>
+
+<mark style="color:purple;background-color:purple;">Step 2：Do BFS</mark>
+
+<mark style="color:purple;background-color:purple;">Step 3：check环（nodes.size == result.size）</mark>
+
+
 
 <pre class="language-java"><code class="lang-java">// Step 1: 先generate所有入度为0的点
 for (Node: node: allNodes) {
