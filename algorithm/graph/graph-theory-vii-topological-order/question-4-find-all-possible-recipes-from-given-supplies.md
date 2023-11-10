@@ -50,9 +50,35 @@ Details Logic：
 public List<String> findAllRecipes(String[] recipes, List<List<String>> ingredients, String[] supplies) {
     int[] inDegree = new int[recipes.length];
     //每个ingredients，被哪些recipes需要，记录需要它的recipes的index
+    Map<String, List<Integer>> graph = buildGraph(recipes, ingredients, supplies);
     
+    Deque<String> queue = new ArrayDeque<>();
+    List<String> result = new ArrayList<>();
+    
+    // initial queue with degree 0
+    for (String supply: supplies) {
+        queue.offer(supply);
+        // if (inDegree[supplyIndex])???
+    }
+    
+    // bfs
+    while (!queue.isEmpty()) {
+        String curIngredient = queue.poll();
+        if (!graph.containsKey(curIngredient)) {
+            continue;
+        }
+        for (int recipesIndex: graph.get(curIngredient)) {
+            inDegree[recipesInde]--;
+            if (inDegree[recipesIndex] == 0) {
+                result.add(recipes[recipesIndex]);
+                queue.offer(recipes[recipesIndex]);
+            }
+        }
 
-
+    }
+     
+    // return result
+    return result;
 }
 private Map<String, List<Integer>> buildGraph(String[] recipes, List<List<String>> ingredients, String[] supplies) {
     Map<String, List<Integer>> graph = new HashMap<>();
@@ -71,3 +97,7 @@ private Map<String, List<Integer>> buildGraph(String[] recipes, List<List<String
 }
 ```
 
+这题说白了就是你check一下，有一小部分的vertex，是否可以reach到indegree为0
+
+* 所以就用topological order去go over所有的点，然后如果receipt的某个点的indegree = 0， 你就把它加入到结果中去
+* <mark style="color:red;">注意你是在expand还是在generate操作</mark>
