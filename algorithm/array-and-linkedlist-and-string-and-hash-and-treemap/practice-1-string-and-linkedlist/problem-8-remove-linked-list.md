@@ -2,7 +2,7 @@
 
 ![](<../../.gitbook/assets/Screenshot 2023-08-21 at 1.30.55 AM.png>)
 
-```
+```java
 // Some code
 ListNode removeElemnts(ListNode head, int val) {
     ListNode dummy = new ListNode();
@@ -11,7 +11,7 @@ ListNode removeElemnts(ListNode head, int val) {
     cur = head;
     while (cur != null) {
         if (cur.val == val) {
-            prev.net = cur.next
+            prev.net = cur.next;
         }
         else {
             prev = cur;
