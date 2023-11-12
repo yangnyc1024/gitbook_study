@@ -83,9 +83,62 @@ private void reverse(int[] nums, int i, int j) {
 }
 ```
 
+\=》 step 2: 找到一个字母和这个字母交换，保证得到的是比他大的最小的
+
+* 保证得到的是比他大的最小的：倒叙遍历来看第一个大雨当前字母的
+
+search range:\[i + 1, nums.length - 1]
+
+search for what: first occurrence of element such that array\[j] > array\[i]
 
 
 
+```java
+public void nextPermutation(int[] nums) {
+    if (nums == null || nums.length == 0) {
+        return;
+    }
+    int i = nums.length - 2;
+    while (i >= 0 && nums[i] > nums[i+1]) {
+        i--;
+    }
+    if (i >= 0) {
+    // here !!!!!!!
+        int j = binearSearch(nums, i + 1, nums.length - 1, nums[i]);
+        swap(nums, i, j);
+    }
+    reverse(nums, i + 1,nums.length - 1);
+}
+
+private int binarySearch(int[] nums, int left, int right, int target) {
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] > target) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    if (nums[right] > target) return right;
+    return left;
+}
+private void swap(int[] nums, int i , int j) {
+    int temp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = temp;
+}
+private void reverse(int[] nums, int i, int j) {
+    while (i < j) {
+        swap(nums, i++, j--);
+    }
+}
+```
+
+
+
+
+
+#### Method 3
 
 
 
