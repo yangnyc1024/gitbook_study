@@ -1,4 +1,4 @@
-# Graph Theory X: UF 拓展 && Minimum Spanning Tree
+# Graph Theory XI: UF 拓展 && Minimum Spanning Tree
 
 ## Prims' Algorithm
 

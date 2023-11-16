@@ -2,7 +2,7 @@
 description: coins
 ---
 
-# Combination of coins
+# Problem 5 Combination of coins
 
 #### Method 2
 
