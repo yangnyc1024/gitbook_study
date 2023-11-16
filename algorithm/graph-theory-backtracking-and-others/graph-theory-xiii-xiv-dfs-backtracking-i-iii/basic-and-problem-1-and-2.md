@@ -1,6 +1,4 @@
-# Graph Theory Backtracking in Graph
-
-
+# Basic & Problem 1&2
 
 
 
@@ -27,4 +25,3 @@
 * pure recursion and dfs both implemented in reucrsion way, their difference is 构建解的顺序不一样
 * pure recursion from bottom to top, dfs backtracking from top to bottom
 * backtrack is the behavior of DFS：一定有从一个分支回去再访问另一个分支
-
