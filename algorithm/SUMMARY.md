@@ -260,7 +260,7 @@
   * [Graph Theory XIV DFS3 Backtracking II Combination and Permutation](graph-backtracking-and-others/graph-theory-xiv-dfs3-backtracking-ii-combination-and-permutation/README.md)
     * [Problem 1 Subset I (combination)母题](graph-backtracking-and-others/graph-theory-xiv-dfs3-backtracking-ii-combination-and-permutation/problem-1-subseticombination-mu-ti.md)
     * [Problem 2 Subset II](graph-backtracking-and-others/graph-theory-xiv-dfs3-backtracking-ii-combination-and-permutation/problem-2-subset-ii.md)
-    * [Problem 3 Permutation I](graph-backtracking-and-others/graph-theory-xiv-dfs3-backtracking-ii-combination-and-permutation/problem-3-permutation-i.md)
+    * [Problem 3 Permutation I母题](graph-backtracking-and-others/graph-theory-xiv-dfs3-backtracking-ii-combination-and-permutation/problem-3-permutationimu-ti.md)
     * [Problem 4 Permutation II](graph-backtracking-and-others/graph-theory-xiv-dfs3-backtracking-ii-combination-and-permutation/problem-4-permutation-ii.md)
     * [Problem 5 Combination of coins](graph-backtracking-and-others/graph-theory-xiv-dfs3-backtracking-ii-combination-and-permutation/problem-5-combination-of-coins.md)
     * [Problem 6 Two Subsets With Min Difference](graph-backtracking-and-others/graph-theory-xiv-dfs3-backtracking-ii-combination-and-permutation/problem-6-two-subsets-with-min-difference.md)
