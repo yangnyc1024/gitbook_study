@@ -40,6 +40,10 @@ TC & SC
 
 
 
+
+
+#### Method 1(在expand的时候mark visited)
+
 ```java
 public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
     List<List<Integer>> result = new ArrayList<>();
@@ -75,4 +79,40 @@ private void dfs(int curNode, int[][] graph, List<List<Intger>> result, List<Int
 
 // 这题可以不mark visited ，因为这里是directed acyclic graph（DAG）:题目已经明确说明了是一个有向无环图，也就是说我们沿着方向走，只要没有自环是不会走出环的。
 // 不过从物理意义上来说，应该是mark visited
+```
+
+```java
+
+class Solution {
+    public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+        List<List<Integer>> ret = new ArrayList<>();
+        if (graph == null) return ret;
+        List<Integer> curResult = new ArrayList<>();
+        curResult.add(0);
+        int[] visited = new int[graph.length];
+        visited[0] = 1;
+        helper(graph, curResult, visited, ret, 0);
+        return ret;
+    }
+    private void helper(int[][] graph, List<Integer> curResult, int[] visited, List<List<Integer>> ret, int curPosition) {
+        // base case
+        if (visited[visited.length - 1] == 1) {
+            ret.add(new ArrayList<>(curResult));
+            return;
+        }
+
+
+        // recursion rule
+        for (int possVisit : graph[curPosition]) {
+            if (visited[possVisit]!= 1) {
+                curResult.add(possVisit);
+                visited[possVisit] = 1;
+                helper(graph, curResult, visited, ret, possVisit);
+                curResult.remove(curResult.size() - 1);
+                visited[possVisit] = 0;
+            }
+        }
+    }
+}
+
 ```
