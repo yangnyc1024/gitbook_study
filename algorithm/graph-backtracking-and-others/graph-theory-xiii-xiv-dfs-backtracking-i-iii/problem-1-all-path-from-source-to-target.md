@@ -1,3 +1,7 @@
+---
+description: https://leetcode.com/problems/all-paths-from-source-to-target/
+---
+
 # Problem 1 All Path From Source to Target
 
 High Level:
@@ -42,7 +46,33 @@ public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
     if (graph == null || graph.length == 0) {
         return result;
     }
-    List<Integer>
-
+    List<Integer> current = new ArrayList<>();
+    boolean[] visited = new boolean[graph.length];
+    int curNode = 0;
+    dfs(curNode, graph, result, current, visited);
+    return result
 }
+// recursion tree implementation
+// int curNode: 当前我站在哪个点上
+private void dfs(int curNode, int[][] graph, List<List<Intger>> result, List<Integer> current, boolean[] visited) {
+    if (curNode == graph.length - 1) {
+        current.add(curNode);
+        result.add(new ArrayList<>(current));
+        current.remove(current.size() - 1);
+        return;
+    }
+    current.add(curNode);
+    visited[curNode] = true; 
+    for (int nei: graph[curNode]) {
+        if (visited[nei]) {
+            continue;
+        }
+        dfs(nei, graph, result, current, visited);
+    }
+    current.remove(current.size() - 1);
+    visited[curNode] = false;
+}
+
+// 这题可以不mark visited ，因为这里是directed acyclic graph（DAG）:题目已经明确说明了是一个有向无环图，也就是说我们沿着方向走，只要没有自环是不会走出环的。
+// 不过从物理意义上来说，应该是mark visited
 ```
