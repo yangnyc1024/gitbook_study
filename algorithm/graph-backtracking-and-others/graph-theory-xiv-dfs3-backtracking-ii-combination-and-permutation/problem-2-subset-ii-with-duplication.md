@@ -1,4 +1,8 @@
-# Problem 2 Subset II
+---
+description: repeat
+---
+
+# Problem 2 Subset II with duplication
 
 #### Method 1（每一层就是加不加，你只能加第一个）
 
