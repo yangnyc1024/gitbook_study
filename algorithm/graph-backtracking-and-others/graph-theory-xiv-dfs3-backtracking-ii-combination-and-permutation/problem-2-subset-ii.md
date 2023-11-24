@@ -26,7 +26,30 @@ List Version
 ```java
 public List<List<Integer>> subsets(int[] nums) {
     List<List<Integer>> result = new ArrayList<>();
+    if (nums == null || nums.length == 0) {
+        return result;
+    }
+    Arrays.sort(nums);
+    List<Integer> current = new ArrayList<>();
+    backTracking(result, nums, current, 0);
+    return result;
+}
+// index: 当前层我正要考虑的元素
+private void backTracking(List<List<Integer>> result, int[] nums, List<Integer> current, int index) {
+    if (index = nums.length) {
+        result.add(new ArrayList<>(current));
+        return;
+    }
+    // add
+    current.add(nums[index]);
+    backTracking(result, nums, current, index + 1);
+    current.remove(current.size() - 1);
     
+    // not add
+    while (index + 1 < nums.length && nums[index + 1] == nums[index]) {
+        index++;
+    }
+    backTracking(result, nums, current, index + 1);
 
 }
 ```
@@ -115,7 +138,46 @@ public class Solution {
 
 #### Method 2（只取第一个&& i == index || nums\[i] != nums\[i - 1] && 注意while的位置和while的条件是看在同一层，下一次加的点一不一样）
 
+<mark style="color:blue;">Step 1：分析为什么会发生重复，画图</mark>
 
+* 为什么会重复？同一层分支中，同样的元素，先加前面哪个和先加后面哪个
+
+<mark style="color:blue;">Step 2：说出去重的方法</mark>
+
+* 同一层分支中，同样的元素，我只留第一分支
+* 所以不是到了那个点吃吐，而是吃完以后，之后所有的我都不管了
+* 为了达到这个效果，我必须得用sort，因为需要把相同的放在一起·
+
+
+
+List Version
+
+```java
+public List<List<Integer>> subsets(int[] nums) {
+    List<List<Integer>> result = new ArrayList<>();
+    if (nums == null ||| nums.length == 0) {
+        return result;
+    }
+    Arrays.sort(nums);
+    List<Integer> current = new ArrayList<>();
+    backTracking(result, nums, current, 0);
+    return result;
+}
+// index：当前层我从哪个index往后可以开始考虑呢？
+private void backTracking(List<List<Integer>> result , int[] nums, List<Integer> current, int index) {
+    // 一个个加很多题目没有base case那都是解
+    result.add(new ArrayList<>(current));
+    for (int i = index; i < nums.length; i++) {
+        if (i != index && nums[i] == nums[i - 1]) {
+            continue;
+        }
+        current.add(nums[i]);
+        backTracking(result, nums, current, i + 1);
+        current.remove(current.size() - 1);
+    }
+}
+
+```
 
 
 
@@ -172,7 +234,7 @@ public class Solution {
    for (int i = curPoss; i < oriString.length; i++) {
      if (i == curPoss || oriString[i] != oriString[i - 1]) {
        curString.append(oriString[i]);
-       helper(oriString, curString, ret, i + 1);
+       helper(oriString, curString, ret, i + 1);// 注意这里！！！！！
        curString.deleteCharAt(curString.length() - 1);
      }
    }
