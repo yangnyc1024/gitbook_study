@@ -295,6 +295,7 @@
     * [Review](dynamic-programming/dynamic-programming-ii-from-bactracking-to-dynamic-programming/review.md)
     * [Question 1: Range Sum query 1D](dynamic-programming/dynamic-programming-ii-from-bactracking-to-dynamic-programming/question-1-range-sum-query-1d.md)
     * [Question 2 Range Sum Query 2D](dynamic-programming/dynamic-programming-ii-from-bactracking-to-dynamic-programming/question-2-range-sum-query-2d.md)
+    * [Question 3](dynamic-programming/dynamic-programming-ii-from-bactracking-to-dynamic-programming/question-3.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
   * [Parameter passing](data-stucture-java/basic-knowledge/parameter-passing.md)
   * [Classes, objects and references](data-stucture-java/basic-knowledge/classes-objects-and-references.md)
