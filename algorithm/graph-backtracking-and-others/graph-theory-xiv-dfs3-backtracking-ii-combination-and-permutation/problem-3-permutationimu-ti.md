@@ -127,7 +127,11 @@ private void backTracking(List<List<Integer>> result, int[] nums, List<List<Inte
 
 #### Method 2 swap swap
 
-
+* 既不需要O(n)的时间，也不需要O(n)的空间
+* High Level 保持不变：通过swap-swap的方式来固定一个元素
+* 利用区间O(1)知道哪些元素不能用，哪些元素还没用过可以固定过来
+  * \[0, index - 1)固定好的元素
+  * \[index, nums.length - 1] 还没背固定过的，可以用来被固定过来的元素
 
 
 
@@ -135,7 +139,24 @@ private void backTracking(List<List<Integer>> result, int[] nums, List<List<Inte
 
 **List Version**
 
+```java
+public List<List<Integer>> permutation(int[] nums) {
+    List<List<Integer>> result = new ArrayList<>();
+    if (nums == null || nums.length == 0) {
+        return result;
+    }
+    backTracking(result, nums, 0);
+    return result;
+}
+// level: index: 当前层我正要固定那个index
+// [0, index - 1]已经固定好的元素 不能用
+// [index, nums.length - 1]可以用来被固定到当前位置的元素
 
+private void backTracking(List<List<Integer> result, int[] nums, int level) {
+    
+
+}
+```
 
 
 
