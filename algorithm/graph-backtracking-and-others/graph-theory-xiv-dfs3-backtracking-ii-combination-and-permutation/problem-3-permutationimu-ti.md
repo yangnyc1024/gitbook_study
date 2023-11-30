@@ -1,6 +1,6 @@
 # Problem 3 Permutation I母题
 
-#### Method 1 (只对combination有效)不能不加，只能加，一个一个加
+### Method 1 (只对combination有效)不能不加，只能加，一个一个加
 
 High Level
 
@@ -18,6 +18,8 @@ High Level
 **Implement 1**
 
 TC& SC: O(n! \* n), O(n)
+
+
 
 ```java
 public List<List<Integer>> permutation(int[] nums) {
@@ -125,7 +127,7 @@ private void backTracking(List<List<Integer>> result, int[] nums, List<List<Inte
 }
 ```
 
-#### Method 2 swap swap
+### Method 2 swap swap
 
 * 既不需要O(n)的时间，也不需要O(n)的空间
 * High Level 保持不变：通过swap-swap的方式来固定一个元素
@@ -139,9 +141,8 @@ private void backTracking(List<List<Integer>> result, int[] nums, List<List<Inte
 
 **List Version**
 
-```java
-public List<List<Integer>> permutation(int[] nums) {
-    List<List<Integer>> result = new ArrayList<>();
+<pre class="language-java"><code class="lang-java"><strong>public List&#x3C;List&#x3C;Integer>> permutation(int[] nums) {
+</strong>    List&#x3C;List&#x3C;Integer>> result = new ArrayList&#x3C;>();
     if (nums == null || nums.length == 0) {
         return result;
     }
@@ -152,11 +153,27 @@ public List<List<Integer>> permutation(int[] nums) {
 // [0, index - 1]已经固定好的元素 不能用
 // [index, nums.length - 1]可以用来被固定到当前位置的元素
 
-private void backTracking(List<List<Integer> result, int[] nums, int level) {
-    
-
+private void backTracking(List&#x3C;List&#x3C;Integer> result, int[] nums, int level) {
+    if(index == nums.length) {
+        List&#x3C;Integer> current = new ArrayList&#x3C;>();
+        for (int num: nums) {
+            current.add(num);
+        }
+        result.add(current);
+        return;
+    }
+    for (int i = level; i &#x3C; nums.length; i++) {
+        swap(nums, i , level);
+        backTracking(result, nums, level + 1);
+        swap(nums, i, level);
+    }
 }
-```
+private void swap(int[] nums, int i , int j) {
+    int temp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = temp;
+}
+</code></pre>
 
 
 
