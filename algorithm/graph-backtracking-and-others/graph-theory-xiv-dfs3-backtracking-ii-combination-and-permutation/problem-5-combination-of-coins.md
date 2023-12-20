@@ -1,10 +1,51 @@
----
-description: coins
----
-
 # Problem 5 Combination of coins
 
-#### Method 2
+### Method 1一个一个加
+
+* each level: 每一层我只拿一个硬币
+* each branch: 可以选择的硬币&确保不会超过&确保选的是比之前的小
+
+<pre class="language-java"><code class="lang-java">public List&#x3C;List&#x3C;Integer>> combinations(int target, int[] coins) {
+    // sanity check
+    // initial 
+    List&#x3C;List&#x3C;Integer>> result = new ArrayList&#x3C;>();
+    if (coins == null || coins.length == 0) {
+        return result;
+    }
+    int[] path = new int[coins.length]; // 因为你需要记录一共这个元素用了多少次，所以需要对该类型的coin进行记录
+    // dfs
+    backTracking(result, path, coins, target, 0);
+    // return
+    return result;
+<strong>}
+</strong><strong>
+</strong><strong>private void backTracking(List&#x3C;List&#x3C;Integer>> result, int[] path, int[] coins, int target, int index) {
+</strong><strong>    // base case
+</strong><strong>    if (target == 0) {
+</strong><strong>        addCurrentResult(result, path);
+</strong><strong>        return;
+</strong><strong>    }            
+</strong><strong>    
+</strong><strong>    // dfs , i代表你拿了谁
+</strong><strong>    for (int i = index; i &#x3C; coins.length; i++) {
+</strong><strong>        if (target - coins[i] >= 0) {
+</strong><strong>            path[i] += 1;
+</strong><strong>            backTracking(result, path, coins, target - coins[i], i);
+</strong><strong>            path[i] -= 1;
+</strong><strong>        }
+</strong><strong>    }
+</strong><strong>    
+</strong><strong>    // 
+</strong><strong>}
+</strong></code></pre>
+
+#### Master alter method:
+
+```
+// Some code
+```
+
+### Method 2考虑数量
 
 ```java
 public List<List<Integer>> combinations(int target, int[] coins) {
@@ -39,7 +80,11 @@ private void backTracking(List<List<Integer>> result, List<Integer> current, int
 
 * 如果用list或者StringBuilder，这里是append不是同一个index赋值操作，所以不能忘记吃吐
 
+老一辈艺术家的写法
 
+```java
+// Some code
+```
 
 
 
@@ -72,7 +117,28 @@ tips
 // Some code
 
 public int mindifference(int[] array) {
-
-
+    int[] min = new int[]{Integer.MAX_VALUE};
+    DFS(array, 0, 0 , 0 , min, 0);
+    return min[0];
+}
+// ASum: sum of subset A
+// BSum: sum of subset B
+// index: which index is considered in current level
+// countA: subset A's size
+private void DFS(int[] array, int ASum, int BSum, int index, int[] min, int countA) {
+    if (index == array.length) {
+        if (countA == array.length / 2) {
+            min[0] = Math.min(min[0], Math.abs(ASum - BSum));
+        }
+        return;// 只要到Base case 必须终止程序，不然下面就超界了
+    }
+    // 如果你A里的size已经超过了n/2+ 1
+    if (countA > array.length / 2 + 1) {
+        return;
+    }
+    // 要不进A
+    DFS(array, ASum + array[index], BSum, index + 1, min, countA + 1);
+    // 要不进B
+    DFS(array, ASum , BSum + array[index], index + 1, min, countA);
 }
 ```
