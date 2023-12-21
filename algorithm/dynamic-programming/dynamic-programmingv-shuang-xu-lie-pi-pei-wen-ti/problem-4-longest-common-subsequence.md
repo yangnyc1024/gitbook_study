@@ -20,6 +20,7 @@ Step 3: Induction Rule
 
 
 
+{% code overflow="wrap" lineNumbers="true" fullWidth="false" %}
 ```java
 // Some code
 
@@ -39,6 +40,7 @@ public int longestCommonSubseq(String s, String t) {
     return dp[s.length()][t.length()];
 }
 ```
+{% endcode %}
 
 空间上肯定可以优化，留行还是留列
 
