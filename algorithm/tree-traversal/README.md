@@ -1,3 +1,0 @@
-# Tree Traversal
-
-\#Tree

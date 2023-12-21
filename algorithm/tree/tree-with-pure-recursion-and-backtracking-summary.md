@@ -1,4 +1,4 @@
-# Tree with Pure Recursion and Backtracking
+# Tree with Pure Recursion and Backtracking Summary
 
 Pure Recursion: 该点作为root，从后面问题继承的，如何给回之前以至于找到解
 
@@ -10,8 +10,3 @@ Pure Recursion: 该点作为root，从后面问题继承的，如何给回之前
 Backtracking: 该点作为ending point, 如何利用之前继承的，往下找到解
 
 * f(curPoint, resultInfor<mark style="color:red;">Before</mark>CurPoint, curResultInfor<mark style="color:red;">Before</mark>CurPoint)
-
-
-
-
-
