@@ -22,7 +22,8 @@ Case2: 负方向==〉 model as right
 
 
 
-
+* 先加往左飞的，通过当场记录，就像你发现违规的右括号
+* 然后再从index开始把向右飞的加进去
 
 ```java
 public int[] collision(int[] array) {
@@ -36,34 +37,46 @@ public int[] collision(int[] array) {
             i++;
             j++;
         }
-        else {
+        else { //向左飞的（没全部炸掉全部炸掉？）
             int abs = Math.abs(array[j]);
-            if (i == 0) {
+            if (i == 0) { // 假设你是第一个向左飞的
                 result.add(array[j]);
                 j++;
             } else {
                 boolean flag = false;
-                while (i > 0) { // 还有你要的行星
-                    if (array[i - 1] < abs) {
+                while (i > 0) { // 这颗向左的行星，一直可以消灭
+                    if (array[i - 1] < abs) { 
                         i--;
                     }
                     else if (array[i - 1] == abs) {
                         i--;
+                        flag = true;
                         break;
                     }
-                    else  {
+                    else  { //一个都炸不了
                         break;
                     }
                 }
                 // 1. 你最牛，肯定加。 2. 你遇到了跟你一样大的，不加，你还不如放方向的也不能加
-                if (i == 0 && !flag) {
+                if (i == 0 && !flag) { //你没有同归于尽
                     result.add(array[j]);
                 }
                 j++;
             }
         }
     }
-    int[]
+    //最有应该一共剩多少颗行星，往左飞：result.size(), 往右飞:i
+    int[] resultArray = new int[result.size() + i];
+    int index = 0;
+    for (Integer element: result) {
+        resultArray[index] = element;
+        index++;
+    }
+    for (int k = 0; k < i ; k++) {
+        resultArray[index] = array[k];
+        index++
+    }
+    return resultArray;
 }
 ```
 
