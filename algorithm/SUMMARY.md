@@ -334,6 +334,7 @@
     * [Introduction 2](dynamic-programming/dynamic-programming-qie-ge-wen-ti-2/introduction-2.md)
     * [Maximum Profit in Job Scheduling Review](dynamic-programming/dynamic-programming-qie-ge-wen-ti-2/maximum-profit-in-job-scheduling-review.md)
     * [Problem 2 Largest Sum of Averages](dynamic-programming/dynamic-programming-qie-ge-wen-ti-2/problem-2-largest-sum-of-averages.md)
+    * [Problem 3 Split Array Largest Sum](dynamic-programming/dynamic-programming-qie-ge-wen-ti-2/problem-3-split-array-largest-sum.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
   * [Parameter passing](data-stucture-java/basic-knowledge/parameter-passing.md)
   * [Classes, objects and references](data-stucture-java/basic-knowledge/classes-objects-and-references.md)

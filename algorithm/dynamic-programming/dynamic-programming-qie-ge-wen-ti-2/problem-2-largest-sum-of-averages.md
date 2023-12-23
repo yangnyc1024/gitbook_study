@@ -56,3 +56,29 @@ public double largestSumAverage(int[] array, int k) {
 }
 ```
 
+TC: O(NK\*N) ==> O(N^2 \*K)
+
+SC: KN-> N
+
+
+
+
+
+### Method 2:&#x20;
+
+* 其实存一行就行了dp\[k]\[n] only depends on dp\[k-1]\[n2]存一行就可以
+
+Induction Rule
+
+* dp\[k - 1]\[n2] --- dp\[k]\[n]
+* 假如现在只有一行
+  * \[last row n2 <- current row n]
+  * 更新顺序要改变
+* from right to left:你左边的值都是还没有更新过的值
+
+
+
+
+
+
+
