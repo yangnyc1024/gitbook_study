@@ -42,3 +42,80 @@ use case: sum of range \[j, n - 1]
   * 为了让子问题还能分成k-1份，左大的段长度至少需要有长度k- 1
 * valid range: \[k - 1， 愿问题的长度 - 1]
 
+
+
+
+
+```java
+public int splitArray(int[] nums, int m) {
+    int[] prefix = new int[nums.length + 1];
+    for (int i = 0; i < prefix.lengthl i++) {
+        prefix[i+ 1] = prefix[i]  + nums[i];
+    }
+    /*
+    唯一的区别：在于i的物理意义：一个是array里的index，一个是off by 1以后的index
+    for (int i = 0; i < nums.length; i++) {
+        prefixSum[i] = prefixSum[i - 1] + nums[i];
+    }
+    */
+    int[][] dp = new int[n+ 1][nums.length + 1];
+    for (int[] temp: dp){
+        Arrays.fill(temp, Integer.MAX_VALUE);
+    }
+    // base case: dp[1][any]
+    for (int i = 0; i <= nums.length; i++) {
+        dp[1][i] = prefix[i];
+    }
+    for (int k = 2; k < m; k++) {
+        for (int n = k; n <= nums.length; n++) {
+            if (n == k) {
+                dp[k][n] = Math.max(dp[k - 1][n - 1], nums[n - 1]);
+            } else {
+                for (int j = k - 1; j < = n- 1; j++) {
+                    dp[k][n] = Math.min(dp[k][n], Math.max(dp[k - 1][j], prefix[n] - prefix[j]))
+                }
+            }
+        }
+    }
+    return dp[m][nums.length];
+}
+```
+
+TC & SC&#x20;
+
+* O(n\*n \* k), O(n \* k)
+
+
+
+```java
+
+public int splitArray(int[] nums, int m) {
+    int[] prefix = new int[nums.length + 1];
+    for (int i = 0; i < prefix.lengthl i++) {
+        prefix[i+ 1] = prefix[i]  + nums[i];
+    }
+
+    if (m == 1){
+        return prefix[nums.length];
+    }
+    int[] dp = new int[nums.length + 1];
+    /
+    / base case: dp[1][any]
+    for (int i = 0; i <= nums.length; i++) {
+        dp[i] = prefix[i];
+    }
+    for (int k = 2; k < m; k++) {
+        for (int n = k; n <= nums.length; n++) {
+            if (n == k) {
+                dp[n] = Math.max(dp[n - 1], nums[n - 1]);
+            } else {
+                for (int j = k - 1; j < = n- 1; j++) {
+                    dp[n] = Math.min(dp[n], Math.max(dp[j], prefix[n] - prefix[j]))
+                }
+            }
+        }
+    }
+    return dp[nums.length];
+}
+```
+
