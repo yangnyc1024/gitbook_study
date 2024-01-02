@@ -2,7 +2,9 @@
 
 
 
+#### Method 1:  Brute Force(dfs)
 
+for each position: add
 
 #### Method 2
 

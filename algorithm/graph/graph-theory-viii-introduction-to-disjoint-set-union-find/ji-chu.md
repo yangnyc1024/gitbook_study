@@ -369,12 +369,13 @@ class UnionFind{
 #### add a method findMax()
 
 * add a method findMax() to the union-find data type so that findMax(i) returns the largest element in the connected component containing i.
+* 对于UF实现上的follow up怎么做？思考徐亚激素哪些新的field，然后改变union(95%) + find(5%)更新他们
 
 ```java
 class UnionFind{
     int[] laoda;
     int[] size;
-    int[] max;
+    int[] max; //每个联通分量里面最大的
     public UnionFind(int n) {
         this.laoda = new int[n];
         this.size = new int[n];
@@ -405,7 +406,7 @@ class UnionFind{
             max[alaoda] = Math.max(max[alaoda], max[blaoda]);
         }
     }
-    public int getMAxSetLaoda() {
+    public int getMaxSetLaoda() {
         return maxLaoda;
     }
 }

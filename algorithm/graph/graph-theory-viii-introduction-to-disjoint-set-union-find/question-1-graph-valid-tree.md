@@ -1,8 +1,8 @@
 # Question 1: Graph Valid Tree
 
+#### 考
 
-
-You have a graph of N nodes labeled from 0 to n-1
+看到这句话要注意！You have a graph of N nodes labeled from 0 to n-1
 
 * mark visited 可以用数组
 * UF实现会比较简单
@@ -21,8 +21,9 @@ You have a graph of N nodes labeled from 0 to n-1
 #### Method 2: Union Find
 
 * 三个条件不变
-* 用UnionFind如何判断环的存在
-  * 在你Union的时候，我要union的两个熊其实已经属于同一个帮派里的两个兄弟
+* <mark style="color:red;">用UnionFind如何判断环的存在</mark>
+  * 在你Union的时候，我要union的两个兄弟其实已经属于同一个帮派里的两个兄弟
+  * （相连就是帮派，在一个帮派里等同于他们相连，所以再发现还可以相连，说明有环）
 
 
 
