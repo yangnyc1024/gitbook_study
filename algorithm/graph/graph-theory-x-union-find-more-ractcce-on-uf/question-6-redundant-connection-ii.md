@@ -107,3 +107,65 @@ private Map<Integer, Map<Integer, Integer>> = buildGraph(int[][] edges, int[] in
 }
 ```
 
+
+
+#### Method 2
+
+思路分析, Three case:
+
+* Every node has only one parent, and there is a cycle which include root node
+* There is a node with two parents, no cycle
+* There is a node with two parents, and a cycle
+
+Union 的过程中要能去区分：indegree = 2 的结果啊，还是环的结果呢？
+
+Union(a,b)的时候，
+
+* 如果alaoda = blaoda没问题，cycle造成的结果
+* 如果alaoda != blaoda: 有没有可能是个possibleResult呢？
+
+区别是什么？
+
+* union(a,b)的时候b的老大是谁，因为我们union的顺序是b加入a的话，b的老大是不是自己
+
+```java
+public int[] findRedundantConnect(int[][] edges) {
+    if (edges == null || edges.length == 0) {
+        return new int[]{-1, -1};
+    };
+    int[] laoda = new int[edges.length + 1];
+    int[] result1 = null;// indegree 为2造成的结果
+    int[] reuslt2 = null; // cycle造成的结果
+    for (int[] edge: edges) {
+        int alaoda = find(edge[0], alaoda);
+        int blaoda = find(edge[1], blaoda);
+        if (blaoda != edge[1]) {
+            result1 = edge;
+        }else {
+            laoda[blaoda] = alaoda;
+        }
+    }
+    if (result1 == null) {
+        return result2;
+    }
+    if (result2 == null) {
+        return result1;
+    }
+    for (int[] edge: edges) {
+        if (edge[1]== result1[1]) {
+            return edge;
+        }
+    }
+    return new int[0];
+}
+private int find(int a, int[] laoda) {
+    return laoda[a] = laoda[a] == a? a: find(laoda[a], laoda);
+}
+```
+
+&#x20;
+
+为什么一定要遍历找result而不是直接return result1 和result2
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-01-03 at 5.17.28 PM.png" alt="" width="563"><figcaption></figcaption></figure>
+
