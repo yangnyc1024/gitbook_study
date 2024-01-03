@@ -252,6 +252,7 @@
     * [Question 2 Number of Island II](graph/graph-theory-viii-introduction-to-disjoint-set-union-find/question-2-number-of-island-ii.md)
   * [Graph Theory X: Union Find More Ractcce on UF](graph/graph-theory-ix-union-find-more-ractcce-on-uf/README.md)
     * [Question 3 Similar String Groups](graph/graph-theory-ix-union-find-more-ractcce-on-uf/question-3-similar-string-groups.md)
+    * [Question 4 Satisfiability of Equality Equations](graph/graph-theory-x-union-find-more-ractcce-on-uf/question-4-satisfiability-of-equality-equations.md)
     * [Side Topic: 如何在图中判断是否有环](graph/graph-theory-ix-union-find-more-ractcce-on-uf/side-topic-ru-he-zai-tu-zhong-pan-duan-shi-fou-you-huan.md)
     * [Question 5 Redundant Connection](graph/graph-theory-ix-union-find-more-ractcce-on-uf/question-5-redundant-connection.md)
     * [Question 6 Redundant Connection](graph/graph-theory-ix-union-find-more-ractcce-on-uf/question-6-redundant-connection.md)
