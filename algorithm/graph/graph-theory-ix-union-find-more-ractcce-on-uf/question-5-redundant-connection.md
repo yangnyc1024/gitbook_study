@@ -1,5 +1,13 @@
 # Question 5 Redundant Connection
 
+Require: 接下来的题目都要学会用union find实现，还有时间可以尝试用dfs
+
+#### Method 1:
+
+这是一个无向图，tree里面是不能有环的，多一条其实意思就是有环，方法很暴力
+
+dfs找到这个环，把环上的所有边都要找出来，找到这些边里出现在edge list里的最后一条边
+
 ```java
 private static final int UNIVISITED = 0;
 private static final int VISITING = 1;
@@ -19,8 +27,8 @@ public int[] findRedundantConnection(int[][] edges) {
     }
     Set<List<Integer>> cycle = new HashSet<>();
     List<Integer> curPath = new ArrayList<>();
-    DFS(-1, -1, graph, cycle, curPath);
-    for (int i = edges.length - 1; i >= 0; i--) {
+    DFS(-1, 1, graph, cycle, curPath);
+    for (int i = edges.length - 1; i >= 0; i--) { //确保是环的后面的可以return
         if (cycle.contains(Arrays.asList(eges[i][0], edges[i][1]))) {
             return edges[i];
         }
@@ -42,7 +50,8 @@ private boolean DFS(int preNode, int curNode, List<List<Integer>> graph, int[] v
     path.add(curNode);
     visited[curNode] = VISITING;
     for (int nei: graph.get(curNode)) {
-        if (nei != preNode) && DFS(curNode, nei, graph, visited, cycle, path)) {
+        if (nei != preNode) && DFS(curNode, nei, graph, visited, cycle, path)) { 
+        //第一个条件是，自己跟自己cycle？
             return true;
         }
     }
@@ -59,7 +68,7 @@ private void precessCylce(List<Integer> path, Set<List<Integer>> cycle, int star
         List<Integer> temp = new ArrayList<>();
         temp.add(start);
         temp.add(end);
-        // 小心是不是要sort： coleection.sort(temp)
+        // 小心是不是要sort： coleection.sort(temp)，因为要小心2-3，3-2是一条边
         Collections.sort(temp); // O(2log2) = O(1)
         cycle.add(temp);
         i--;
@@ -76,6 +85,14 @@ private void precessCylce(List<Integer> path, Set<List<Integer>> cycle, int star
 
 
 #### Method 2: Union Find
+
+union:给你的图上两个点相连
+
+find:看看这两个点是不是同一个联通分量
+
+union find怎么知道图中有环？
+
+* 普通的union相当于把两个点中间连上一条边，如果已经联通的两个点再union
 
 ```java
 public int[] findRedundantConnection(int[][] edges) {

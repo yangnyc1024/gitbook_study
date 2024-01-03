@@ -1,4 +1,4 @@
-# Question 6 Redundant Connection
+# Question 6 Redundant Connection II
 
 有向图还有可能因为没有环，但是有些有两个爸爸导致不合法
 
@@ -14,15 +14,15 @@
 * Question：有没有可能找不到root：如果不存在入度为2的点呢？（need复习）
 *   不合法的情况到底有几种
 
-    * every node has only one parent and there is a Cycle wichi include the root node (cycle edge)
-    * there is a node with two parents but no cycle (two parent edge)
-    * there is a node with two parents also there is a cycle! (环上最后一条边)
+    * every node has only one parent, and there is a Cycle that include the root node (cycle edge)
+    * there is a node with two parents but no cycle (two-parent edge)
+    * there is a node with two parents; also, there is a cycle! (环上最后一条边)
 
     <figure><img src="../../.gitbook/assets/Screenshot 2023-10-26 at 11.31.18 PM.png" alt="" width="177"><figcaption></figcaption></figure>
 
 有向图找环
 
-* 如果有换，那就从环上的点出发，找到环上的最后一条边
+* 如果有环，那就从环上的点出发，找到环上的最后一条边
 * 如果没有环，有个一点有两个parent
 
 ```java
@@ -55,11 +55,22 @@ public int[] findRedundantConnection(int[][] edges) {
          }
          cycle = DFS(graph, startNode, visited, path);
      }  else {
-         
+         //当不存在indegree为2的点的时候，无法确定root
+         for (int i = 1; i < edges.length; i++) {
+             cycle = DFS(graph, visited,path);
+             if (result != null) {
+                 break;
+             }
+         };
+     }
+     if (cycle == null) {
+         return possibleResult; //是一个怎么样的边？造成indegree为2的边
+     } else {
+         return cycle;
      }
 }
 
-private Map<Itneger, Map<Integer, Integer>> = buildGraph(int[][] edges, int[] indegree) {
+private Map<Integer, Map<Integer, Integer>> = buildGraph(int[][] edges, int[] indegree) {
     Map<Integer, Map<Integer, Integer>> graph = new HashMap<>();
     
     for (int i = 0; i < edges.length; i++)  {
@@ -75,3 +86,4 @@ private Map<Itneger, Map<Integer, Integer>> = buildGraph(int[][] edges, int[] in
     return graph;
 }
 ```
+

@@ -255,7 +255,7 @@
     * [Question 4 Satisfiability of Equality Equations](graph/graph-theory-x-union-find-more-ractcce-on-uf/question-4-satisfiability-of-equality-equations.md)
     * [Side Topic: 如何在图中判断是否有环](graph/graph-theory-ix-union-find-more-ractcce-on-uf/side-topic-ru-he-zai-tu-zhong-pan-duan-shi-fou-you-huan.md)
     * [Question 5 Redundant Connection](graph/graph-theory-ix-union-find-more-ractcce-on-uf/question-5-redundant-connection.md)
-    * [Question 6 Redundant Connection](graph/graph-theory-ix-union-find-more-ractcce-on-uf/question-6-redundant-connection.md)
+    * [Question 6 Redundant Connection II](graph/graph-theory-x-union-find-more-ractcce-on-uf/question-6-redundant-connection-ii.md)
   * [Graph Theory XI: UF 拓展 && Minimum Spanning Tree](graph/graph-theoryxuf-tuo-zhan-minimum-spanning-tree/README.md)
     * [Question 7 Sentence Similarity](graph/graph-theoryxuf-tuo-zhan-minimum-spanning-tree/question-7-sentence-similarity.md)
     * [Question 8 Graph coneectivity With Threshold](graph/graph-theoryxuf-tuo-zhan-minimum-spanning-tree/question-8-graph-coneectivity-with-threshold.md)
