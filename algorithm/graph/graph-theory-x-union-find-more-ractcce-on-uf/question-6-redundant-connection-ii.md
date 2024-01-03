@@ -69,7 +69,27 @@ public int[] findRedundantConnection(int[][] edges) {
          return cycle;
      }
 }
-
+private int[] findEdge(List<Integer> cycle, Map<Integer, Map<Integer, Map<Integer, Integer>>> graph) {
+    int startNode = cycle.get(cycle.size() - 1);
+    int[] result = new int[]{cycle.get(cycle.size() -2), cycle.get(cycle.size() - 1)};
+    if (startNode.equals(markedNode)) {
+        return result;
+    }
+    int index = cycle.size() - 2;
+    while (index - 1 >= 0 && cycle.get(index) != startNode) {
+        int u = cycle.get(index - 1);
+        int v = cycle.get(index);
+        if (v.equals(markNode)) {
+            return new int[]{u, v};
+        }
+        if (graph.get(result[0]).get(result[1]) < graph.get(u).get(v)) {
+            result[0] = u;
+            result[1] = v;
+        }
+        index--;
+    }
+    return result;
+}
 private Map<Integer, Map<Integer, Integer>> = buildGraph(int[][] edges, int[] indegree) {
     Map<Integer, Map<Integer, Integer>> graph = new HashMap<>();
     
