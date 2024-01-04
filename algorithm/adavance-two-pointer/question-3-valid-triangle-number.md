@@ -2,7 +2,7 @@
 description: https://leetcode.com/problems/valid-triangle-number/description/
 ---
 
-# Question Valid Triangle Number
+# Question 3 Valid Triangle Number
 
 
 
@@ -30,12 +30,12 @@ Detail Logic
 
 
 
+x+ y > z , y+ z> x, x+ z> y&#x20;
 
+if x< y< z==> x+ y < z -----Z is sum
 
 ```java
 // Some code
-
-
 public int triangleNumber(int[] nums) {
     if (nums == null || nums.length < 3) {
         return 0;
@@ -61,3 +61,7 @@ private int sumLargerThan(int[] nums, int target, int left, int right) {
     return count;
 }
 ```
+
+
+
+#### Follow up find all pair?
