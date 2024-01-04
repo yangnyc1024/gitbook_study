@@ -127,6 +127,9 @@ Union(a,b)的时候，
 区别是什么？
 
 * union(a,b)的时候b的老大是谁，因为我们union的顺序是b加入a的话，b的老大是不是自己
+*
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2024-01-03 at 5.32.15 PM.png" alt=""><figcaption></figcaption></figure>
 
 ```java
 public int[] findRedundantConnect(int[][] edges) {
