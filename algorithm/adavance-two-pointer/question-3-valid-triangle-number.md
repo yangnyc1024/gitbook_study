@@ -4,12 +4,11 @@ description: https://leetcode.com/problems/valid-triangle-number/description/
 
 # Question 3 Valid Triangle Number
 
-
-
 #### 理解题目
 
 * 什么是三角形，任意两条边的和大于第三条边
-*
+
+
 
 #### Method 1
 
@@ -62,6 +61,6 @@ private int sumLargerThan(int[] nums, int target, int left, int right) {
 }
 ```
 
+TC& SC: O(n), O(n)
 
-
-#### Follow up find all pair?
+#### Follow up: find all pairs?
