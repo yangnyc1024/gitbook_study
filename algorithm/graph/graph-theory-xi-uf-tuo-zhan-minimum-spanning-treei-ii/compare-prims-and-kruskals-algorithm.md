@@ -1,4 +1,4 @@
-# Graph Theory XI: UF 拓展 && Minimum Spanning Tree
+# Compare Prims and Kruskal's Algorithm
 
 ## Prims' Algorithm
 
