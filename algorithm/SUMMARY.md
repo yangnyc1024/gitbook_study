@@ -350,6 +350,8 @@
   * [Subtopic: 2-diff](adavance-two-pointer/subtopic-2-diff.md)
   * [Subtopic: k pointers](adavance-two-pointer/subtopic-k-pointers.md)
   * [Subtopic: 谁小移谁](adavance-two-pointer/subtopic-shui-xiao-yi-shui.md)
+* [Advance Binary Search](advance-binary-search/README.md)
+  * [Problem 1 Classical Binary Search](advance-binary-search/problem-1-classical-binary-search.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
   * [Parameter passing](data-stucture-java/basic-knowledge/parameter-passing.md)
   * [Classes, objects and references](data-stucture-java/basic-knowledge/classes-objects-and-references.md)
