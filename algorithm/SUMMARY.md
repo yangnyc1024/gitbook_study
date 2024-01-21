@@ -357,6 +357,7 @@
   * [Enhanced Version 3: Search for what模拟两可missing number](advance-binary-search/enhanced-version-3-search-for-what-mo-ni-liang-ke-missing-number.md)
   * [Problem 9 Find Missing Number](advance-binary-search/problem-9-find-missing-number.md)
   * [Problem 10 Find Missing Number 2](advance-binary-search/problem-10-find-missing-number-2.md)
+  * [Problem 11 Missing Element in Sorted Array](advance-binary-search/problem-11-missing-element-in-sorted-array.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
   * [Parameter passing](data-stucture-java/basic-knowledge/parameter-passing.md)
   * [Classes, objects and references](data-stucture-java/basic-knowledge/classes-objects-and-references.md)
