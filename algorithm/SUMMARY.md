@@ -358,6 +358,8 @@
   * [Problem 9 Find Missing Number](advance-binary-search/problem-9-find-missing-number.md)
   * [Problem 10 Find Missing Number 2](advance-binary-search/problem-10-find-missing-number-2.md)
   * [Problem 11 Missing Element in Sorted Array](advance-binary-search/problem-11-missing-element-in-sorted-array.md)
+  * [Enhance Version 4 Dont know the search range](advance-binary-search/enhance-version-4-dont-know-the-search-range.md)
+  * [Problem 12: Search in a Sorted Array of Unknown Size/ First Bad Version](advance-binary-search/problem-12-search-in-a-sorted-array-of-unknown-size-first-bad-version.md)
 * [Java Knowledge](data-stucture-java/basic-knowledge/README.md)
   * [Parameter passing](data-stucture-java/basic-knowledge/parameter-passing.md)
   * [Classes, objects and references](data-stucture-java/basic-knowledge/classes-objects-and-references.md)
