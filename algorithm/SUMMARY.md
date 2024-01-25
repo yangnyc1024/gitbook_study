@@ -350,6 +350,8 @@
   * [Subtopic: 2-diff](adavance-two-pointer/subtopic-2-diff.md)
   * [Subtopic: k pointers](adavance-two-pointer/subtopic-k-pointers.md)
   * [Subtopic: 谁小移谁](adavance-two-pointer/subtopic-shui-xiao-yi-shui.md)
+* [Advance Sliding Window](advance-sliding-window/README.md)
+  * [Sliding Window 3 Non fix size longest](advance-sliding-window/sliding-window-3-non-fix-size-longest.md)
 * [Advance Binary Search](advance-binary-search/README.md)
   * [Problem 1 Classical Binary Search](advance-binary-search/problem-1-classical-binary-search.md)
   * [Enhance Version 2: Given a Sorted Collection(List, Matrix)](advance-binary-search/enhance-version-2-given-a-sorted-collection-list-matrix.md)
