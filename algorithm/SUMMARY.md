@@ -283,7 +283,7 @@
     * [Question 4 Array Hopper I](dynamic-programming/dynamic-programming-ii-from-bactracking-to-dynamic-programming/question-4-array-hopper-i.md)
     * [Question 5 Array Hopper II](dynamic-programming/dynamic-programming-ii-from-bactracking-to-dynamic-programming/question-5-array-hopper-ii.md)
     * [Part II: From Backtracking to Dynamic Programming](dynamic-programming/dynamic-programming-ii-from-bactracking-to-dynamic-programming/part-ii-from-backtracking-to-dynamic-programming.md)
-    * [Question 6 Longest Increasing Subsequence](dynamic-programming/dynamic-programming-ii-from-bactracking-to-dynamic-programming/question-6-longest-increasing-subsequence.md)
+    * [Question 6 Longest Increasing Subsequence母体](dynamic-programming/dynamic-programming-ii-from-bactracking-to-dynamic-programming/question-6-longest-increasing-subsequence-mu-ti.md)
   * [Dynamic Programming IV双序列匹配问题](dynamic-programming/dynamic-programming-iv-shuang-xu-lie-pi-pei-wen-ti/README.md)
     * [Problem 1: Longest Common Substring 母体](dynamic-programming/dynamic-programming-iv-shuang-xu-lie-pi-pei-wen-ti/problem-1-longest-common-substring-mu-ti.md)
     * [Side Topic: 空间优化的一般技巧](dynamic-programming/dynamic-programming-iv-shuang-xu-lie-pi-pei-wen-ti/side-topic-kong-jian-you-hua-de-yi-ban-ji-qiao.md)

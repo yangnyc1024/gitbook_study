@@ -1,4 +1,4 @@
-# Question 6 Longest Increasing Subsequence
+# Question 6 Longest Increasing Subsequence母体
 
 #### Method 1暴力解(从后往前，但是不会用在面试中，只是为了训练)
 
@@ -61,6 +61,38 @@ public int pureRecursion(int[] array, int index) {
 既然以某个index为开始的LIS一定永远都不会改变==》 那么我们以每一个starting index为开始的LIS只需要计算一次
 
 ```java
+class Solution{
+    public int lengthOfLIS(int[] array) {
+        if (array == null || array.length == 0) {
+            return 0;
+        }
+        int result = 0;
+        int[] LISStartingAtMemo = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            result = Math.max(result, PureRecursionMemo(array, i, LISStartingAtMemo));
+        }
+        return result;
+    }
+    
+    private int PureRecursionMemo(int[] array, int index, int[] LISStartingAtMemo) {
+        if (index == array.length) {
+            return 0;
+        }
+        // 如果我已经计算过了，那就别计算了，直接返回上次的结果
+        if (LISStartingAtMemo[index] != 0) {
+            return LISStartingAtMemo[index];
+        }
+        int subProblemResult = 0;
+        for (int i = index + 1; i < array.length; i++) {
+            if (array[i] > array[index]) {
+                subProblemResult = Math.max(subProblemResult, PureRecursionMemo(array, i , LISStartAtMemo));
+            }
+        }
+        //这次计算完 千万记下来
+        LISStartingAtMemo[index] = subProblemResult + 1;
+        return LISStartingAtMemo[index];
+    }
+}
 ```
 
 Longest Increating Subsequence时间复杂度是多少？O(N!)==> O(N^2)
