@@ -100,3 +100,7 @@ Longest Increating Subsequence时间复杂度是多少？O(N!)==> O(N^2)
 #### Method 4真的确定有优化， pure recursion memo to dynamic programming
 
 顺序又回到了ending index上：linear scan回头看
+
+```java
+public int longest
+```
