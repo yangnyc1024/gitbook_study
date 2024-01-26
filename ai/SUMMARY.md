@@ -14,6 +14,7 @@
   * [Model Evaluation](machine-learning/model-evaluation.md)
 * [Deep Learning](deep-learning/README.md)
   * [CNN Model](deep-learning/cnn-model/README.md)
+    * [Basic](deep-learning/cnn-model/basic.md)
     * [Convolutional Neural Networks(LeNet)](deep-learning/cnn-model/convolutional-neural-networks-lenet.md)
     * [Deep Convolution Neural Networks(AlexNet)](deep-learning/cnn-model/deep-convolution-neural-networks-alexnet.md)
     * [Networks Using Blocks (VGG)](deep-learning/cnn-model/networks-using-blocks-vgg.md)
