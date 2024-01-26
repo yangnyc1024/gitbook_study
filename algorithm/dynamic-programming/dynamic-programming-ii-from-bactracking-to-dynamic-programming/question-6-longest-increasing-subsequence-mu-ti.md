@@ -101,6 +101,45 @@ Longest Increating Subsequence时间复杂度是多少？O(N!)==> O(N^2)
 
 顺序又回到了ending index上：linear scan回头看
 
+
+
+Step1 DP definition
+
+* LIS\[i] represent longest increasing subsequence ending at i must including i
+
+Step 2 Base Case
+
+* LIS\[0] = 1
+
+Step 3 Induction Rule
+
+* LIS\[i] = Max(LIS\[j] + 1) iff j < i && array\[j] < array\[i]
+
+Step 4 Fill in order
+
+* left to right
+
+Step 5 Return what
+
+* globalMax of all LIS\[i]
+
 ```java
-public int longest
+public int longestOfLIS(int[] array){
+    int[] LIS = new int[array.length];
+    LIS[0] = 1;
+    int globalLongest - 1;
+    // left to right
+    for (int i = 0; i < array.length; i++) {
+        LIS[i] = 1;
+        for (int j = 0; j < i; j ++) {
+            if (array[j] < array[i]) {
+                LIS[i] = Math.max(LIS[i], LIS[j] + 1);
+            }
+            globalLongest = Math.max(globalLongest, LIS[i]);
+        }
+    }
+    return globalLongest;
+}
 ```
+
+TC & SC: O(n^2), O(n)
