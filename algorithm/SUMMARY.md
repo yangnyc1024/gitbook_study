@@ -288,6 +288,7 @@
     * [Question 6 Longest Increasing Subsequece 优化](dynamic-programming/dynamic-programming-iii/question-6-longest-increasing-subsequece-you-hua.md)
     * [Question 1 Find the longest Valid Obstacle Course at Each Position](dynamic-programming/dynamic-programming-iii/question-1-find-the-longest-valid-obstacle-course-at-each-position.md)
     * [Question 2 Russian Doll Envelopes](dynamic-programming/dynamic-programming-iii/question-2-russian-doll-envelopes.md)
+    * [Question 3 Longest Ascending Subsequence II](dynamic-programming/dynamic-programming-iii/question-3-longest-ascending-subsequence-ii.md)
   * [Dynamic Programming IV双序列匹配问题](dynamic-programming/dynamic-programming-iv-shuang-xu-lie-pi-pei-wen-ti/README.md)
     * [Problem 1: Longest Common Substring 母体](dynamic-programming/dynamic-programming-iv-shuang-xu-lie-pi-pei-wen-ti/problem-1-longest-common-substring-mu-ti.md)
     * [Side Topic: 空间优化的一般技巧](dynamic-programming/dynamic-programming-iv-shuang-xu-lie-pi-pei-wen-ti/side-topic-kong-jian-you-hua-de-yi-ban-ji-qiao.md)
