@@ -101,3 +101,4 @@ Solution 2: Sliding window
   * min(s.ValueSet())
 * 用hashmap\<String, index> + treeMap\<index, string>
 * 用double linkedlist
+  * DLL: (a, idx = 0) ---- (b, idx = 5) ---- (c, idx 6)
