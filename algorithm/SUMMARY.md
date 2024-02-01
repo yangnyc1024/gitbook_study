@@ -290,6 +290,7 @@
     * [Question 2 Russian Doll Envelopes](dynamic-programming/dynamic-programming-iii/question-2-russian-doll-envelopes.md)
     * [Question 3 Longest Ascending Subsequence II](dynamic-programming/dynamic-programming-iii/question-3-longest-ascending-subsequence-ii.md)
     * [Question 4 Longest Consecutive 1](dynamic-programming/dynamic-programming-iii/question-4-longest-consecutive-1.md)
+    * [Question 5 Longest Cross of 1s](dynamic-programming/dynamic-programming-iii/question-5-longest-cross-of-1s.md)
   * [Dynamic Programming IV双序列匹配问题](dynamic-programming/dynamic-programming-iv-shuang-xu-lie-pi-pei-wen-ti/README.md)
     * [Problem 1: Longest Common Substring 母体](dynamic-programming/dynamic-programming-iv-shuang-xu-lie-pi-pei-wen-ti/problem-1-longest-common-substring-mu-ti.md)
     * [Side Topic: 空间优化的一般技巧](dynamic-programming/dynamic-programming-iv-shuang-xu-lie-pi-pei-wen-ti/side-topic-kong-jian-you-hua-de-yi-ban-ji-qiao.md)
