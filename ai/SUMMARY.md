@@ -19,7 +19,7 @@
     * [Deep Convolution Neural Networks(AlexNet)](deep-learning/cnn-model/deep-convolution-neural-networks-alexnet.md)
     * [Networks Using Blocks (VGG)](deep-learning/cnn-model/networks-using-blocks-vgg.md)
     * [Network in Network(NiN)](deep-learning/cnn-model/network-in-network-nin.md)
-    * [Multi-Branch Networks(GoogLeNet)](deep-learning/cnn-model/multi-branch-networks-googlenet.md)
+    * [Multi-Branch Networks(GoogLeNet\&I mageNet)](deep-learning/cnn-model/multi-branch-networks-googlenet-and-i-magenet.md)
     * [Batch Normalization](deep-learning/cnn-model/batch-normalization.md)
     * [Residual Networks(ResNet) and ResNeXt](deep-learning/cnn-model/residual-networks-resnet-and-resnext.md)
     * [Densely Coneected Networks(DenseNet)](deep-learning/cnn-model/densely-coneected-networks-densenet.md)
