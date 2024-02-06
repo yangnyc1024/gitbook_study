@@ -83,6 +83,19 @@ space\
 #### Base Operations: 1. search "cat" in the trie
 
 ```java
+// finding the path from root which is equal to 'cat'
+// for reach of the characters in "cat", see if there is an edge associated with it for the next level
+public boolean search(String word) {
+    TrieNode cur = root;
+    for (int i = 0; i < word.length(); i++) {
+        TrieNode next = cur.children.get(word.charAt(i));
+        if (next == null) return false;
+        cur = next;
+    }
+    return cur.isWord;
+}
+
+// Time: O(word.length)
 ```
 
 #### Base Operations: 2. add "carp" into the trie
