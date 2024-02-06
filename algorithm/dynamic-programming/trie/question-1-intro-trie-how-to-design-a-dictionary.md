@@ -100,7 +100,9 @@ public boolean search(String word) {
 
 #### Base Operations: 2. add "carp" into the trie
 
-
+```java
+public add()
+```
 
 #### Base Operations: 3. delete “apple” from the trie
 
