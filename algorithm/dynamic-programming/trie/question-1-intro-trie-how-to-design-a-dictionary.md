@@ -101,12 +101,75 @@ public boolean search(String word) {
 #### Base Operations: 2. add "carp" into the trie
 
 ```java
-public add()
+// finding the path from root which is equal to "carp"
+// for each of the character in "carp", see if there is an edge associated with it for the next level
+// 1. if there is an edge, go to the corresponding child node
+// 2. if there is not, create the child node
+
+public boolean insert(String word) {
+    if (search(word)) {
+        return false;
+    }
+    TrieNode cur = root;
+    for (int i = 0; i < word.length(); i++) {
+        TrieNode next = cur.children.get(word.charAt(i));
+        if (next == null) {
+            next = new TrieNode();
+            cur.children.put(word.charAt(i), next);
+        }
+        cur = next;
+        // cur.count++;
+    }
+    cur.isWord = true;
+    return true;
+}
+// TC: O(word.length)
 ```
+
+
 
 #### Base Operations: 3. delete “apple” from the trie
 
+Solution 1:&#x20;
 
+* Store the path from root to the to-delete node in a stack
+* Mark the last node as not word
+* When popping a node form the stack, erase the node if it is not a word and has no children
+
+Solution 2:
+
+* 所以你再遍历你这个word，然后呢，每次看这接下来有几个单词，如果只剩一个了，剩下的全删了
+
+```java
+
+class TrieNode{
+    int count; // how many word are on this subtree(inclusive)
+    Map<Character, TrieNode> children;
+    boolean isWord; // indicate if the node is the end of the word
+}
+
+
+public boolean delete(String word) {
+    if (!search(word)) {
+        return false;
+    }
+    root.count--; //你每一次都需要delete
+    TrieNode cur = root;
+    for (int i = 0; i < word.length(); i++) {
+        TrieNode next = cur.children.get(word.charAt(i));
+        next.count--;
+        if (next.count == 0) {
+            cur.children.remove(word.charAt(i));
+            return true;
+        }
+        cur = next;
+    }
+    cur.isWord = false; // e.g. app
+    return true;
+}
+
+// Time O(word.length)
+```
 
 #### Base Operations: 4. find all the words in a given prefix
 
