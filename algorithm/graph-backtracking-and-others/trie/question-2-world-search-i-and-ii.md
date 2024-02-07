@@ -17,6 +17,29 @@ Middle Level
 
 
 ```java
+
+static final int[][] DIRS = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+public static List<String> findWordsBruteForce(char[][] board, String[] words) {
+    List<String> res = new ArrayList<>();
+    for (String word: words) {
+        if (exist(board, word))) {
+            res.add(word);
+        }
+    }
+    return res;
+}
+
+private static boolean exist(char[][] board, String word) {
+    boolean[][] visited = new boolean[rows][cols];
+    for (int i = 0 ; i < board.length; i++) {
+        for (int j = 0; j < board[0].length; j++) {
+            if (helper(board, i, j , word, 0, visited)) {
+                 return true;
+            }
+        }
+    }
+    return false;
+}
 private static boolean helper(char[][] board, int x, int y, String word, int index, boolean[][] visited) {
     // basic case
     if (index == word.length()) {
