@@ -173,3 +173,33 @@ public boolean delete(String word) {
 
 #### Base Operations: 4. find all the words in a given prefix
 
+for example find all with prefix "ca"
+
+* step 1: find the node x associated with prefix "ca"
+* step 2: do DFS on the subtree rooted at x to find all words
+
+```java
+
+// option 1
+class TrieNode {
+    // Maps a character to its corresponding child
+    Map<Character, TrieNode> children;
+    boolean isWord;
+    int value; // optional, a set doesn't need this field
+    string word;
+}
+
+public void findAllWordsUnderNode(TrieNode current, List<String> result) {
+    if (current.isWord) { // this is when we find a word.
+        result.add(current.word);
+        // shall we return here? No, children可能还有word
+    }
+    // find all branches
+    for (Entry<Character, TrieNode> child: current.children.EntrySet()) {
+        findAllWordsUnderNode(child.getValue(), result);
+    }
+}
+
+// option 2
+
+```
