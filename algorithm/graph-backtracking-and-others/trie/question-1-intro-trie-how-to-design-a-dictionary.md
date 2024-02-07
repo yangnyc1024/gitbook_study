@@ -178,6 +178,10 @@ for example find all with prefix "ca"
 * step 1: find the node x associated with prefix "ca"
 * step 2: do DFS on the subtree rooted at x to find all words
 
+
+
+Option 1:偷懒就是在这个点上已经存储了，否则你要存path
+
 ```java
 
 // option 1
@@ -200,6 +204,44 @@ public void findAllWordsUnderNode(TrieNode current, List<String> result) {
     }
 }
 
-// option 2
 
 ```
+
+Option 2:你就是要记录这个stringBuilder
+
+```java
+public List<String> findAllWordsWithPrefix(TrieNode root, String prefix) {
+    TrieNode matchNode = searchNode(root, prefix); // 你要先找到前缀
+    if (matchNode == null) {
+        return result;
+    }
+    List<String> result = new ArrayList<>();
+    findAllWordsUnderNode(matchNode, new StringBuilder(prefix), result);
+    return result;
+}
+
+public void findAllWordsUnderNode(TrieNode current, StringBuilder curPath, List<String> result) {
+    if (current.isWord) { // this is  when we find a word
+        result.add(curPath.toString());// we should not return here, children might have word
+    }
+    // all branches
+    for (Entry<Character, TrieNode> child: current.children.EntrySet()) {
+        curPath.append(child.getKey());
+        findAllWordsUnderNode(child.getValue(), curPath, result);
+        curPath.deleteCharAt(curPath.length() - 1);
+    }
+}
+```
+
+TC \* SC: O(search) + O(# of result words) = O(height) + O(# of result words)
+
+It can be extended to support more operations, what other possible queries can it support?
+
+* Wildcard expression match queries
+* regular expression match queries
+* words winthin certain edit distance
+
+e.g. Wildcard
+
+* "?" means single character. //.
+* "\*" means >= 0 arbitrary characters. //>=0
