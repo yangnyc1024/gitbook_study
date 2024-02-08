@@ -45,11 +45,14 @@ private static boolean helper(char[][] board, int x, int y, String word, int ind
     if (index == word.length()) {
         return true;
     }
+    //if (visited[x][y]) {
+    //    return false;
+    //}
     visited[x][y] = true;
     for (int[] dir: DIRS) {
         int neiX = dir[0] + x;
         int neiY = dir[1] + y;
-        if (valid(neiX, neiY, board)) {
+        if (valid(neiX, neiY, board) && visited[neiX][neiY]) {
             if (helper(board, neiX, neiY, word, index + 1, visited)) {
                 return true;
             }
@@ -131,7 +134,36 @@ Set<String> res, boolean[][] visited) {
     // visited represents visited cells on the path
     // from (i, j) to (x, y) (excluding (x, y))
     // base cases
+    if (isValid(board, x, y)) {
+        return;
+    }
+    if (visited[x][y]) {
+        return;
+    }
+    char ch = board[x][y];
+    if (!root.children.contains(ch)) {
+        return;
+    }
     
+    // recursive rule
+    root = root.children.get(ch);
+    sb.append(ch);
+    if (root.isWord) {
+        res.add(sb.toString());
+        // do not return here because of root.isWord is not a base case
+    }
+    visited[x][y] = true;
+    for (int[] dir: DIRS) {
+        int neiX = dir[0] + x;
+        int neiY = dir[1] + y;
+        helper(board, neiX, neiY, root, sb, res, visited);
+    }
+    visited[x][y] = false;
+    sb.deleteCharAt(sb.length() - 1);
+}
+
+private boolean isValid(char[][] board, int x, int y) {
+    return x >= 0 && x< board.length && y >=0 && y < board[0].length;
 }
 ```
 
