@@ -107,19 +107,31 @@ public static Set<String> findWords(char[][] board, String[] words) {
     final int rows = baord.length;
     final int cols = board[0].length;
     boolean[][] visited = new boolean[rows][cols];
+    StringBuilder sb = new StringBuilder();
     
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            helper(board, i, j, root, sb, res, visited);
+        }
+    }
+    return res;
 }
 
 private static TrieNdoe buildTrie(String[] words) {
-
-
+    TrieNode root = new TrieNode;
+    for (int i = 0; i < words.size; i++) {
+        root.add(words[i]);
+    }
+    return root;
 }
 
 
 private static void helper(char[][] board, int x, int y, TrieNode root, StringBuilder sb, 
 Set<String> res, boolean[][] visited) {
+    // visited represents visited cells on the path
+    // from (i, j) to (x, y) (excluding (x, y))
+    // base cases
     
-
 }
 ```
 
