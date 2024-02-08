@@ -102,6 +102,11 @@ public static Set<String> findWords(char[][] board, String[] words) {
         throw new IllegalArgumentException("invalid input");
     }
     Set<String> res = new HashSet<>();
+    // step one --> build the Trie form the given list of words
+    TrieNode root = buildTrie(words);
+    final int rows = baord.length;
+    final int cols = board[0].length;
+    boolean[][] visited = new boolean[rows][cols];
     
 }
 
