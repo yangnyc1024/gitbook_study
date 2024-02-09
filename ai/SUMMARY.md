@@ -49,6 +49,7 @@
   * [A/B testing](statistics-and-optimization/a-b-testing.md)
   * [Sampling/ABtesting/GradientMethod](statistics-and-optimization/sampling-abtesting-gradientmethod.md)
 * [Uncertainty Quantification](uncertainty-quantification/README.md)
+  * [General Intro for Uncertainty Quantatification](uncertainty-quantification/general-intro-for-uncertainty-quantatification.md)
   * [Conformal Prediction](uncertainty-quantification/conformal-prediction/README.md)
     * [Review the linear regression](uncertainty-quantification/conformal-prediction/review-the-linear-regression.md)
     * [Exchangeability](uncertainty-quantification/conformal-prediction/exchangeability.md)
