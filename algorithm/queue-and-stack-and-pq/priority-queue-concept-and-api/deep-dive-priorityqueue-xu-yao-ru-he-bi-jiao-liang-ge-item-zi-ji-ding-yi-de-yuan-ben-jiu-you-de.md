@@ -198,7 +198,7 @@ public static void main(String[] args) {
 
 ```java
 // Some code
-class ReverseComaprator implements Comparabor<Integer> {
+class ReverseComaprator implements Comparator<Integer> {
     @Override
     public int compare(Integer i1, Integer i2) {
         if (i1.equals(i2)) {
@@ -472,13 +472,13 @@ PriortyQueue<Integer> maxHeap = new PriorityQueue<>(
 
 ```java
 // Some code
-# Declaration 1: 
+// Declaration 1: 
 PriortyQueue<MyInteger> maxHeap = 
 new PriorityQueue<>((s1, s2) -> s1.value < s2.value? 1: s1.value > s2.value ? -1 : 0);
-# Declaration 2:
+// Declaration 2:
 PriortyQueue<MyInteger> maxHeap = 
 new PriorityQueue<>((s1, s2) -> Integer.valueOf(s2.value).compareTo(s1.value));
-# Declaration 3:
+// Declaration 3:
 PriortyQueue<MyInteger> maxHeap = 
 new PriorityQueue<>((s1, s2) -> Integer.compare(s2.value, s1.value));
 

@@ -103,6 +103,7 @@
     * [TreeMap API](hash-and-treemap/treemap-balanced-binary-search-tree/treemap-api.md)
   * [HashMap Design](hash-and-treemap/hashmap-design.md)
 * [Queue \&Stack & PQ](queue-and-stack-and-pq/README.md)
+  * [Cheat Sheet](queue-and-stack-and-pq/cheat-sheet.md)
   * [Queue & Stack Concept & API](queue-and-stack-and-pq/queue-and-stack-concept-and-api/README.md)
     * [Interface Queue](queue-and-stack-and-pq/queue-and-stack-concept-and-api/interface-queue/README.md)
       * [Queue API](queue-and-stack-and-pq/queue-and-stack-concept-and-api/interface-queue/queue-api.md)
