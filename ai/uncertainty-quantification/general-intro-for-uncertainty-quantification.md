@@ -1,4 +1,4 @@
-# General Intro for Uncertainty Quantatification
+# General Intro for Uncertainty Quantification
 
 {% embed url="https://sites.google.com/view/uncertainty-nlp" %}
 
