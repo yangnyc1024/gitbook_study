@@ -35,6 +35,7 @@
     * [Seuqence to Sequence Learning(Seq2Seq)](deep-learning/rnn/seuqence-to-sequence-learning-seq2seq.md)
   * [Transformer and Attention Mechanism](deep-learning/transformer-and-attention-mechanism/README.md)
     * [Attention and Kernel](deep-learning/transformer-and-attention-mechanism/attention-and-kernel.md)
+    * [Attention Scoring Functions](deep-learning/transformer-and-attention-mechanism/attention-scoring-functions.md)
     * [Multi-Head Attention](deep-learning/transformer-and-attention-mechanism/multi-head-attention.md)
     * [Self-Attention](deep-learning/transformer-and-attention-mechanism/self-attention.md)
     * [The Transformer Architecture](deep-learning/transformer-and-attention-mechanism/the-transformer-architecture.md)

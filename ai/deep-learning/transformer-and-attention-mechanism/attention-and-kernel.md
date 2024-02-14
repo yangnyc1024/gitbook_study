@@ -24,6 +24,5 @@
   * 其中$$x$$是查询，$$(x_i, y_i)$$是键值对。
   * &#x20;注意力汇聚是$$y_i$$的加权平均。 将查询$$x$$和键$$x_i$$之间的关系建模为 _注意力权重_（attention weight）$$\alpha(x,x_o)$$， 如图所示， 这个权重将被分配给每一个对应值$$y_i$$。&#x20;
   * 对于任何查询，模型在所有键值对注意力权重都是一个有效的概率分布： 它们是非负的，并且总和为1。
-  *   for example, $$f(x) = \sum_{i = 1}^{n} softmax(-\frac{1}{2}(x-x_i)^2)y_i$$, where 这里使用Gaussian kernel
+  * for example, $$f(x) = \sum_{i = 1}^{n} softmax(-\frac{1}{2}(x-x_i)^2)y_i$$, where 这里使用Gaussian kernel
 
-      \
