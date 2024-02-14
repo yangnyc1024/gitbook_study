@@ -101,6 +101,7 @@
   * [TreeMap(Balanced Binary Search Tree)](hash-and-treemap/treemap-balanced-binary-search-tree/README.md)
     * [TreeSet API](hash-and-treemap/treemap-balanced-binary-search-tree/treeset-api.md)
     * [TreeMap API](hash-and-treemap/treemap-balanced-binary-search-tree/treemap-api.md)
+  * [Hash 底层](hash-and-treemap/hash-di-ceng.md)
   * [HashMap Design](hash-and-treemap/hashmap-design.md)
 * [Queue \&Stack & PQ](queue-and-stack-and-pq/README.md)
   * [Cheat Sheet](queue-and-stack-and-pq/cheat-sheet.md)
