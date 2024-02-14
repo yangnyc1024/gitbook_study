@@ -26,9 +26,9 @@ $$P(deep, learning, is, fun) = P(deep)P(learning | deep) P(is| deep, learning) P
 
 * A common strategy is to perform some form of _Laplace smoothing_. The solution is to add a small constant to all counts. Denote by $$n$$ the total number of words in the training set and $$m$$ the number of unique words. This solution helps with singletons.
 
-### Perplexity
+### Perplexity(困惑度)
 
-* We defined entropy, surprisal, and cross-entropy混乱程度来考虑问题
+We defined entropy, surprisal, and cross-entropy混乱程度来考虑问题
 
 ### Partitioning Sequences(总共的长度)
 
