@@ -56,8 +56,6 @@ public static class MyHashMap<String, Integer> {
             return 0;
         }
         return key.hashCode() & 0X7FFFFFFFF
-        
-        
     }
     
     
