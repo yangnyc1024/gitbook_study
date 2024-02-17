@@ -1,4 +1,4 @@
-# HashMap Design
+# Practice 1 HashMap Design
 
 
 
@@ -56,6 +56,29 @@ public static class MyHashMap<String, Integer> {
             return 0;
         }
         return key.hashCode() & 0X7FFFFFFFF
+    }
+    // 16, 1,2,3,4,5,6,7,8,9,A,B,C,D,E,F
+    // OX7FFFFFFFF => 0111 1111 1111 1111 1111 1111 1111 1111.
+    // 1 & anynumber = any number, 0 & anynumber = 0
+    
+    // 既然说我只要有个key就有hashcode了，我怎么知道这个key应该在我的map的array里的哪个index bucket
+    // 你给我一个key，我能告诉你这个key在哪个bucket里
+    
+    private int getIndex(String key) {
+        int hashCode = hash(key)
+        return hashCode % this.capacity;
+    }
+    
+    // rehashing: 扩容 这个方法能告诉我们现在的hashmap的状况，需不需要rehash
+    // 如果当前的map里的entry的总数/capacity =》 你设置的load factor了，那么我们就应该，否不不应该
+    private boolean needRehashing() {
+        float ratio = (size  + 0.0f/ capacity);
+        return ratio >= this.loadFactor;
+    }
+    
+    private void clear() {
+        Arrays.fill(this.buckets, null);
+        size = 0;
     }
     
     
