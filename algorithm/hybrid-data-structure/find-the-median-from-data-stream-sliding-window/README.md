@@ -2,7 +2,7 @@
 description: https://leetcode.com/problems/sliding-window-median/
 ---
 
-# Find the Median from Data Stream/Sliding Window
+# Advance 1: Find the Median from Data Stream/Sliding Window
 
 ## Question
 

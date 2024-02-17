@@ -2,7 +2,7 @@
 description: https://leetcode.com/problems/lru-cache/
 ---
 
-# LRU cache
+# Problem 1 LRU cache
 
 have been updated to new version
 

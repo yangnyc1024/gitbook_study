@@ -1,4 +1,4 @@
-# Priority Queue小练习
+# Question 0 Compartor小练习
 
 ```java
 class MyNode {
@@ -131,3 +131,4 @@ public static void main(String[] args) {
 }
 
 ```
+
