@@ -40,32 +40,50 @@ class Solution {
         stack2 = new ArrayDeque<>();
     }
     public void offerLast(int element) {
-    
+        stack2.offerFirst(element);
     }
     
     public void offerFirst(int element) {
-    
+        stack1.offerFirst(element);
     }
     
     public Integer pollLast() {
-    
+        if(stack2.isEmpty()) {
+            move(stack1, stack2);
+        }
+        return stack1.pollFirst();
     }
     public Integer peekLast() {
+        if(stack2.isEmpty()) {
+            move(stack1, stack2);
+        }
+        return stack1.peekFirst();
+    }
     
+    public Integer pollFirst() {
+        if(stack1.isEmpty()) {
+            move(stack2, stack1);
+        }
+        return stack1.pollFirst();
     }
     public Integer peekFirst() {
-    
+        if (stack1.isEmpty()) {
+            move(stack2, stack1);
+        }
+        return stack1.peekFirst();
     }
     public int size() {
-    
+        return stack1.size() + stack2.size();
     }
     
     public void isEmpty() {
-    
+        return stack1.isEmpty() && stack2.isEmpty();
     }
     
     private void move(Deque<Integer> stackFrom, Deque<Integer> stackTo) {
-    
+        while(!stackTo.isEmpty()) {
+            stackTo.offerFirst(stackFrom.pollFirst());
+        }
     } 
 }
 ```
