@@ -31,10 +31,35 @@ public class Stack {
         this.size = 0;
     }
     public Integer pop() {
-        
+        if (head == null) {
+            return null;
+        }
+        ListNode result = head;
+        head = head.next;
+        result.next = null;
+        return result.value;
     }
-
-}// Some code
+    public Integer peek() {
+        if (head == null) {
+            return null;
+        }
+        return head.value;
+    }
+    
+    public boolean push(int element) {
+        ListNode newNode = new ListNode(element);
+        newNode.next = head;
+        head = newNode;
+        size++;
+        return true;
+    }
+    public int size() {
+        return size;
+    }
+    public boolean isEmepty() {
+        return size == 0;
+    }
+}
 ```
 
 
