@@ -63,3 +63,5 @@
     * [Full Conformal Coverage](uncertainty-quantification/conformal-prediction/full-conformal-coverage.md)
     * [Cross-Validation +](uncertainty-quantification/conformal-prediction/cross-validation-+.md)
     * [Conformal Histgram Regression](uncertainty-quantification/conformal-prediction/conformal-histgram-regression.md)
+* [Knowledge up to day](knowledge-up-to-day/README.md)
+  * [Paper Reading](knowledge-up-to-day/paper-reading.md)
