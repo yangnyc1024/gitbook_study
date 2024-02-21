@@ -2,7 +2,7 @@
 description: https://leetcode.com/problems/design-bounded-blocking-queue/
 ---
 
-# Implement Queue
+# Implement Queue by Array
 
 
 
@@ -19,6 +19,22 @@ High Level/思考方向：
 
 
 
+
+
+注意：
+
+* 这其实是个双指针
+* head只能往右移动（因为<mark style="color:red;">head的右边是queue的第一个元素</mark>，head只是控制poll），tail只能往右移动（因为<mark style="color:red;">tail是queue的最后一个元素</mark>，tail它只控制opffer）
+  * 注意我们这里用的是左开，右闭，
+  * 长度(tail -head -1) % array.length，（head，tail],&#x20;
+  * offer的话，(head, tail+1]
+  * poll的话，(head + 1, tail]
+  * peak的话，(head +1) % array.length
+* 如果head的右边是tail，tail的左边是head，说明是empty
+* 如果head==tail，说明是full
+
+
+
 ```java
 package QueueStackDeque;
 
@@ -29,7 +45,7 @@ import java.util.*;
 public class QueueByArrays2 {
 
 
-   private int head; //private means variable is only accessible inside the class
+   private int head; //private means the variable is only accessible inside the class
        // head is the head
    private int tail;
    private int[] array;
