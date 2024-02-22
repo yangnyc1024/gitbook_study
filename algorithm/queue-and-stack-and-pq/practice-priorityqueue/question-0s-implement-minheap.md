@@ -1,118 +1,130 @@
 # Question 0s Implement MinHeap
 
-```java
-public class maxHeap {
-    private int[] array;
-    private int size;
-    public maxHeap(int capacity) {
-        this.array = new int[capacity];
-        this.size = 0;
-    }
-    public maxHeap(int[] array) {
+<pre class="language-java"><code class="lang-java"><strong>public class minHeap{
+</strong>    private int[] array;
+    private int size; // size represents current # element
+    
+    public minHeap(int[] array) {
+        // sanity check
+        if (array == null || array.length == 0) {
+            throw new IllegalArgumentException("input array cannot be null or empty");
+        }
         this.array = array;
-        this.size = array.length;
+        this.size =  array.length;
         heapify();
     }
     
-    public int getSize() {
-        return this.size;
-    }
+    public minHeap(int cap) {
+        if (cap &#x3C;= 0) {
+            throw new IllegalArguementException("capacity cannot be &#x3C;= 0")
+        }
+        array = new int[cap];
+        size = 0;
+        }
     
-    public boolean isEmpty() {
-        return this.size == 0;
-    }
-    
-    public boolean isFull() {
-        return this.size == array.length;
-    }
-    private void swap(int[] array, int i , int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-    private void percolateDown(int index) {
-        while (index * 2 + 2 <= this.size ) {
-            // 换给谁
-            int leftChild = index * 2 + 1;
-            int rightChild = index * 2 + 2;
-            int candidateChild = leftChild;
-            if (rightChild < size && array[rightChild] > array[leftChild]) {
-                candidateChild = rightChild;
-            }
-            //到底需不需要换
-            if (array[index] < array[candidateChild]) {
-                swap(array, index, candidateChild);
-            }else {
-                break;
-            }
-            index = candidateChild;
+    private void heapify(){
+        //for (int i = 0; i &#x3C; array.length /2; i++) {
+           // percolateDown(i);
+        //}
+        for (int i = size / 2 - 1; i >= 0; i--) {
+            percolateDown(i)
         }
     }
-    private void percolatedUp(int index) {
-        // 你给我一个index我怎么知道我能不能换，能换是因为有爸爸
-        // 什么叫有爸爸，有爸爸means (index - 1) / 2 >= 0 ==> index > 0
+    
+    // curIndex --- parent= (curIndex - 1) /2; 
+    // curIndex --- leftChiIndex = curIndex * 2 + 1; rightChiIndex = curIndex * 2 + 2;
+    private void percolateUp(int index) {
+        if (index &#x3C; 0 &#x26;&#x26; index >= size) {
+            throw new ArrayIndexOutOfBoundsException("invalid index range");
+        }
         while (index > 0) {
-            int parentIndex = (index - 1) / 2;
-            if (array[index] > array[parentIndex]) {
-                swap(array, index, parentIndex);
+            int pareIndex = (index - 1) / 2;
+            if (array[pareIndex] > array[index]) {
+                swap(pareIndex, index);
             } else {
                 break;
             }
-            index = parentIndex;
+            index = pareIndex;
         }
-    }
-    private void heapify() {
-        //  原理：所有能进行percolateDown()的元素，全部从后向前进行一边perDown()
-        for (int i = size/ 2 - 1; i >= 0; i--) {
-            percolateDown(i);
-        }
+    
     }
     
-    public int poll() {
-        if (isEmpty()) {
-            throw new NoSuchElemntException('Harray yyds!');
+    private void percolateDown(int index) {
+        if (index &#x3C; 0 &#x26;&#x26; index >= size) {
+            throw new ArrayIndexOutOfBoundsException("invalid index range");
         }
-        int dingduodeyuansu = array[0]; // 变量名更有目的意义，且英文
-        // step 1: 先拿走这个，1吧最后一个元素填过来
-        array[0] = array[size - 1];
-        this.size--;
-        percolateDown(0);
-        return dingduandeyuansu;
+        while (index &#x3C;= size / 2- 1) {
+            int leftChiIndex = index * 2 +1;
+            int rightChiIndex = index * 2 + 2;
+            int candIndex = leftChiIndex;
+            if (rightChiIndex &#x3C; size &#x26;&#x26; array[leftChiIndex] > array[rightChiIndex]) {
+                candIndex  = rightChiIndex;
+            }
+            if (array[candIndex] &#x3C; array[index] {
+                swap(candIndex, index);
+            } else {
+                break;
+            }
+            index = candIndex;
+        }
     }
     
     public int peek() {
-        if (isEmpty()) {
-            throw new NoSuchElemntException('Harray yyds!');
+        if (size == 0) {
+            throw new NoSuchElementException("heap is empty");
         }
         return array[0];
     }
     
-    public void offer(int newElement) {
-        // 先放在最后一个，有一个位置， pUp()
-        if (isFull()) {
-            int[] newHeap = new int[(int)array.length * 2.0];
-            for(int i = 0 ; i < this.array.length; i++) {
-                newHeap[i] = array[i];
-            }
-            this.array = newHeap; // 一定不能忘
-        }
-        // step 1: 放在最后一个
-        array[size] = newElement;
-        // step 2: 可能位置不对，把它放到对的位置
-        this.size++;
-        percolateUp(size - 1);
+    public int poll() {
+        if (size == 0) {
+            throw new NoSuchElementException("heap is empty");
+        }    
+        int ret = array[0];
+        array[0] = array[size - 1];
+        size--;
+        percolateDown(0);
+        // size--; // wrong!
     }
     
-    public int update(int index, int newValue) {
-        int meidiaode = array[index];
-        array[index] = newValue;
-        //得跟这个位置以前的value进行比较，如果比以前的值大，可能往上走，如果没有就往下走
-        if (newValue > meidiaole) {
-            percolateUp(index);
-        } else {
-            percolateDown(index);
+    public void offer(int ele) {
+        if (size == array.length) {
+            array = Arrays.copyof(array, (int)(array.length * 1.5));
         }
-        return meidiaode;
+    
+    }
+    public int update(int index, int newValue) {
+        if (index &#x3C;0 || index > size - 1) {
+            throw new ArrayIndexOutOfBoundsException("invalid index range");
+        }
+        
+        // update the value
+        int oldValue = array[index];
+        array[index] = newValue;
+        
+        // percolateDown &#x26; percolateUp
+        if (oldValue &#x3C; newValue) {
+            percolateDown(index);
+        } else {
+            percolateUp(index);
+        }
+        
+        return oldValue;
+    }
+    
+    private void swap(int left, int right) {
+        int tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
+    }
+    public int size() {
+        return size;
+    }
+    public boolean isEmpty() {
+        return size == 0;
+    }
+    public boolean isFull() {
+        return size == array.length;
     }
 }
-```
+</code></pre>
