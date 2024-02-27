@@ -119,52 +119,55 @@ public int[] kSmallest(int[] array, int k) {
 
 
 ```java
-public int[] kSmallest(int[] array, int k) {
+public class Solution {
+  public int[] kSmallest(int[] array, int k) {
+    // Write your solution here
+
     // sanity check
+    if (array == null || array.length == 0 || k <=0) {
+      return new int[]{};
+    }
+
+    // build the minheap
+    heapify(array, 0, array.length - 1);
+    
+    // poll k smallest element out
     int[] result = new int[k];
-    
-    // step 1: heapify all elements in array
-    heapify(array);
-    
-    // step 2: each time poll out the first one
-        // poll the first element in the array until we get k elements
-        // swap the first and the array.length - 1 - i element;
-        // percolateDown the first element;
-    
-    for (int i = 0; i < k; i ++) {
-        result[i] = array[0];
-        swap(array, 0, array.length - 1 - i);
-        percolateDown(array, i, array.length - i); // the last element is size
+    for (int i = 0; i < k; i++) {
+      result[i] = array[0];
+      swap(array, 0, array.length - i - 1);
+      percolateDown(array, 0, array.length - i - 1);// 下一次少了一个
     }
     return result;
-}
-
-private void heapify(int[] array) {
-    for (int i = array/ 2 - 1; i >= 0; i++) {
-        percolateDown(array, i , array.length);
+  }
+  private void swap(int[] array, int left, int right) {
+    int temp = array[left];
+    array[left] = array[right];
+    array[right] = temp;
+  }
+  
+  private void heapify(int[] array, int left, int right) {
+    int size = right - left + 1;
+    for (int i = size /2 - 1; i >= 0; i--) {
+      percolateDown(array, i, size);
     }
-}
-
-private void swap(int[] array, int i, int j) {
-    int temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-}
-private void percolateDown(int[] array, int index, int size) { //这里的size是0，size-1的点
-    while (index * 2 + 2 <= size) {
-        int leftChild = 2 * index + 1;
-        int rightChild = 2 * index + 2;
-        int candidate = leftChild;
-        if (rightChild < size. && array[leftChild] < array[rightChild]) {
-            candidate = rightChild;
-        }
-        if (array[index] < array[candidate]) {
-            swap(arary, index, candidate);
-        } else {
-            break;
-        }
-        index = candidate;
-    } 
+  }
+  private void percolateDown(int[] array, int index, int size) {
+    while (index <= size / 2 -  1) {
+      int leftIndex = index * 2 + 1;
+      int rightIndex = index * 2 + 2;
+      int candIndex = leftIndex;
+      if (rightIndex < size && array[rightIndex] < array[leftIndex]) {
+        candIndex = rightIndex;
+      }
+      if (array[candIndex] < array[index]) {
+        swap(array, candIndex, index);
+      } else {
+        break;
+      }
+      index = candIndex;
+    }
+  }
 }
 ```
 
