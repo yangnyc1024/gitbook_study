@@ -8,3 +8,5 @@
 * [Docker](docker.md)
 * [Natural Language Processing(NLP) and Topic Modeling on User Review Dataset](natural-language-processing-nlp-and-topic-modeling-on-user-review-dataset/README.md)
   * [Summary](natural-language-processing-nlp-and-topic-modeling-on-user-review-dataset/summary.md)
+* [Movie Recommendation Engine](movie-recommendation-engine/README.md)
+  * [Summary](movie-recommendation-engine/summary.md)

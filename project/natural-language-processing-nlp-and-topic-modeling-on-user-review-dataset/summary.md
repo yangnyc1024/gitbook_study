@@ -4,6 +4,9 @@
 
 * insider for user review fo a product in Amazon Main Topic
 * data size: 300MB(megabyte)
+*
+
+    <figure><img src="../.gitbook/assets/Screen Shot 2021-08-17 at 2.21.41 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### What have done?
 
@@ -24,5 +27,11 @@
 
 #### Result Evaluation
 
-* From LDA, we can see from the customer review: topics are about good, nice ,beauti, etc
-* From K-means, we can see also love, nice, good, but it is not cheap.
+* From LDA, we can see from the customer review topics are about good, nice ,beauty, etc
+* From K-means, we can also see love, nice and good, but it is not cheap.
+
+Reference:
+
+[https://zhuanlan.zhihu.com/p/103438436\
+\
+https://zhuanlan.zhihu.com/p/31470216](https://zhuanlan.zhihu.com/p/103438436https:/zhuanlan.zhihu.com/p/31470216)
