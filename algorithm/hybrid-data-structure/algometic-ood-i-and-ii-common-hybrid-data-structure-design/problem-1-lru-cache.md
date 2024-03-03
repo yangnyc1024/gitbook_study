@@ -37,7 +37,8 @@ have been updated to new version
   * cell{key, value, index(hidden)}
 * 再注意，多加结构的时候，必须用cell来做一个单位，会让思路更简单，比如说这道题如果用treeSet
   * map(key, <mark style="color:red;">cell</mark>) && container(<mark style="color:red;">cell</mark>)
-  * 并不能用<mark style="color:yellow;">map(key, index)</mark> && container(cell) , and <mark style="color:yellow;">Cell only have{key, index} ，why???</mark>
+  * <mark style="color:red;">并不能用map(key, index) && container(cell) , and Cell only have{key, index} ，why???</mark>
+    * 因为如果你需要知道<mark style="color:red;">这个元素里的其他资料</mark>
 
 ```java
 /*
