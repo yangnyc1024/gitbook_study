@@ -18,7 +18,7 @@
   * 在残差连接的加法计算之后，紧接着应用_层规范化_（layer normalization） (Ba _et al._, 2016)。
   * 因此，输入序列对应的每个位置，Transformer编码器都将输出一个$$d$$维表示向量。
 
-### Transformers的解码器
+#### Transformers的解码器
 
 * Transformer解码器也是由多个相同的层叠加而成的，并且层中使用了残差连接和层规范化。
 * 除了编码器中描述的两个子层之外，解码器还在这两个子层之间插入了第三个子层，称为_编码器－解码器注意力_（encoder-decoder attention）层。
