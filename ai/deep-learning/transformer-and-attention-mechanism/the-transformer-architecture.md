@@ -6,6 +6,26 @@
 
 
 
+### Transformer的架构
+
+#### Transformer的编码器
+
+* 从宏观角度来看，Transformer的编码器是由多个相同的层叠加而成的，每个层都有两个子层（子层表示为$$sublayer$$）。
+  * 第一个子层是_多头自注意力_（multi-head self-attention）汇聚；
+  * 第二个子层是_基于位置的前馈网络_（positionwise feed-forward network）。具体来说，在计算编码器的自注意力时，查询、键和值都来自前一个编码器层的输出。
+* 每个子层都采用了_残差连接_（residual connection）。
+  * 在Transformer中，对于序列中任何位置的任何输入$$x \in \mathbb{R}^d$$，都要求满足$$sublayer(x)\in \mathbb{R}^d$$，以便残差连接满足$$x+sublayer(x)\in \mathbb{R}^d$$。
+  * 在残差连接的加法计算之后，紧接着应用_层规范化_（layer normalization） (Ba _et al._, 2016)。
+  * 因此，输入序列对应的每个位置，Transformer编码器都将输出一个$$d$$维表示向量。
+
+### Transformers的解码器
+
+* Transformer解码器也是由多个相同的层叠加而成的，并且层中使用了残差连接和层规范化。
+* 除了编码器中描述的两个子层之外，解码器还在这两个子层之间插入了第三个子层，称为_编码器－解码器注意力_（encoder-decoder attention）层。
+  * 在编码器－解码器注意力中，查询来自前一个解码器层的输出，而键和值来自整个编码器的输出。
+  * 在解码器自注意力中，查询、键和值都来自上一个解码器层的输出。但是，解码器中的每个位置只能考虑该位置之前的所有位置。
+  * 这种_掩蔽_（masked）注意力保留了_自回归_（auto-regressive）属性，确保预测仅依赖于已生成的输出词元。
+
 
 
 
