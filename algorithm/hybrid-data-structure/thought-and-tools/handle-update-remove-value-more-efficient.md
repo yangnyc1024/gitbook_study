@@ -6,6 +6,8 @@ Method 1: Lazy deletion:
 * Implement:&#x20;
   * hashMap?
   * Element with boolean isDelete?
+* reference
+  * It simply stores how many copies of a given item have to removed. The price for this simple implementation is a larger worst case complexity of the operations. If your heap contains n elements plus k elements still to be removed, then the operations have time complexity O(log(n + k)).
 
 Method 2:&#x20;
 
