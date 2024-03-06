@@ -44,9 +44,10 @@ have been updated to new version
 /*
 Clarification:
 	- get
-		- update key access order
+		- given key, to see value
 		- return the value
 	- put
+		- given key, to edit value
 		- update key access order(arbitrary)
 		- update key's value ==> update value(look up)
 		- if key is in?
