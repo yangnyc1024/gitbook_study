@@ -434,101 +434,107 @@ capacity
 
 ````java
 
+import static java.lang.Math.nextDown;
+
+/*
+Element: <key, value, timeStamp>
+<key, Element>
+<Element_1> --> <Element_2>
+get: given a key to see if we can find the value in the container(using the lookupMap check)
+ in? find this element, rand update its timeStamp, put it back
+ not? reutrn -1
+put: given a key and value  
+- container this key, find this element, update its value& timeStamp, and put it back
+- not container, 
+    - if reach the capacity, delete the least element
+    - put this element into the container
+
+*/
 
 
+class LRUCache {
+    // class Node implements Comparable<Node> {
+    class Node {
+        int key;
+        int value;
+        int timeStamp;
+        Node prev;
+        Node next;
+        // public Node (int key, int value, int timeStamp) {
+        public Node (int key, int value) {
+            this.key = key;
+            this.value = value;
+            // this.timeStamp = timeStamp;
+        }
+        // @Override
+        // public int compareTo(Node that) {
+        //     return Integer.compare(this.timeStamp, that.timeStamp);
+        // }
+    }
 
-
-
-
-
-// class LRUCache {
-
-//   // map: key: key, value: DLinkedNode
-//   // DLinkedNode: key, value, prevNode, nextNode
-//     // 记得两个一起操作
-
-//     private class DLinkedNode {
-//         int key;
-//         int value;
-//         DLinkedNode prev;
-//         DLinkedNode next;
-//         // public DLinkedNode(int key, int value) {
-//         //     this.key = key;
-//         //     this.value = value;
-//         // }
-//     }
-//     private int capacity;
-//     private Map<Integer, DLinkedNode> map = new HashMap<>();
-//     private DLinkedNode head; // head -> last element // head 一般都是新加的
-//     private DLinkedNode tail; // tail -> first element to could be delete
-
-//     public LRUCache(int capacity) {
-//         this.capacity = capacity;
-//         // DLinkedNode head = new DLinkedNode(-1, -1); //这样不赋值啊！！！！不是同一个head
-//         // DLinkedNode tail = new DLinkedNode(-1, -5);
-//         this.head = new DLinkedNode();
-//         this.tail = new DLinkedNode();
-//         head.next = tail;
-//         tail.prev = head;
-
-//     }
+    private Node head;
+    private Node tail;
+    private Map<Integer, Node> map;
+    private final int CAPACITY;
+    public LRUCache(int capacity) {
+        this.CAPACITY = capacity;
+        this.map = new HashMap<>();
+    }
     
-//     public int get(int key) {
-//       // get from map
-//       // delete it from the doublelinklist
-//       // return 
-//         DLinkedNode cur= map.get(key); //不需要删，而是更新位置
-//         if (cur == null) return -1;
-//         deleteNode(cur);
-//         addNode(cur);
-//         return cur.value;
-
-//     }
+    public int get(int key) {
+        if (!map.containsKey(key)) {
+            return -1;
+        }
+        Node cur = map.get(key);
+        deleteNode(cur);
+        addNode(cur);
+        return cur.value;
+    }
     
-//     public void put(int key, int value) {
-//         DLinkedNode potentialNode = map.get(key);
-//         if (potentialNode != null) {
-//             potentialNode.value = value;
-//             deleteNode(potentialNode);
-//             addNode(potentialNode);
-//         }
-//         else {
-//             DLinkedNode curNode = new DLinkedNode();
-//             curNode.key = key;
-//             curNode.value = value;
-//             map.put(key, curNode);  // add in map
-//             addNode(curNode);  // add in doubleLinedList
-//             if (map.size() > capacity) {
-//                 DLinkedNode deleteNode = tail.prev;
-//                 deleteNode(deleteNode);
-//                 map.remove(deleteNode.key);
-//             }
-//         }
-//     }
-    
-//     private void deleteNode(DLinkedNode curNode) {
-//         DLinkedNode prevNode = curNode.prev;
-//         DLinkedNode nextNode = curNode.next;
-//         prevNode.next = nextNode;
-//         nextNode.prev = prevNode;
-//         curNode.prev = null;
-//         curNode.next = null;
-//     }
+    public void put(int key, int value) {
+        if (map.containsKey(key)) {
+            Node cur = map.get(key);
+            cur.value = value;
+            deleteNode(cur);
+            addNode(cur);
+        } else {
+            if (map.size() == this.CAPACITY) {
+                deleteNode(tail);
+            }
+            addNode(new Node(key, value));
+        }
+    }
+    private void deleteNode(Node node)  {
+        map.remove(node.key);
+        if (node.prev != null && node.next != null) {
+            Node prevNode = node.prev;
+            Node nextNode = node.next;
+            prevNode.next = nextNode;
+            nextNode.prev = prevNode;
+        }
+        else if (node.prev == null && node.next != null) { // node = head, more than 2 node
+            head = node.next;
+            head.prev = null;
+        }
+        else if (node.prev != null && node.next == null) { // node = tail, more than 2 node
+            tail = node.prev;
+            tail.next = null;
+        } else { // node = head = tail, only 1 element
+            head = tail = null;
+        }
+        node.prev = node.next = null;
+    }
 
-//     private void addNode(DLinkedNode curNode) {
-//         DLinkedNode next = head.next;
-//         head.next = curNode;
-//         curNode.prev = head;
-//         curNode.next = next;
-//         next.prev = curNode;
-//         // curNode.prev = head;
-//         // curNode.next = head.next;
-//         // head.next.prev = curNode;
-//         // head.next = curNode;
-
-//     }
-
-// }
-
+    private void addNode(Node node)  {
+        map.put(node.key, node);
+        if (head == null) {
+            head = tail = node;
+        } else {
+            node.next = head;
+            head.prev = node;
+            head = node;
+        }
+    }
+}
 ```
 ````
