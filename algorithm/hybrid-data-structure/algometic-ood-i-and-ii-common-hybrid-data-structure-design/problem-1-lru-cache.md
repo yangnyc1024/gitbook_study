@@ -130,6 +130,15 @@ capacity:
 
 * 注意put的details操作
 
+
+
+FYI
+
+```java
+Timestamp today = new Timestamp(System.currentTimeMillis())
+
+```
+
 #### TreeSet Version
 
 ````java
