@@ -1,2 +1,0 @@
-# Knowledge up to day
-
