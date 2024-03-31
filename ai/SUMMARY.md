@@ -65,6 +65,8 @@
     * [Full Conformal Coverage](ai-risk-and-uq/conformal-prediction/full-conformal-coverage.md)
     * [Cross-Validation +](ai-risk-and-uq/conformal-prediction/cross-validation-+.md)
     * [Conformal Histgram Regression](ai-risk-and-uq/conformal-prediction/conformal-histgram-regression.md)
+  * [Calibration](ai-risk-and-uq/calibration/README.md)
+    * [Background](ai-risk-and-uq/calibration/background.md)
 * [Research](knowledge-up-to-day/README.md)
   * [Paper Reading](knowledge-up-to-day/paper-reading.md)
 * [Machine Learning System Design](machine-learning-system-design.md)
