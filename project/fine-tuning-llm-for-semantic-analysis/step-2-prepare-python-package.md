@@ -5,12 +5,17 @@
 `requirements.txt` file should look something like this:
 
 ```
+numpy
+pandas
+scikit-learn
+datasets
+tqdm
 torch==2.0.0
-accelerate==0.23.0
-peft==0.5.0
 bitsandbytes==0.41.1
 transformers==4.31
+peft==0.5.0
 trl==0.7.2
+accelerate==0.23.0
 ```
 
 When someone wants to install these packages, they would use the command:
