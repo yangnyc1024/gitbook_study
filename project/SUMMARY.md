@@ -1,7 +1,8 @@
 # Table of contents
 
 * [Fine Tuning LLM for semantic analysis](README.md)
-  * [Prepare Virtual Environment & Reference](fine-tuning-llm-for-semantic-analysis/prepare-virtual-environment-and-reference.md)
+  * [System Design](fine-tuning-llm-for-semantic-analysis/system-design.md)
+  * [Step 1: Prepare Virtual Environment & Reference](fine-tuning-llm-for-semantic-analysis/step-1-prepare-virtual-environment-and-reference.md)
   * [Data Prepare & Feature Engineering](fine-tuning-llm-for-semantic-analysis/data-prepare-and-feature-engineering.md)
   * [Training & Testing](fine-tuning-llm-for-semantic-analysis/training-and-testing.md)
   * [Monitor](fine-tuning-llm-for-semantic-analysis/monitor.md)
