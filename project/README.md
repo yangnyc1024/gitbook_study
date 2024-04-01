@@ -1,5 +1,2 @@
-# Fine Tuning LLM for semantic analysis
+# Fine Tuning LLama2 for Sentiment Analysis for Financial News
 
-1\) prepare the virtual enviroment
-
-2\) follow the step to do? what package do we use?
