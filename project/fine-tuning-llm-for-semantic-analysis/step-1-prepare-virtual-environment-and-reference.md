@@ -48,7 +48,7 @@
 
 Hint: you can change the
 
-## How to Use It in VS code
+## How to use it in VS code
 
 To use a Python virtual environment in Visual Studio Code (VS Code), follow these steps:
 
