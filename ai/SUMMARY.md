@@ -69,5 +69,6 @@
     * [Background](ai-risk-and-uq/calibration/background.md)
 * [Research](knowledge-up-to-day/README.md)
   * [Paper Reading](knowledge-up-to-day/paper-reading.md)
+  * [Reference](research/reference.md)
 * [Machine Learning System Design](machine-learning-system-design.md)
   * [Introduction](machine-learning-system-design/introduction.md)
