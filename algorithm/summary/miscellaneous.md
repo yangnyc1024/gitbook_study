@@ -57,3 +57,19 @@ Question: queue 用哪组API
 
 
 <mark style="color:red;">PriorityQueue does not allow null elements</mark>
+
+
+
+
+
+<mark style="color:red;">how to print int\[]\[]</mark>
+
+```java
+System.out.println(Arrays.deepToString(isPali));
+
+```
+
+parseInt
+
+1. `parseInt(String s)`: Parses the `String` argument as a signed decimal integer.
+2. `parseInt(String s, int radix)`: Parses the `String` argument as a signed integer in the specified radix (base).
