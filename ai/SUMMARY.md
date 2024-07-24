@@ -8,7 +8,7 @@
   * [General Linear Model 3](machine-learning/general-linear-model-3.md)
   * [Tree Based Methods](machine-learning/tree-based-methods.md)
   * [Tree Based Methods Supplement](machine-learning/tree-based-methods-supplement.md)
-  * [XGboosting/ Catboosting Deep Dive](machine-learning/xgboosting-catboosting-deep-dive.md)
+  * [XGboosting vs Catboosting Deep Dive](machine-learning/xgboosting-vs-catboosting-deep-dive.md)
   * [KNN\&PCA](machine-learning/knn-and-pca.md)
   * [Model Performance](machine-learning/model-performance.md)
   * [Model Evaluation](machine-learning/model-evaluation.md)

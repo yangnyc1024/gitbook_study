@@ -1,46 +1,36 @@
 # Tree Based Methods Supplement
 
-Here are the supplement of tree models
+Here is the supplement of tree models
 
-## Supplement-Boosting
+## Boosting
 
-### Adaboosting:
+### Adaboosting
 
-作者：Evan 链接：https://www.zhihu.com/question/54332085/answer/296456299 来源：知乎 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+#### Algorithm
 
-1，初始化训练数据的权值分布
-
-​ $$D1= (w_{11}, ..., w_{1i}, ..., w_{1N})$$，其中$$w_{1i}= 1/N$$，$$i=1, 2, ..., N$$
+1，初始化训练数据的权值分布 $$D1= (w_{11}, ..., w_{1i}, ..., w_{1N})$$，其中$$w_{1i}= 1/N$$，$$i=1, 2, ..., N$$
 
 2，对$$m=1, 2,..., M$$
 
-​ a，使用具有权值分布$$Dm$$的训练数据集学习，得到基本分类器​ $$Gm(x): X \rightarrow {-1, +1}$$
+​ a，使用具有权值分布$$Dm$$的训练数据集学习，得到基本分类器​ $$Gm(x): X \rightarrow \{-1, +1\}$$
 
 ​ b，计算Gm(x)在训练数据集上的分类误差率
 
 &#x20;    $$e_m = P(G_m(x_i) \neq y_i) = \sum_{i=1}^{N} w_{mi} I(G_m(x_i) \neq y_i)$$&#x20;
 
-​ c，计算Gm(x)的系数
-
-![img](https://pic1.zhimg.com/50/v2-b7f85a0220fdd4a738e4017e83f9b9ff\_hd.jpg?source=1940ef5c)
-
-​ 这里的对数是自然对数。
+​ c，计算Gm(x)的系数 $$\alpha_m = \frac{1}{2} \log \frac{1 - e_m}{e_m}$$ ​ 这里的对数是自然对数。
 
 ​ d，更新训练数据集的权值分布
 
-![img](https://pic2.zhimg.com/50/v2-a29b4527144bcc3b56693c92ffecb840\_hd.jpg?source=1940ef5c) 这里，$$Z_m$$是规范化因子
+&#x20;$$D_{m+1} = (w_{m+1,1}, \cdots, w_{m+1,i}, \cdots, w_{m+1,N})$$
 
-![img](https://pic2.zhimg.com/50/v2-66039826b15f639e3a581299674ee361\_hd.jpg?source=1940ef5c)
+$$w_{m+1,i} = \frac{w_{mi}}{Z_m} \exp(-\alpha_m y_i G_m(x_i)), \quad i = 1, 2, \cdots, N$$
 
-​ 它使$$D_{m+1}$$成为一个概率分布。
+这里，$$Z_m$$是规范化因子$$Z_m = \sum_{i=1}^{N} w_{mi} \exp(-\alpha_m y_i G_m(x_i))$$,​ 它使$$D_{m+1}$$成为一个概率分布。
 
-3，构建基本分类器的线性组合
+3，构建基本分类器的线性组合 $$f(x) = \sum_{m=1}^{M} \alpha_m G_m(x)$$, 得到最终分类器$$G(x) = \operatorname{sign}(f(x)) = \operatorname{sign} \left( \sum_{m=1}^{M} \alpha_m G_m(x) \right)$$
 
-![img](https://pic4.zhimg.com/50/v2-c504b60eb2e61b28db49a3ec1d2d44e3\_hd.jpg?source=1940ef5c)
-
-​ 得到最终分类器
-
-![img](https://pic1.zhimg.com/50/v2-80257279d4695ac4e6209eaa12e0198e\_hd.jpg?source=1940ef5c)
+#### Supplement
 
 1.  ADboosting的损失函数是指数函数:
 
@@ -55,6 +45,10 @@ Here are the supplement of tree models
 
     $$\omega^m=\frac{\omega^{m-1}e^{-\alpha_m y_i h_m(x_i)}}{Z_m}$$
 
+#### Reference
+
+* #### https://www.zhihu.com/question/54332085/answer/296456299
+
 ### Gradient Boosting
 
 1. AdaBoosting的推广，当损失函数是平方损失的时候会怎么样
@@ -62,25 +56,23 @@ Here are the supplement of tree models
 
 看到这里大家可能会想，每一轮中样本怎么改变呢？
 
-**LSBoost (Least Square Boosting):**
+**LSBoost (Least Square Boosting)**
 
-AdaBoosting的损失函数是指数损失，而当损失函数是平方损失时，会是什么样的呢？损失函数是平方损失时，有: $$E=\sum_{i=1}^n(y_i-[f_{m-1}(x_i)+\alpha_{m,i}h_m(x_i)])^2$$ 括号换一下： $$E=\sum_{i=1}^n([y_i-[f_{m-1}(x_i)]-\alpha_{m,i}h_m(x_i)])^2$$ 中括号里就是上一轮的训练残差！要使损失函数最小，就要使当轮预测尽可能接近上一轮残差。因此每一轮的训练目标就是拟合上一轮的残差！而且我们可以发现，残差恰好就是平方损失函数对于f(x)的负梯度.这直接启发了Friedman提出Gradient Boosting的总体框架
+* AdaBoosting的损失函数是指数损失，而当损失函数是平方损失时，会是什么样的呢？损失函数是平方损失时，有: $$E=\sum_{i=1}^n(y_i-[f_{m-1}(x_i)+\alpha_{m,i}h_m(x_i)])^2$$ 括号换一下： $$E=\sum_{i=1}^n([y_i-[f_{m-1}(x_i)]-\alpha_{m,i}h_m(x_i)])^2$$ 中括号里就是上一轮的训练残差！要使损失函数最小，就要使当轮预测尽可能接近上一轮残差。因此每一轮的训练目标就是拟合上一轮的残差！而且我们可以发现，残差恰好就是平方损失函数对于f(x)的负梯度.这直接启发了Friedman提出Gradient Boosting的总体框架
 
-**Gradient Boosting 的定义：**
+**Gradient Boosting 的定义**
 
-Friedman提出了直接让下一轮训练去拟合损失函数的负梯度的想法.当损失函数是平方损失时，负梯度就是残差(LSBoosting);不是平方损失函数时，负梯度是残差的近似.从而Gradient Boosting诞生了.其框架如下： 步骤5中，$$\rho$$可用线性搜索(line search)的方式得到，可理解为步长. 显然，LSBoosting是Gradient Boosting框架下的特例
+* Friedman提出了直接让下一轮训练去拟合损失函数的负梯度的想法.当损失函数是平方损失时，负梯度就是残差(LSBoosting);不是平方损失函数时，负梯度是残差的近似.从而Gradient Boosting诞生了.其框架如下： 步骤5中，$$\rho$$可用线性搜索(line search)的方式得到，可理解为步长. 显然，LSBoosting是Gradient Boosting框架下的特例
 
-### L2Boosting
+L2Boosting是LSBoosting的特例，它对各模型权重(步长)取的是1，样本权重也是1.
 
-L2Boosting是LSBoosting的特例，它对各模型权重(步长)取的是1，样本权重也是1.这在Buhlmann P, Yu Bin的文章中有详细说明[PDF](http://www.stat.math.ethz.ch/Manuscripts/buhlmann/boosting.rev5.pdf). 这意味这只需要用新模型拟合残差，然后不经压缩地加入总体模型就好了…Friedman对其评价是”L2Boosting is thus nothing else than repeated least squares fitting of residuals”.明晃晃的不屑有没有…
+* 这在Buhlmann P, Yu Bin的文章中有详细说明[PDF](http://www.stat.math.ethz.ch/Manuscripts/buhlmann/boosting.rev5.pdf). 这意味这只需要用新模型拟合残差，然后不经压缩地加入总体模型就好了…Friedman对其评价是”L2Boosting is thus nothing else than repeated least squares fitting of residuals”.明晃晃的不屑有没有…
 
-**其他Gradient Boosting**
+### **Other Gradient Boosting**
 
 可以看到，在Gradient Boosting框架下，随着损失函数的改变，会有不同的Boosting Machine出现.
 
-### xgboost:
-
-就是从损失函数的角度提出的，它在损失函数里加入了正则惩罚项，同时认为单单求偏导还不够.因为求偏导实际是一阶泰勒展开,属于一阶优化，收敛速度还不够快.他提出了损失函数二阶泰勒展开式的想法.
+###
 
 ## Supplement-Bagging
 
@@ -109,18 +101,16 @@ boostrap和 oob\_score两个参数一般要配合使用。如果boostrap是False
 
 1. 机器学习西瓜书
 2. an introduction to statistical learning
-
-https://zhuanlan.zhihu.com/p/57324157
-
-3. Andrew Ng: https://www.youtube.com/watch?v=wr9gUr-eWdA\&list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU\&index=10
-4.  https://liangyaorong.github.io/blog/2017/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Boosting/
+3. https://zhuanlan.zhihu.com/p/57324157
+4. Andrew Ng: https://www.youtube.com/watch?v=wr9gUr-eWdA\&list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU\&index=10
+5.  https://liangyaorong.github.io/blog/2017/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Boosting/
 
     https://www.zybuluo.com/frank-shaw/note/127048
-5.  很好的调参模型
+6.  很好的调参模型
 
     https://zhuanlan.zhihu.com/p/103136609
 
-## 附录：ID3、C4.5和CART决策树的比较
+## ID3、C4.5和CART决策树的比较
 
 * ID3决策树算是决策树的鼻祖，它采用了信息增益来作为节点划分标准，但是它有一个缺点：在相同条件下，取值比较多的特征比取值少的特征信息增益更大，导致决策树偏向于选择数量比较多的特征。所以，C4.5在ID3的基础上做了改进，采用了信息增益率来解决这个问题，而且，C4.5采用二分法来处理连续值的特征。以上两个决策树都只能处理分类问题。
 * 决策树的集大成者是CART决策树。
