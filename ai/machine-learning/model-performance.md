@@ -4,7 +4,8 @@
 
 * 这个部分相当于是你做完clean/feature engineering/ model，就到model evaluation了，说白了就是说，你模型到底如何
 * 对应<mark style="color:purple;">How can we compare this model with others model?</mark>
-* ![](https://api2.mubu.com/v3/document\_image/8bbc0191-9a84-4ab5-bf2a-89e761770338-12267179.jpg)
+
+
 
 ## 2 How to evaluate a model?
 
@@ -97,6 +98,8 @@
   * failure analysis——确定问题在哪里，然后更新step1-3
 
 ## Machine Learning End-to-End Pipeline
+
+### Business Design
 
 ### Data acquisition
 

@@ -10,17 +10,15 @@ Here are the supplement of tree models
 
 1，初始化训练数据的权值分布
 
-​ D1= (w11, ..., w1i, ..., w1N)，其中w1i= 1/N，i=1, 2, ..., N
+​ $$D1= (w_{11}, ..., w_{1i}, ..., w_{1N})$$，其中$$w_{1i}= 1/N$$，$$i=1, 2, ..., N$$
 
-2，对m=1, 2,..., M
+2，对$$m=1, 2,..., M$$
 
-​ a，使用具有权值分布Dm的训练数据集学习，得到基本分类器
-
-​ Gm(x): X -> {-1, +1}
+​ a，使用具有权值分布$$Dm$$的训练数据集学习，得到基本分类器​ $$Gm(x): X \rightarrow {-1, +1}$$
 
 ​ b，计算Gm(x)在训练数据集上的分类误差率
 
-![img](https://pic1.zhimg.com/50/v2-a206e78b49a0cee7613197c81c10acbb\_hd.jpg?source=1940ef5c)
+&#x20;    $$e_m = P(G_m(x_i) \neq y_i) = \sum_{i=1}^{N} w_{mi} I(G_m(x_i) \neq y_i)$$&#x20;
 
 ​ c，计算Gm(x)的系数
 
@@ -30,11 +28,11 @@ Here are the supplement of tree models
 
 ​ d，更新训练数据集的权值分布
 
-![img](https://pic2.zhimg.com/50/v2-a29b4527144bcc3b56693c92ffecb840\_hd.jpg?source=1940ef5c) 这里，Zm是规范化因子
+![img](https://pic2.zhimg.com/50/v2-a29b4527144bcc3b56693c92ffecb840\_hd.jpg?source=1940ef5c) 这里，$$Z_m$$是规范化因子
 
 ![img](https://pic2.zhimg.com/50/v2-66039826b15f639e3a581299674ee361\_hd.jpg?source=1940ef5c)
 
-​ 它使$D\_{m+1}$成为一个概率分布。
+​ 它使$$D_{m+1}$$成为一个概率分布。
 
 3，构建基本分类器的线性组合
 
@@ -110,7 +108,7 @@ boostrap和 oob\_score两个参数一般要配合使用。如果boostrap是False
 **Reference:**
 
 1. 机器学习西瓜书
-2. an introduction to statstical learning
+2. an introduction to statistical learning
 
 https://zhuanlan.zhihu.com/p/57324157
 

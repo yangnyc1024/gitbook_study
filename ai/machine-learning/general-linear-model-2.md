@@ -5,9 +5,9 @@ Continue previous linear regression. Here we would like to introduce Logistic re
 Review:
 
 1. what is linear regression?
-2. how to get loss function? two method? Least Square（残差满足正态上的最大似然估计）/MLE?
+2. how to get loss function? two methods? Least Square（残差满足正态上的最大似然估计）/MLE?
 
-Quote: when you are learning a new model, it is not for model, but it is for the idea behind
+Quote: when you are learning a new model, it is not for the model, but it is for the idea behind
 
 notes：
 
@@ -183,20 +183,24 @@ $$
 
 ## Regularization——Ridge regression/Lasso regression
 
-1. **model interpretability**：by removing irrelevant features- that is, by setting the corresponding coefficient estimates to zero-- we can obtain a model that is more easily interpreted. We will present some approaches for automatically performing **feature selection.**
-2. **predictive performance**：especially when $$p>n$$ to control the variance.
+1. **model interpretability**： by removing irrelevant features- that is, by setting the corresponding coefficient estimates to zero-- we can obtain a model that is more easily interpreted. We will present some approaches for automatically performing **feature selection.**
+2. **predictive performance**： especially when $$p>n$$ to control the variance.
 3. Three methods:
 
-**Subset selection:** we identify a subset of the $$p$$ predictors that we believe to be related to the response. We then fit a model using least squares on the reduced set of variables:(相当于你选一个度量单位，然后以此来选择)
+### **Subset selection**
+
+we identify a subset of the $$p$$ predictors that we believe to be related to the response. We then fit a model using least squares on the reduced set of variables:(相当于你选一个度量单位，然后以此来选择)
 
 1. 一个个去选，你到底要几个feature，基于smallest RSS/$$C_p$$/AIC/BIC/adjusted $$R^2$$
 2. Overfitting\&stepwise methods,
 3. Forward/backward stepwise selection
-4. estimating test error: two approach:
+4. estimating test error: two approaches:
    1. smallest **RSS/**$$C_p$$**/AIC/BIC/adjusted** $$R^2$$
    2. Validation/cross varidation??
 
-**Shrinkage:** we fit a model involving all $$p$$ predictors, but the estimated coefficients are shrunken towards zero relative to the least squares estimates. This shrinkage (regularization) has the effect of reducing variance and can also perform variable selection.(shrinkage，相当于渐进，直到消失)
+### **Shrinkage**
+
+We fit a model involving all $$p$$ predictors, but the estimated coefficients are shrunken towards zero relative to the least squares estimates. This shrinkage (regularization) has the effect of reducing variance and can also perform variable selection. (shrinkage，相当于渐进，直到消失)
 
 1. Ridge regression:$$\sum_{i=1}^n(y_i-\beta_0-\sum_{j=1}^p\beta_j x_{ij})^2+\lambda\sum_{j=1}^p \beta_j^2$$
 2. Ridge regression之前最好先stadardizing the predictors；因为substantially实质上，不同的scale会导致不同的coefficient
@@ -207,6 +211,10 @@ $$
 7. Lasso regression: performs variable selction///select a good value of $$\lambda$$ for the lasso is critical///cross-validation is again the method of choice//MSE smallest
 8. tuning parameter:对于一个sample，用cross validation
 
-**Dimension reduction**: we project the $$p$$ predictors into $$M$$-dimensional subspace, where $$M<p$$. This is achieve by computing $$M$$ different linear combinations or projections, of the variables. Then these $$M$$ projections are used as predictors to fit a linear regression model by least squares.(把$$p$$压缩$$M$$)
+### **Dimension reduction**
 
-1. PCA；2. transform； 3.partial least square
+We project the predictors into $$M$$-dimensional subspace, where $$M<p$$. This is achieved by computing $$M$$ different linear combinations or projections, of the variables. Then these $$M$$ projections are used as predictors to fit a linear regression model by least squares.(把$$p$$压缩$$M$$)
+
+1. PCA；
+2. Transform；&#x20;
+3. Partial least square

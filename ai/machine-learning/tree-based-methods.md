@@ -107,7 +107,7 @@ For step 1, **how do we construct the regions** $$R_1, R_2, \cdots, R_J$$?
 4. \*\*best：\*\*he best split is made at that particular step, rather than looking ahead and picking a split that will lead to a better tree in some future step.分裂确定的仅限于某一部进程，而不是针对区选择能够在未来进程中构建出更好的树的分裂点t
 5. 寻找继续分割数据及的最优预测变量&最优分割点
 
-###
+
 
 ### Compare with GAM\&linear regression
 
@@ -249,7 +249,7 @@ notes:
 
 注意三个问题，1）forest 的深度，有最优，过度会overfitting？；2）tree的多少，越多越好；3）feature在每个tree上，当然多了更robust
 
-### Boosting：
+### Boosting
 
 1. bagging involves creating multiple copies of the original training data set using the bootstrap, fitting a separate decision tree to each copy, and then combining all of the trees in order to create a single predictive model.(bagging是用再抽样法创造多个副本，在对每个副本建立决策树，然后将这些数结合在一起来建立一个预测模型)
 2.  每一棵树都是建立在一次bootstrap上，与其他树独立；boosting也是类似，但是这里的树采用**sequentially** 顺序生成：
