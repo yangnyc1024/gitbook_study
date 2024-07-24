@@ -1,4 +1,4 @@
-# XGboosting vs Catboosting Deep Dive
+# XG,Cat,Light\_\_Boosting
 
 ## XGboosting
 
@@ -13,3 +13,17 @@
 
 
 ## Catboosting
+
+
+
+## LightBoosting
+
+
+
+
+
+
+
+## Reference
+
+* [https://mayuanucas.github.io/xgboost-lightgbm/](https://mayuanucas.github.io/xgboost-lightgbm/)
