@@ -24,7 +24,7 @@ root node\&splitting\&decision node\&leaf/terminal node\&Pruning\&Branch/Sub-tre
 
 1）decision tree 是属于decision tree learning这一块的，如果是二分的问题，就是基于每个feature进行分类，在树结构上进行classification和regression（divide and conquer strategy）
 
-2）tree结构：In keeping with the tree analogy, the regions $R\_1$, $R\_2$ and $R\_3$ are known as terminal nodes or leaves of the tree.
+2）tree结构：In keeping with the tree analogy, the regions $$R_1$$, $$R_2$$ and $$R_3$$ are known as terminal nodes or leaves of the tree.
 
 3\)Tree based methods partition the feature space into a set of rectangles, and then fit a simple(like a constant) in each one.
 
@@ -205,7 +205,7 @@ Decision Tree的特点
 * 多次重复上面的操作，得到一组互不相同的decision tree，把他们整合起来构成random forest 模型，对新数据进行分类或者预测
 
 1. Random forests provide an improvement over bagged trees by way of a small tweak that decorrelates the trees.a random sample of $$m$$ _predictors is chosen as split candidates from the full set of_ $$p$$ _predictors._ _The split is allowed to use only one of those m predictors._
-2. A fresh sample of $m$ predictors is taken at each split, and typically we choose $$m \approx \sqrt{p}$$—thatis , the number of predictors considered at each split is approximately equal to the square root of the total number of predictors
+2. A fresh sample of $$m$$ predictors is taken at each split, and typically we choose $$m \approx \sqrt{p}$$—that is , the number of predictors considered at each split is approximately equal to the square root of the total number of predictors
 3. **The main difference** between bagging and random forests is the choice of predictor subset size $m$.
 4. We can think of this process as **decorrelating** the trees, thereby making the average of the resulting trees less variable and hence more reliable.
 5. averaging many highly correlated quantities does not lead to as large of a reduction in variance as averaging many uncorrelated quantities. **感想：说白了就是你用了少的sample自然reduce variance? 相当于RF就是控制m 你重复的此书**
@@ -261,7 +261,7 @@ notes:
 
     感想2：给定一份训练数据集（各样本权重是一样的，之后会有变化），然后进行M次迭代，每次迭代后，**对分类错误的样本加大权重,对正确分类的样本减少权重**，在下一次的迭代中更加关注错分的样本。
 3. Boosting has three tuning parameters:
-   * The number of trees B:Unlike bagging and random forests, boosting can overfit if B is too large, although this overfitting tends to occur slowly if at all. We use cross-validation to select $B$.
+   * The number of trees $$B$$: Unlike bagging and random forests, boosting can overfit if B is too large, although this overfitting tends to occur slowly if at all. We use cross-validation to select $B$.
    * The shrinkage parameter $$\lambda$$: Typical values are $$0.01$$ or $$0.001$$, and the right choice can depend on the problem. Very small $\lambda$ can require using a very large value of B in order to achieve good performance.
    * The number $$d$$ of splits in each tree, which controls the complexity of the boosted ensemble. Often $$d = 1$$ works well, in which case each tree is a stump
 

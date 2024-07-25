@@ -74,7 +74,7 @@ L2Boosting是LSBoosting的特例，它对各模型权重(步长)取的是1，样
 
 ###
 
-## Supplement-Bagging
+## Bagging
 
 ### Random Forest
 
