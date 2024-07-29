@@ -33,13 +33,68 @@ where, first term is the loss function and the second is the regularization para
 
 Now, Instead of learning the tree all at once which makes the optimization harder, we apply the additive strategy, minimize the loss what we have learned and add a new tree which can be summarised below:
 
-$$\hat{y}_i^{(0)} = 0,  \hat{y}_0^{(1)} = f_1(x_i) =$$
+$$\hat{y}_i^{(0)} = 0$$&#x20;
+
+$$\hat{y}_i^{(1)} = f_1(x_i) =\hat{y}_i^{(0)} + f_1(x_i)$$　
+
+$$\hat{y}^{(2)}_i = f_1(x_i) + f_2(x_i) = \hat{y}^{(1)}_i + f_2(x_i)$$
+
+The objective function of the above model can be defined as:
+
+$$obj^{(t)} = \sum_{i=1}^{n} l(y_i, \hat{y}^{(t)}_i) + \sum_{i=1}^{t} \Omega(f_i) = \sum_{i=1}^{n} l(y_i, \hat{y}^{(t-1)}_i + f_t(x_i)) + \Omega(f_t) + constant$$\
 
 
+$$obj^{(t)} = \sum_{i=1}^{n} (y_i - (\hat{y}^{(t-1)}_i + f_t(x_i)))^2 + \sum_{i=1}^{t} \Omega(f_i) = \sum_{i=1}^{n} [2(y_i - \hat{y}^{(t-1)}_i) f_t(x_i) + f_t(x_i)^2] + \Omega(f_t) + constant ]$$
 
+Now, let’s apply taylor series expansion upto second order:
 
+$$obj^{(t)} = \sum_{i=1}^{n} [l(y_i, \hat{y}^{(t-1)}_i) + g_i f_t(x_i) + \frac{1}{2} h_i f_t^2(x_i)] + \Omega(f_t) + constant$$
 
+where g\_i and h\_i can be defined as:
 
+$$g_i = \frac{\partial l(y_i, \hat{y}^{(t-1)}_i)}{\partial \hat{y}^{(t-1)}_i}$$
+
+$$h_i = \frac{\partial^2 l(y_i, \hat{y}^{(t-1)}_i)}{\partial \hat{y}^{(t-1)}_i}$$
+
+Simplifying and removing the constant:
+
+$$\sum_{i=1}^{n} [g_i f_t(x_i) + \frac{1}{2} h_i f_t^2(x_i)] + \Omega(f_t)$$$$h_i = \frac{\partial^2 l(y_i, \hat{y}^{(t-1)}_i)}{\partial \hat{y}^{(t-1)}_i^2}$$
+
+#### Regularization
+
+Now, we define the regularization term, but first we need to define the model:
+
+$$ft(x) = w_{q(x)}, w \in R^T, q : R^d \rightarrow {1, 2, ..., T}$$
+
+Here, w is the vector of scores on leaves of tree, q is the function assigning each data point to the corresponding leaf, and T is the number of leaves. The regularization term is then defined by:
+
+$$\Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^{T} w_j^2$$
+
+Now, our objective function becomes:
+
+$$obj^{(t)} \approx \sum_{i=1}^{n} [g_i w_{q(x_i)} + \frac{1}{2} h_i w_{q(x_i)}^2] + \gamma T + \frac{1}{2} \lambda \sum_{j=1}^{T} w_j^2 = = \sum_{j=1}^{T} \left( \left( \sum_{i \in I_j} g_i \right) w_j + \frac{1}{2} \left( \sum_{i \in I_j} h_i + \lambda \right) w_j^2 \right) + \gamma T ]$$
+
+Now, we simplify the above expression:
+
+$$obj^{(t)} = \sum_{j=1}^{T} \left( G_j w_j + \frac{1}{2} (H_j + \lambda) w_j^2 \right) + \gamma T$$
+
+where,
+
+$$G_j = \sum_{i \in I_j} g_i$$
+
+$$H_j = \sum_{i \in I_j} h_i$$
+
+In this equation, w\_j are independent of each other, the best ![w\_j](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-0a9d7fe27854af070301d3307810c89f\_l3.svg) for a given structure q(x) and the best objective reduction we can get is:$$h_i = \frac{\partial^2 l(y_i, \hat{y}^{(t-1)}_i)}{\partial \hat{y}^{(t-1)}_i^2$$
+
+$$w_j^* = -\frac{G_j}{H_j + \lambda}$$&#x20;
+
+$$obj^* = -\frac{1}{2} \sum_{j=1}^{T} \frac{G_j^2}{H_j + \lambda} + \gamma T$$&#x20;
+
+where, γ\gammaγ is pruning parameter, i.e., the least information gain to perform split.
+
+Now, we try to measure how good the tree is; we can’t directly optimize the tree, we will try to optimize one level of the tree at a time. Specifically, we try to split a leaf into two leaves, and the score it gains is:
+
+$$Gain = \frac{1}{2} \left( \frac{G_L^2}{H_L + \lambda} + \frac{G_R^2}{H_R + \lambda} - \frac{(G_L + G_R)^2}{H_L + H_R + \lambda} \right) - \gamma$$
 
 
 
