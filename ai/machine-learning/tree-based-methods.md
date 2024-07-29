@@ -262,7 +262,7 @@ notes:
     感想2：给定一份训练数据集（各样本权重是一样的，之后会有变化），然后进行M次迭代，每次迭代后，**对分类错误的样本加大权重,对正确分类的样本减少权重**，在下一次的迭代中更加关注错分的样本。
 3. Boosting has three tuning parameters:
    * The number of trees $$B$$: Unlike bagging and random forests, boosting can overfit if B is too large, although this overfitting tends to occur slowly if at all. We use cross-validation to select $B$.
-   * The shrinkage parameter $$\lambda$$: Typical values are $$0.01$$ or $$0.001$$, and the right choice can depend on the problem. Very small $\lambda$ can require using a very large value of B in order to achieve good performance.
+   * The shrinkage parameter $$\lambda$$: Typical values are $$0.01$$ or $$0.001$$, and the right choice can depend on the problem. Very small $$\lambda$$ can require using a very large value of B in order to achieve good performance.
    * The number $$d$$ of splits in each tree, which controls the complexity of the boosted ensemble. Often $$d = 1$$ works well, in which case each tree is a stump
 
 #### **主要算法 adaboosting\&XGBoost\&Gradient Boosting**

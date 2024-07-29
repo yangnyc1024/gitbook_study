@@ -1,7 +1,5 @@
 # Tree Based Methods Supplement
 
-Here is the supplement of tree models
-
 ## Boosting
 
 ### Adaboosting
@@ -72,7 +70,7 @@ L2Boosting是LSBoosting的特例，它对各模型权重(步长)取的是1，样
 
 可以看到，在Gradient Boosting框架下，随着损失函数的改变，会有不同的Boosting Machine出现.
 
-###
+
 
 ## Bagging
 
