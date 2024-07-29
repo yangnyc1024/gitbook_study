@@ -11,9 +11,13 @@
 
 
 
-### Xgboosting 的objective 函数
+### Xgboosting 背后的数学
 
-The predcition scores of each individual decision tree then sum up to get if look at the example, an important fact is that the w two trees try to complement each other. Mathematically, we can write pour model in the form
+#### Review CART
+
+Here’s a simple example of a CART that classifies whether someone will like a hypothetical computer game X. The example of tree is below:
+
+The prediction scores of each individual decision tree then sum up to get  If you look at the example, an important fact is that the two trees try to _complement_ each other. Mathematically, we can write our model in the form
 
 &#x20;                                                                $$\hat{y_i} = \sum_{k=1}^K f_k (x_i), f_k \in \mathcal{F}$$
 
@@ -23,7 +27,13 @@ The objective function for the about model is given by:
 
 &#x20;                                                             $$obj(\theta) = \sum_{i= 1}^n(y_i, \hat{y_i}) + \sum_{k=1}^K \Omega(f_k)$$
 
-where the first term is the loss function and the second is the regularization parameter. Now, instead of learning the tree all at once which  makes the optimization harder, we apply the additive strategy, minimize the loss what we have learned and add a new tree which can be summarised below:
+where, first term is the loss function and the second is the regularization parameter.
+
+#### Xgboosting
+
+Now, Instead of learning the tree all at once which makes the optimization harder, we apply the additive strategy, minimize the loss what we have learned and add a new tree which can be summarised below:
+
+$$\hat{y}_i^{(0)} = 0,  \hat{y}_0^{(1)} = f_1(x_i) =$$
 
 
 
