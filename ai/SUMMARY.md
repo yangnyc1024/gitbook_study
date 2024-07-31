@@ -12,6 +12,8 @@
   * [KNN\&PCA](machine-learning/knn-and-pca.md)
   * [Model Performance](machine-learning/model-performance.md)
   * [Model Evaluation](machine-learning/model-evaluation.md)
+  * [Code Practice](machine-learning/code-practice/README.md)
+    * [Decision Tree Python Code](machine-learning/code-practice/decision-tree-python-code.md)
 * [Deep Learning](deep-learning/README.md)
   * [CNN](deep-learning/cnn/README.md)
     * [Basic CNN](deep-learning/cnn/basic-cnn.md)
