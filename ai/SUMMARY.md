@@ -13,6 +13,7 @@
   * [Model Performance](machine-learning/model-performance.md)
   * [Model Evaluation](machine-learning/model-evaluation.md)
   * [Code Practice](machine-learning/code-practice/README.md)
+    * [KNN](machine-learning/code-practice/knn.md)
     * [Decision Tree Python Code](machine-learning/code-practice/decision-tree-python-code.md)
   * [Data and Feature Engineering](machine-learning/data-and-feature-engineering/README.md)
     * [Handle Bias Data](machine-learning/data-and-feature-engineering/handle-bias-data.md)

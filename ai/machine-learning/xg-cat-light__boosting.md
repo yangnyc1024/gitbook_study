@@ -46,7 +46,7 @@ $$obj^{(t)} = \sum_{i=1}^{n} l(y_i, \hat{y}^{(t)}_i) + \sum_{i=1}^{t} \Omega(f_i
 
 $$obj^{(t)} = \sum_{i=1}^{n} (y_i - (\hat{y}^{(t-1)}_i + f_t(x_i)))^2 + \sum_{i=1}^{t} \Omega(f_i) = \sum_{i=1}^{n} [2(y_i - \hat{y}^{(t-1)}_i) f_t(x_i) + f_t(x_i)^2] + \Omega(f_t) + constant ]$$
 
-Now, let’s apply taylor series expansion upto second order:
+Now, let’s apply the Taylor series expansion up to the second order:
 
 $$obj^{(t)} = \sum_{i=1}^{n} [l(y_i, \hat{y}^{(t-1)}_i) + g_i f_t(x_i) + \frac{1}{2} h_i f_t^2(x_i)] + \Omega(f_t) + constant$$
 
@@ -58,7 +58,7 @@ $$h_i = \frac{\partial^2 l(y_i, \hat{y}^{(t-1)}_i)}{\partial \hat{y}^{(t-1)}_i}$
 
 Simplifying and removing the constant:
 
-$$\sum_{i=1}^{n} [g_i f_t(x_i) + \frac{1}{2} h_i f_t^2(x_i)] + \Omega(f_t)$$$$h_i = \frac{\partial^2 l(y_i, \hat{y}^{(t-1)}_i)}{\partial \hat{y}^{(t-1)}_i^2}$$
+$$\sum_{i=1}^{n} [g_i f_t(x_i) + \frac{1}{2} h_i f_t^2(x_i)] + \Omega(f_t)$$$$h_i =\frac{\partial^2 l(y_i, \hat{y}^{(t-1)}_i)}{\partial \hat{y}^{(t-1)}_i^2}$$
 
 #### Regularization
 
@@ -84,7 +84,7 @@ $$G_j = \sum_{i \in I_j} g_i$$
 
 $$H_j = \sum_{i \in I_j} h_i$$
 
-In this equation, w\_j are independent of each other, the best ![w\_j](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-0a9d7fe27854af070301d3307810c89f\_l3.svg) for a given structure q(x) and the best objective reduction we can get is:$$h_i = \frac{\partial^2 l(y_i, \hat{y}^{(t-1)}_i)}{\partial \hat{y}^{(t-1)}_i^2$$
+In this equation, w\_j are independent of each other, the best ![w\_j](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-0a9d7fe27854af070301d3307810c89f\_l3.svg) for a given structure q(x) and the best objective reduction we can get is:
 
 $$w_j^* = -\frac{G_j}{H_j + \lambda}$$&#x20;
 
@@ -105,7 +105,12 @@ xgboosting的核心算法
 * 就是不停的添加树，不断地进行特征分裂来生长一棵树，每次添加一个树。其实就是学习一个新的函数，去预测之前的残差
 * 当我们训练完成后得到的k棵树，我们要预测一个样本的分数，其实就是根据地这个样本的特征，在每棵树中会落到对应的一个叶子节点，每个叶子节点就对应一个分数
 * 最后只需要将每棵树对应的分数加起来就是该样本的预测值
-*
+
+
+
+Reference
+
+* [https://www.geeksforgeeks.org/xgboost/](https://www.geeksforgeeks.org/xgboost/)
 
 
 
