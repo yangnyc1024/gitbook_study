@@ -16,64 +16,112 @@
 
 ````java
 ```java
-public List<List<Integer>> findOrder(int numCourses, int[][] prerequisites) {
+```java
+/*
+clarification:
+
+assumption:
+
+high level:
+- graph problem, topological order problem, bfs/ dfs
+
+middle level:
+dfs
+    - build graph, graph <vertex, list<neighborr>> , a-> b, b depends on a?
+    - dfs建图需要倒着建图，是因为打印的问题
+
+*/
+
+class Solution {
+    private boolean isCycle = false;
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
         // sanity check
-        if (numCourses < 0) return new;
-        if (prerequisites == null || prerequisites.length == 0 || prerequisites[0].length  == 0) {
-            return false;
-        } 
 
-        // buildGraph
+        // initial & build graph
+        List<Integer> result = new ArrayList<>();
         int[] inDegree = new int[numCourses];
-        List<List<Integer>> graph = buildGraph(numCourses, prerequisites, inDegree);
-        List<Integer> topoSortREsult = new ArrayList<>();
+        Map<Integer, Set<Integer>> graph = buildGraph(numCourses, prerequisites, inDegree);
 
-        // initalQueue with all indegree = 0 
+
+        // dfs& bfs
+        Set<Integer> visited = new HashSet<>();
+        Set<Integer> visiting = new HashSet<>();
+        for (int i = 0; i < numCourses; i++) {
+            dfs(graph, visited, visiting, result, i);
+        }
+        // bfs(graph, result, numCourses, inDegree);
+
+        // is cycle?
+        if (isCycle == true) {
+            return new int[]{};
+        }
+        // return value
+        int[] ret = new int[numCourses];
+        for (int i = 0; i < result.size(); i++) {
+            ret[result.size()- i -1] = result.get(i); // for dfs
+            // ret[i] = result.get(i); // for bfs
+        }
+        return ret;
+
+    }
+    private void bfs(Map<Integer, Set<Integer>> graph, List<Integer> result, int numCourses, int[] inDegree){
         Deque<Integer> queue = new ArrayDeque<>();
-        for (int i = 0; i < numCourses;  i++) {
+        for (int i = 0; i < numCourses; i++) {
             if (inDegree[i] == 0) {
                 queue.offer(i);
             }
         }
-
-        // bfs
         int count = 0;
         while (!queue.isEmpty()) {
-            Integer cur = queue.poll();
-            topoSortResult.add(cur);
-            count++;
-            for (Integer nei: graph.getOrDefault(cur, new ArrayList<>())) {
-                inDegree[nei]--;
-                if (inDegree[nei] == 0) {
-                    queue.offer(nei);
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                Integer cur = queue.poll();
+                result.add(cur);
+                count++;
+                for (Integer nei: graph.getOrDefault(cur, new HashSet<>())) {
+                    inDegree[nei]--;
+                    if (inDegree[nei] == 0) {
+                        queue.offer(nei);
+                    }
+
                 }
 
             }
-
         }
-
-        // check if circle, i.e. finish
         if (count != numCourses) {
-            return new ArrayList<>();
+            isCycle = true;
         }
-        return topoSortResult;
     }
-    private List<List<Integer>> buildGraph(int numCourses, int[][] prerequisites, int[] inDegree) {
-        List<List<Integer>> graph = new ArrayList<>();
-        for (int i = 0; i < numCourses; i++) {
-            graph.add(new ArrayList<>());
+    private void dfs(Map<Integer, Set<Integer>> graph, Set<Integer> visited, Set<Integer> visiting, List<Integer> result, int vertex){
+        if (visiting.contains(vertex)) {
+            isCycle = true;
+            return;
         }
-        /*
-            [1, 0], 0 -> 1
-        */
-        for (int[] prerequisite: prerequisites) {
-            int first = prerequisite[1];
-            int second = prerequisite[0];
+        if (visited.contains(vertex)) {
+            return;
+        }
+        visiting.add(vertex);
+        for (Integer nei: graph.get(vertex)) {
+            dfs(graph, visited, visiting, result, nei);
+        }
+        visiting.remove(vertex);
+        visited.add(vertex);
+        result.add(vertex);
+    }
+    private Map<Integer, Set<Integer>> buildGraph(int numCourse, int[][] prerequisites, int[] inDegree) {
+        Map<Integer, Set<Integer>> graph = new HashMap<>();
+        for (int i = 0; i < numCourse; i++) {
+            graph.putIfAbsent(i , new HashSet<>());
+        }
+        for (int[] pre: prerequisites) {
+            int first = pre[1];
+            int second = pre[0];
+            graph.get(first).add(second);  // pre[0] 是后修课，pre[1]是先修课
             inDegree[second]++;
-            graph.get(first).add(second);
         }
         return graph;
     }
+}
 ```
 ````
 
