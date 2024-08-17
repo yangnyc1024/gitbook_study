@@ -54,6 +54,8 @@
     * [XLNet](deep-learning/llm-pretraining/xlnet.md)
     * [Bidirectional Encoder Representations from Transformers(BERT)](deep-learning/llm-pretraining/bidirectional-encoder-representations-from-transformers-bert.md)
   * [Basic Summary](deep-learning/basic-summary.md)
+  * [Some Extra Topics](deep-learning/some-extra-topics/README.md)
+    * [Encoder vs Decoder](deep-learning/some-extra-topics/encoder-vs-decoder.md)
 * [Statistics and Optimization](statistics-and-optimization/README.md)
   * [A/B testing](statistics-and-optimization/a-b-testing.md)
   * [Sampling/ABtesting/GradientMethod](statistics-and-optimization/sampling-abtesting-gradientmethod.md)
