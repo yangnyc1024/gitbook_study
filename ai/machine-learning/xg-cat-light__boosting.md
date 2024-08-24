@@ -58,9 +58,11 @@ $$h_i = \frac{\partial^2 l(y_i, \hat{y}^{(t-1)}_i)}{\partial \hat{y}^{(t-1)}_i}$
 
 Simplifying and removing the constant:
 
-$$\sum_{i=1}^{n} [g_i f_t(x_i) + \frac{1}{2} h_i f_t^2(x_i)] + \Omega(f_t)$$$$h_i =\frac{\partial^2 l(y_i, \hat{y}^{(t-1)}_i)}{\partial \hat{y}^{(t-1)}_i^2}$$
+$$\sum_{i=1}^{n} [g_i f_t(x_i) + \frac{1}{2} h_i f_t^2(x_i)] + \Omega(f_t)$$
 
-#### Regularization~~Í~~
+
+
+Regularization
 
 Now, we define the regularization term, but first we need to define the model:
 
