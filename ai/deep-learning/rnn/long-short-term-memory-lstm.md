@@ -12,3 +12,9 @@ An LSTM model consists of several components, including:
 Each of these components is modeled as a sigmoid neural network, where the output of each gate is between 0 and 1, representing the extent to which the corresponding operation is performed. The memory cell is updated based on the input, forget, and output gates, as well as the previous state of the cell.
 
 LSTMs have proven to be very effective in various sequential data processing tasks, such as language modeling, speech recognition, and time series forecasting, due to their ability to store information for a long period of time, and selectively forget or update information as needed.
+
+
+
+Reference
+
+* [https://youtu.be/YCzL96nL7j0?feature=shared](https://youtu.be/YCzL96nL7j0?feature=shared)

@@ -8,7 +8,7 @@ $$𝑅_𝑡=𝜎(𝑋_𝑡𝑊_xr+𝐻_𝑡−1𝑊_hr+𝑏r),𝑍𝑡=𝜎(𝑋
 
 
 
-where and $$𝑊hr,𝑊hz∈𝑅ℎ×ℎ$$ are weight parameters and $$𝑏r,𝑏z∈𝑅1×ℎ$$ are bias parameters.
+where and $$𝑊_hr,𝑊_hz \in 𝑅^ℎ \times ℎ$$ are weight parameters and  $$b_r, b_z \in 𝑅^1×ℎ$$ are bias parameters.
 
 #### Conclusion
 
