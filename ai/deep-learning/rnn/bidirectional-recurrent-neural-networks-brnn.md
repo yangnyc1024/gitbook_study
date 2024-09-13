@@ -32,6 +32,28 @@ $$P(x_j \mid x_{-j}) \propto \sum_{h_j} \pi_j(h_j) \rho_j(h_j) P(x_j \mid h_j)$$
 ## 双向模型
 
 * 如果我们想要有类似于hMM的前瞻性，只需要增加一个“从最后一个词元开始从后向前运行”的RNN，去取代只有一个前向模式“从第一个词元开始运行”的RNN
+* 双向循环神经网络(bidirectional RNNs)，添加了反向传递的隐藏层，可以更灵魂处理此类信息
+*
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2024-09-12 at 10.02.00 PM.png" alt="" width="320"><figcaption></figcaption></figure>
+
+## 双向模型的定义
+
+对于任意时间步 $$t$$，给定一个小批量的输入数据 $$\bm{X}_t \in \mathbb{R}^{n \times d}$$ （样本数 $$n$$，每个示例中的输入数 $$d$$），并且令隐藏层激活函数为 $$\phi$$。
+
+在双向架构中，我们设该时间步的前向和反向隐藏状态分别为 $$\overrightarrow{\bm{H}}_t \in \mathbb{R}^{n \times h}$$ 和 $$\overleftarrow{\bm{H}}_t \in \mathbb{R}^{n \times h}$$，其中 $$h$$ 是隐藏单元的数目。前向和反向隐藏状态的更新如下：
+
+$$\overrightarrow{\bm{H}}_t = \phi \left( \bm{X}_t \bm{W}_{xh}^{(f)} + \overrightarrow{\bm{H}}_{t-1} \bm{W}_{hh}^{(f)} + \bm{b}_h^{(f)} \right),$$&#x20;
+
+$$\overleftarrow{\bm{H}}_t = \phi \left( \bm{X}_t \bm{W}_{xh}^{(b)} + \overleftarrow{\bm{H}}_{t+1} \bm{W}_{hh}^{(b)} + \bm{b}_h^{(b)} \right)$$
+
+其中，权重 $$\bm{W}_{xh}^{(f)} \in \mathbb{R}^{d \times h}, \bm{W}_{hh}^{(f)} \in \mathbb{R}^{h \times h}, \bm{W}_{xh}^{(b)} \in \mathbb{R}^{d \times h}, \bm{W}_{hh}^{(b)} \in \mathbb{R}^{h \times h}$$ 和偏置 $$\bm{b}_h^{(f)} \in \mathbb{R}^{1 \times h}, \bm{b}_h^{(b)} \in \mathbb{R}^{1 \times h}$$ 都是模型参数。
+
+接下来，将前向隐藏状态 $$\overrightarrow{\bm{H}}_t$$ 和反向隐藏状态 $$\overleftarrow{\bm{H}}_t$$ 连接起来，获得需要送入输出层的隐藏状态 $$\bm{H}_t \in \mathbb{R}^{n \times 2h}$$。在具有多个隐藏层的深度双向循环神经网络中，该信息作为输入传递到下一个双向层。最后，输出层计算得到的输出为 $$\bm{O}_t \in \mathbb{R}^{n \times q}$$（$$q$$ 是输出单元的数目）：
+
+$$\bm{O}_t = \bm{H}_t \bm{W}_{hq} + \bm{b}_q,$$
+
+这里，权重矩阵 $$\bm{W}_{hq} \in \mathbb{R}^{2h \times q}$$ 和偏置 $$\bm{b}_q \in \mathbb{R}^{1 \times q}$$ 是输出层的模型参数。事实上，这两个方向可以拥有不同数量的隐藏单元。
 
 ## Others
 
