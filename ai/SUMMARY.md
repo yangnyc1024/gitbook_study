@@ -38,6 +38,7 @@
     * [Long Short-Term Memory(LSTM)](deep-learning/rnn/long-short-term-memory-lstm.md)
     * [Bidirectional Recurrent Neural Networks(BRNN)](deep-learning/rnn/bidirectional-recurrent-neural-networks-brnn.md)
     * [Encoder-Decoder Architecture](deep-learning/rnn/encoder-decoder-architecture.md)
+    * [编码器-解码器架构 vs GPT 模型](deep-learning/rnn/bian-ma-qi-jie-ma-qi-jia-gou-vs-gpt-mo-xing.md)
     * [Seuqence to Sequence Learning(Seq2Seq)](deep-learning/rnn/seuqence-to-sequence-learning-seq2seq.md)
   * [Transformer and Attention Mechanism](deep-learning/transformer-and-attention-mechanism/README.md)
     * [Attention and Kernel](deep-learning/transformer-and-attention-mechanism/attention-and-kernel.md)
