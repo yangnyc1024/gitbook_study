@@ -1,26 +1,56 @@
 # Self-Attention
 
-### Self-Attention
+## Introduction
 
-* 由于查询、键和值来自同一组输入，因此被称为 自注意力（self-attention） (Lin et al., 2017, Vaswani et al., 2017)， 也被称为内部注意力（intra-attention） (Cheng et al., 2016, Parikh et al., 2016, Paulus et al., 2017)。
-* 给定一个由词元组成的输入序列$$x_1,\cdots, x_n$$， 其中任意$$x_i \in \mathbb{R}^d$$（$$1\leq i \leq n$$）。 该序列的自注意力输出为一个长度相同的序列 $$y_1,\cdots, y_n$$，其中：
+* 在深度学习里面，我们常会用到CNN和RNN对序列进行编码。想象一下，当我们有了注意力机制以后，我们可以将词元序列输入注意力池化中
+  * 以至于我们可以在同一组词元同时充当查询，键，和值
+  * 具体来说，就是每一个查询都会关注所有的键——值对，并且生成一个注意力的输出
+  * 由于查询、键和值来自同一组输入，因此被称为 自注意力（self-attention） (Lin et al., 2017, Vaswani et al., 2017)， 也被称为内部注意力（intra-attention） (Cheng et al., 2016, Parikh et al., 2016, Paulus et al., 2017)。
 
-$$y_i = f(x_i, (x_1, x_1), \cdot,(x_n, x_n)) \in \mathbb{R}^d$$，
+## Self-Attention
 
-### Comparing CNNs, RNNs, and Self-Attention
+给定一个由词元组成的输入序列 $$\mathbf{x}_1, \dots, \mathbf{x}_n$$，其中任意 $$\mathbf{x}_i \in \mathbb{R}^d \ (1 \leq i \leq n)$$。该序列的自注意力输出为一个长度相同的序列 $$\mathbf{y}_1, \dots, \mathbf{y}_n$$，其中：
+
+* $$\mathbf{y}_i = f(\mathbf{x}_i, (\mathbf{x}_1, \mathbf{x}_n), \dots) \in \mathbb{R}^d$$
+*
+
+根据之前的定义的注意力汇聚函数 $$f$$。下面的代码片段是基于多头注意力对一个张量完成自注意力的计算，张量的形状为 (批量大小、时间步的数目或词元序列的长度，$$d$$)。输出与输入的张量形状相同。
+
+## Comparing CNNs, RNNs, and Self-Attention
+
+CNN,RNN, Self-Attention，目标都是将$$n$$个词元组成的序列映射到另一个长度相等的序列，其中的每个输入词元和输出词元都是由$$d$$维向量表示。
+
+* 我们具体比较计算复杂性，顺序操作，和最大路径长度
+* 注意顺序操作会妨碍并行计算，而任意的序列位置组合之间的路径越短，则能够越轻松地学习序列中的远距离的依赖关系
 
 
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-02-29 at 1.15.51 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
+#### CNN
+
 * 考虑一个卷积核大小为$$k$$的卷积层。 在后面的章节将提供关于使用卷积神经网络处理序列的更多详细信息。
 * 目前只需要知道的是，由于序列长度是$$n$$，输入和输出的通道数量都是$$d$$， 所以卷积层的计算复杂度为$$O(knd^2)$$。因此卷积神经网络是分层的，因此为有$$O(1)$$个顺序操作， 最大路径长度为$$O(n/k)$$。 例如，图中卷积核大小为3的双层卷积神经网络的感受野内。
+
+RNN
+
 * 当更新循环神经网络的隐状态时， $$d \times d$$权重矩阵和$$d$$维隐状态的乘法计算复杂度为$$O(d^2)$$。 由于序列长度为$$n$$，因此循环神经网络层的计算复杂度为$$O(nd^2)$$。 根据图， 有$$O(n)$$个顺序操作无法并行化，最大路径长度也是$$O(n)$$。
+
+#### Self Attention
+
+* 在自注意力中，查询、键和值都是 $$n \times d$$ 矩阵。考虑缩放的“点-积”注意力，其中 $$n \times d$$ 矩阵乘以 $$d \times n$$ 矩阵。之后输出的 $$n \times n$$ 矩阵乘以 $$n \times d$$ 矩阵。因此，自注意力具有 $$\mathcal{O}(n^2 d)$$ 计算复杂性。
+*   每个词元都通过自注意力直接连接到任何其他词元。因此，有 $$\mathcal{O}(1)$$ 个顺序操作可以并行计算，最大路径长度也是 $$\mathcal{O}(1)$$。
+
+    总而言之，卷积神经网络和自注意力都有并行计算的优势，而且自注意力的最大路径长度最短。但是因为其计算复杂度是关于序列长度的二次方，所以在很长的序列中计算会非常慢。
+* 总而言之，CNN和Self-Attention都拥有并行计算的优势。
+* 在最大路径长度方面，Self-Attention的长度最短。但是因为其计算复杂度时关于序列长度的二次方，所以在很长的序列中计算会很慢
 
 ### Positional Encoding
 
 * 在处理词元序列时，循环神经网络是逐个的重复地处理词元的， 而自注意力则因为并行计算而放弃了顺序操作。 为了使用序列的顺序信息，通过在输入表示中添加 _位置编码_（positional encoding）来注入绝对的或相对的位置信息。&#x20;
-* 绝对位置信息
+*   绝对位置信息
+
+
 * 相对位置信息
 
 
