@@ -5,7 +5,7 @@
 The embedding layer simply maps the input tokens to vectors without involving complex sequence information processing or extracting contextual relationships.\
 The encoder not only converts the input into vector representations but also processes the entire input sequence, extracting contextual information and compressing it into a fixed-length vector.
 
-## 1. 编码器-解码器架构 到底是什么？可不可以给我个例子讲解？
+## 编码器-解码器架构 到底是什么？可不可以给我个例子讲解？
 
 编码器-解码器（Encoder-Decoder）架构是深度学习中常用于序列到序列（sequence-to-sequence，seq2seq）任务的一种结构，尤其是在机器翻译、文本生成和语音识别等领域非常常见。
 
