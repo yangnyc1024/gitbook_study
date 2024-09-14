@@ -8,3 +8,10 @@
 * 当经过预训练后，每个词元的表示可以是一个向量，但是上下文发生改变，它都会保持不变
 * example：go to the bank to deposit some money（去银行存点钱） vs go to the bank to sit down”（去河岸坐下来）上下文中是相同的。
 * 因此许多新的预训练模型使用相同的词元的表示适用与不同的上下文，其中包括了<mark style="color:purple;">基于Transformer编码器更深的自监督模型BERT</mark>
+
+
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-09-13 at 11.08.45 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+
+
+
