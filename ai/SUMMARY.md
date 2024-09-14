@@ -52,6 +52,7 @@
     * [Large-Scaling Pretraning with Transformers](deep-learning/transformer-and-attention-mechanism/large-scaling-pretraning-with-transformers.md)
   * [LLM Pretraining](deep-learning/llm-pretraining/README.md)
     * [Word Embedding(word2vec)](deep-learning/llm-pretraining/word-embedding-word2vec.md)
+    * [Approximate Training](deep-learning/llm-pretraining/approximate-training.md)
     * [Word Embedding with Global Vectors(GloVe)](deep-learning/llm-pretraining/word-embedding-with-global-vectors-glove.md)
     * [XLNet](deep-learning/llm-pretraining/xlnet.md)
     * [Bidirectional Encoder Representations from Transformers(BERT)](deep-learning/llm-pretraining/bidirectional-encoder-representations-from-transformers-bert.md)
