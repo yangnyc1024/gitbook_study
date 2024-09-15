@@ -60,6 +60,7 @@
       * [XLNet特点与其他比较](deep-learning/llm-pretraining/xlnet/xlnet-te-dian-yu-qi-ta-bi-jiao.md)
     * [Bidirectional Encoder Representations from Transformers(BERT)](deep-learning/llm-pretraining/bidirectional-encoder-representations-from-transformers-bert/README.md)
       * [Page 2](deep-learning/llm-pretraining/bidirectional-encoder-representations-from-transformers-bert/page-2.md)
+    * [BERT vs GPT vs T5](deep-learning/llm-pretraining/bert-vs-gpt-vs-t5.md)
   * [Basic Summary](deep-learning/basic-summary.md)
   * [Some Extra Topics](deep-learning/some-extra-topics/README.md)
     * [Encoder vs Decoder](deep-learning/some-extra-topics/encoder-vs-decoder.md)
