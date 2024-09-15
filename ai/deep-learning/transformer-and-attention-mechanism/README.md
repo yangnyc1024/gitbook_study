@@ -16,3 +16,9 @@ Reference
 * [https://github.com/datawhalechina/leedl-tutorial](https://github.com/datawhalechina/leedl-tutorial)
 * [https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1244/slides/cs224n-2024-lecture08-transformers.pdf](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1244/slides/cs224n-2024-lecture08-transformers.pdf)
 * [https://www.youtube.com/watch?v=wzfWHP6SXxY\&list=PLoROMvodv4rMFqRtEuo6SGjY4XbRIVRd4\&index=7](https://www.youtube.com/watch?v=wzfWHP6SXxY\&list=PLoROMvodv4rMFqRtEuo6SGjY4XbRIVRd4\&index=7)
+* [https://udlbook.github.io/udlbook/](https://udlbook.github.io/udlbook/)
+
+
+
+
+
