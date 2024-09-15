@@ -51,4 +51,12 @@ XLNet 的架构是基于 **Transformer-XL** 进行改进的，它的核心思想
 
 XLNet 的架构基于 Transformer，但通过引入 **排列语言建模** 和 **Transformer-XL 的记忆机制**，改进了现有模型（如 BERT 和 GPT）的能力，能够在预训练阶段捕捉到更加丰富和完整的上下文信息。这使得 XLNet 在多个 NLP 任务中表现优异，尤其是在处理长序列和复杂上下文时具有优势。
 
-4o
+
+
+
+
+
+
+Reference：
+
+* [https://www.borealisai.com/research-blogs/understanding-xlnet/](https://www.borealisai.com/research-blogs/understanding-xlnet/)
