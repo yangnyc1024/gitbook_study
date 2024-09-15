@@ -1,8 +1,4 @@
-# Bidirectional Encoder Representations from Transformers(BERT)
-
-
-
-
+# Page 2
 
 Bert:
 
