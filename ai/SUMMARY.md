@@ -20,6 +20,7 @@
     * [Cold Start Problem](machine-learning/data-and-feature-engineering/cold-start-problem.md)
 * [Deep Learning](deep-learning/README.md)
   * [Basic Neural Network](deep-learning/basic-neural-network/README.md)
+    * [Why Deep Learning?](deep-learning/basic-neural-network/why-deep-learning.md)
     * [Perceptron and Activation Function](deep-learning/basic-neural-network/perceptron-and-activation-function.md)
     * [Details of NN network](deep-learning/basic-neural-network/details-of-nn-network.md)
   * [Basic CNN](deep-learning/basic-cnn/README.md)
