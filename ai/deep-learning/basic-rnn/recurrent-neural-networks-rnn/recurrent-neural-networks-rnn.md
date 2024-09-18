@@ -1,4 +1,4 @@
-# Basic RNN
+# Recurrent Neural Networks(RNN)
 
 
 
@@ -42,7 +42,7 @@ $$O = H W_{hq} +b _{q}$$
 
 *
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2024-02-14 at 12.59.49 PM.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/Screenshot 2024-02-14 at 12.59.49 PM.png" alt=""><figcaption></figcaption></figure>
 * 在本例中，模型参数是$$W_{xh}$$和$$W_{hh}$$的拼接， 以及$$b_h$$的偏置，所有这些参数都来自之前的公式。当前时间步$$t$$的隐状态$$H_t$$ 将参与计算下一时间步$$t+1$$的隐状态$$H_{t+1}$$。 而且$$H_{t}$$还将送入全连接输出层， 用于计算当前时间步$$t$$的输出$$O_{t}$$。
 
 \
@@ -54,7 +54,7 @@ $$O = H W_{hq} +b _{q}$$
 * 设小批量大小为1，批量中的文本序列为“machine”。 为了简化后续部分的训练，我们考虑使用 _字符级语言模型_（character-level language model）， 将文本词元化为字符而不是单词。
 *
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2024-02-14 at 1.02.44 PM.png" alt=""><figcaption><p>输入为machin，输出为achine</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/Screenshot 2024-02-14 at 1.02.44 PM.png" alt=""><figcaption><p>输入为machin，输出为achine</p></figcaption></figure>
 
 ### 通过时间反向传播
 
