@@ -80,6 +80,8 @@ softmax及其导数
 
 
 
+Reference：d2l
+
 
 
 

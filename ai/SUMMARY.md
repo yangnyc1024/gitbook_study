@@ -23,6 +23,7 @@
     * [From Linear to Deep](deep-learning/basic-neural-network/from-linear-to-deep.md)
     * [Perceptron and Activation Function](deep-learning/basic-neural-network/perceptron-and-activation-function.md)
     * [Details of NN network](deep-learning/basic-neural-network/details-of-nn-network.md)
+    * [Backpropagation Details](deep-learning/basic-neural-network/backpropagation-details.md)
   * [Basic CNN](deep-learning/basic-cnn/README.md)
     * [Understanding of Convolution](deep-learning/basic-cnn/understanding-of-convolution/README.md)
       * [From Fully Connected Layers to Convolutions](deep-learning/basic-cnn/understanding-of-convolution/from-fully-connected-layers-to-convolutions.md)

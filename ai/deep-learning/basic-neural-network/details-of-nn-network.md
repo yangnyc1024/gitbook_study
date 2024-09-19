@@ -39,10 +39,26 @@ Reference: [https://zhuanlan.zhihu.com/p/26138673](https://zhuanlan.zhihu.com/p/
 
 ## Backpropagation
 
-
+你的目的是为了要求最小值
 
 ## Backpropagation Details
 
+### forward propagation
 
+### backward propagation
 
 ## Gradient vanish VS gradient explode
+
+
+
+
+
+
+
+
+
+Reference
+
+* [http://galaxy.agh.edu.pl/\~vlsi/AI/backp\_t\_en/backprop.html](http://galaxy.agh.edu.pl/\~vlsi/AI/backp\_t\_en/backprop.html)
+* 课程
+
