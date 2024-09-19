@@ -1,4 +1,4 @@
-# Networks Using Blocks (VGG)
+# Extra REading VGG
 
 使用块的网络
 
@@ -24,7 +24,7 @@ review：经典卷积神经网络的基本组成部分是下面的这个序列�
 * 其中有超参数变量`conv_arch`。该变量指定了每个VGG块里卷积层个数和输出通道数。全连接模块则与AlexNet中的相同。
 * 原始VGG网络有5个卷积块，其中前两个块各有一个卷积层，后三个块各包含两个卷积层。 第一个模块有64个输出通道，每个后续模块将输出通道数量翻倍，直到该数字达到512。由于该网络使用8个卷积层和3个全连接层，因此它通常被称为VGG-11。
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-02-05 at 10.51.00 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-02-05 at 10.51.00 AM.png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -46,5 +46,5 @@ review：经典卷积神经网络的基本组成部分是下面的这个序列�
 *   \
 
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2024-02-05 at 3.18.39 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/Screenshot 2024-02-05 at 3.18.39 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 * VGG神经网络连接 [图7.2.1](https://zh.d2l.ai/chapter\_convolutional-modern/vgg.html#fig-vgg)的几个VGG块（在`vgg_block`函数中定义）。其中有超参数变量`conv_arch`。该变量指定了每个VGG块里卷积层个数和输出通道数。全连接模块则与AlexNet中的相同。
