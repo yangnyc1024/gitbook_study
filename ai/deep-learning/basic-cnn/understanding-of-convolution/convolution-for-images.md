@@ -1,2 +1,0 @@
-# Convolution for images
-
