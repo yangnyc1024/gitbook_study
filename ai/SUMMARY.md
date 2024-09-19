@@ -77,7 +77,7 @@
     * [GPT\&Llama](deep-learning/llm-pretraining/gpt-and-llama.md)
     * [BERT vs GPT vs T5](deep-learning/llm-pretraining/bert-vs-gpt-vs-t5/README.md)
       * [Supplement比较](deep-learning/llm-pretraining/bert-vs-gpt-vs-t5/supplement-bi-jiao.md)
-    * [编码器-解码器架构 vs GPT 模型](deep-learning/llm-pretraining/bian-ma-qi-jie-ma-qi-jia-gou-vs-gpt-mo-xing.md)
+      * [编码器-解码器架构 vs GPT 模型](deep-learning/llm-pretraining/bert-vs-gpt-vs-t5/bian-ma-qi-jie-ma-qi-jia-gou-vs-gpt-mo-xing.md)
   * [Summary Old](deep-learning/basic-summary.md)
   * [Some Extra Topics](deep-learning/some-extra-topics/README.md)
     * [Encoder vs Decoder](deep-learning/some-extra-topics/encoder-vs-decoder.md)

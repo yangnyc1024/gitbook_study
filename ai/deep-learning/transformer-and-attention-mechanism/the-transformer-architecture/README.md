@@ -1,5 +1,9 @@
 # The Transformer Architecture
 
+
+
+## Extra Reading
+
 * 值得注意的是，自注意力同时具有<mark style="color:purple;">并行计算</mark>和<mark style="color:purple;">最短的最大路径长度</mark>这两个优势。因此，使用自注意力来设计深度架构是很有吸引力的。
 * 对比之前仍然依赖循环神经网络实现输入表示的自注意力模型 (Cheng et al., 2016, Lin et al., 2017, Paulus et al., 2017)，Transformer模型完全基于注意力机制，没有任何卷积层或循环神经网络层 (Vaswani et al., 2017)。
 * 尽管Transformer最初是应用于在文本数据上的序列到序列学习，但现在已经推广到各种现代的深度学习中，例如语言、视觉、语音和强化学习领域。
