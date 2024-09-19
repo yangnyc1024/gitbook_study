@@ -36,7 +36,7 @@ We defined entropy, surprisal, and cross-entropy混乱程度来考虑问题
 * 在介绍该模型之前，我们看一下总体策略。 假设我们将使用神经网络来训练语言模型， 模型中的网络一次处理具有预定义长度 （例如$$n$$个时间步）的一个小批量序列。 现在的问题是如何随机生成一个小批量数据的特征和标签以供读取。
 *
 
-    <figure><img src="../../../.gitbook/assets/Screenshot 2024-02-13 at 5.17.16 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2024-02-13 at 5.17.16 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 * &#x20;事实上，他们都一样的好。 然而，如果我们只选择一个偏移量， 那么用于训练网络的、所有可能的子序列的覆盖范围将是有限的。 因此，我们可以从随机偏移量开始划分序列， 以同时获得_覆盖性_（coverage）和_随机性_（randomness）
 * 下面，我们将描述如何实现_随机采样_（random sampling）和 _顺序分区_（sequential partitioning）策略。
 
