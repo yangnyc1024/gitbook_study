@@ -1,5 +1,9 @@
 # Long Short-Term Memory(LSTM)
 
+
+
+## Extra Reading
+
 The Long Short-Term Memory (LSTM) model is a type of Recurrent Neural Network (RNN) designed to handle the issue of vanishing gradients in traditional RNNs. The key idea behind LSTMs is to introduce memory cells that can store information for a long period of time, and gates that control the flow of information into and out of the memory cells.
 
 An LSTM model consists of several components, including:

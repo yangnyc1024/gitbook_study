@@ -1,6 +1,8 @@
 # Seuqence to Sequence Learning(Seq2Seq)
 
-## Introduction
+## Extra Reading
+
+### Introduction
 
 从上一个section里面我们知道，机器翻译的输入和输出序列都是长度可变的，为了解决这个问题，我们使用了decoder-ecoder模型，透过两个循环神经网络的编码器和解码器，透过一个hidden的中间层，将前后两个序列（语言）练习在一起，以至于我们可以用于_序列到序列_（sequence to sequence，seq2seq）类的学习任务
 
@@ -12,7 +14,7 @@
 
     <figure><img src="../../.gitbook/assets/Screenshot 2024-09-12 at 11.43.41 PM.png" alt="" width="563"><figcaption></figcaption></figure>
 
-## Encoder
+### Encoder
 
 从技术上讲，编码器将长度可变的输入序列转换成形状固定的上下文变量$$c$$，并且将输入序列的信息在该上下文变量中进行编码, 可以使用循环神经网络来设计编码器:
 

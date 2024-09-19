@@ -1,5 +1,7 @@
 # Gated Recurrent Units(GRU)
 
+## Extra Reading
+
 我们讨论了如何在循环神经网络中计算梯度， 以及矩阵连续乘积可以导致梯度消失或梯度爆炸的问题。 下面我们简单思考一下这种梯度异常在实践中的意义：
 
 Mathematically, for a given time step $$𝑡$$, suppose that the input is a minibatch $$𝑋_𝑡∈𝑅^𝑛×𝑑$$ (number of examples $$=𝑛$$; number of inputs $$=𝑑$$) and the hidden state of the previous time step is $$𝐻𝑡−1∈𝑅𝑛×ℎ$$ (number of hidden units $$=ℎ$$). Then the reset gate $$𝑅𝑡∈𝑅𝑛×ℎ$$ and update gate $$𝑍_𝑡 \in 𝑅_𝑛 \times ℎ$$ are computed as follows:

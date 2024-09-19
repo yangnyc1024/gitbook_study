@@ -80,3 +80,5 @@ Consider a sample image of the digit "5". The network processes the image throug
   **无批归一化和 Dropout**：现代 CNN 架构通常包括批归一化和 Dropout，以提高训练效果和泛化能力。LeNet 缺乏这些功能，因而相对不够健壮。
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-01-26 at 3.19.27 PM.png" alt=""><figcaption></figcaption></figure>
+
+LeNet 是最早的卷积神经网络之一，主要用于手写数字识别任务。它的架构在卷积、池化和全连接层之间交替，虽然它为现代 CNN 打下了基础，但在处理大规模任务时其能力有限。

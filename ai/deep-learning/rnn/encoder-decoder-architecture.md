@@ -1,5 +1,7 @@
 # Encoder-Decoder Architecture
 
+## Extra Reading
+
 In general sequence-to-sequence problems like machine translation, inputs and outputs are of varying lengths that are unaligned. The standard approach to handling this sort of data is to design an _encoder-decoder_ architecture consisting of two major components: an _encoder_ that takes a variable-length sequence as input, and a _decoder_ that acts as a conditional language model, taking in the encoded input and the leftwards context of the target sequence and predicting the subsequent token in the target sequence.
 
 * 机器翻译是序列转换模型的一个核心问题， 其输入和输出都是长度可变的序列。
