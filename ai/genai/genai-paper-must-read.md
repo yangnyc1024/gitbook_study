@@ -1,4 +1,4 @@
-# Page
+# GenAI Paper Must Read
 
 These are the 27 articles that Ilia Sutskever, the cofounder of OpenAI, told John Carmack to read (the creator of Doom and programming legend) if he wanted to very quickly become super smart on the topic of AI and how it is being developed right now.
 

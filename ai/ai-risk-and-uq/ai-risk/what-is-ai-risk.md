@@ -20,3 +20,4 @@ Safety-Impacting AI:58 The term “safety-impacting AI” refers to AI whose out
 Reference:
 
 * [https://www.whitehouse.gov/wp-content/uploads/2024/03/M-24-10-Advancing-Governance-Innovation-and-Risk-Management-for-Agency-Use-of-Artificial-Intelligence.pdf](https://www.whitehouse.gov/wp-content/uploads/2024/03/M-24-10-Advancing-Governance-Innovation-and-Risk-Management-for-Agency-Use-of-Artificial-Intelligence.pdf)
+* [https://www.munichre.com/content/dam/munichre/contentlounge/website-pieces/documents/MR\_AI-Whitepaper-Insuring-Generative-AI.pdf/\_jcr\_content/renditions/original./MR\_AI-Whitepaper-Insuring-Generative-AI.pdf](https://www.munichre.com/content/dam/munichre/contentlounge/website-pieces/documents/MR\_AI-Whitepaper-Insuring-Generative-AI.pdf/\_jcr\_content/renditions/original./MR\_AI-Whitepaper-Insuring-Generative-AI.pdf)
