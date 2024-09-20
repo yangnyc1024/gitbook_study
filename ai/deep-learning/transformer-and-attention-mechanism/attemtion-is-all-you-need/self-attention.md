@@ -79,7 +79,7 @@ CNN,RNN, Self-Attention，目标都是将$$n$$个词元组成的序列映射到�
 
 
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-02-29 at 1.15.51 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-02-29 at 1.15.51 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 #### CNN
 

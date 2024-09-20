@@ -8,7 +8,7 @@
 
 从宏观来看，上述算法可以用来实现基本的注意力机制框架。然而以下的图说明了如何将注意力汇聚的输出计算成为值的加权和，其中$$\alpha$$表示注意力评分函数。由于注意力权重是概率分布，因此加权和其本质上是加权平均值。
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-09-13 at 1.17.51 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-09-13 at 1.17.51 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 用数学语言描述，假设有一个查询$$q \in \mathbb{R}^{q}$$和$$m$$个“键-值”对$$(k_1, v_1), \dots, (k_m, v_m)$$，其中$$k_i \in \mathbb{R}^{k}, v_i \in \mathbb{R}^{v}$$。注意力汇聚函数$$f$$就被表示成值的加权和：
 

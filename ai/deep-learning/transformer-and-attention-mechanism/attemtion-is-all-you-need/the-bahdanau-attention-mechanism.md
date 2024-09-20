@@ -21,4 +21,4 @@ $$c_{t'} = \sum_{t=1}^{T} \alpha(s_{t'-1}, h_t) h_t$$
 
 其中，时刻 $$t' - 1$$ 时的解码器隐层状态 $$s_{t'-1}$$ 是查询，编码器隐状态 $$h_t$$ 既是键，也是值，注意力权重 $$\alpha$$ 是使用前面所定义的加性注意力打分函数计算的，以下描述了Bahdanau注意力的架构：
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-09-13 at 2.18.44 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-09-13 at 2.18.44 PM.png" alt="" width="375"><figcaption></figcaption></figure>

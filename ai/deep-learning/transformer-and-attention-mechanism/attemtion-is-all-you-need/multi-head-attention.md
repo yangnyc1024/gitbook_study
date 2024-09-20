@@ -78,7 +78,7 @@ Additionally, the **decoder** uses Multi-Head Attention to focus on different pa
 * 如图所示
 *
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2024-02-14 at 3.12.12 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/Screenshot 2024-02-14 at 3.12.12 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 
 

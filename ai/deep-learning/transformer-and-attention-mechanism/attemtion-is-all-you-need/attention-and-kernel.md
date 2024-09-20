@@ -15,7 +15,7 @@
   * 更通俗的解释，每个值都与一个_键_（key）配对， 这可以想象为感官输入的非自主提示。如图所示，可以通过设计注意力汇聚的方式， 便于给定的查询（自主性提示）与键（非自主性提示）进行匹配， 这将引导得出最匹配的值（感官输入）。
 *
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2024-02-14 at 2.33.19 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/Screenshot 2024-02-14 at 2.33.19 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Nadaraya-Watson kernel regression & Gaussian Kernel
 
