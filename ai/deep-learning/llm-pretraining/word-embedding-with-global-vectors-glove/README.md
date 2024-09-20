@@ -1,92 +1,87 @@
 # Word Embedding with Global Vectors(GloVe)
 
-上下文窗口的词共现可以携带丰富的语义信息。
+### Word Embedding with Global Vectors (GloVe) | 全局向量词嵌入 (GloVe)
 
-* 例如，在一个大型语料库中，“固体”比“气体”更有可能与“冰”共现，但“气体”一词与“蒸汽”的共现频率可能比“冰”出现的频率更高。
-* 此外，可以预先计算此类共现的全局预料库统计数据：这可提供训练效率
-* 为了利用整个语料库中的统计信息进行词嵌入，让我们首先的跳远模型，但是使用全局预料库统计（如共现计数）来解释它
+#### 1. **What is GloVe? | 什么是 GloVe？**
 
-## 带全局语料统计的跳元模型
+**GloVe (Global Vectors for Word Representation)** is a word embedding technique developed by researchers at Stanford in 2014. Like **word2vec**, GloVe represents words as dense vectors in a continuous vector space, where semantically similar words are closer to each other. However, GloVe differs in its approach to learning word embeddings. While word2vec is based on predicting words in a local context using neural networks, GloVe uses **global co-occurrence statistics** to capture relationships between words across the entire text corpus.
 
-用$$q_{ij}$$表示词$$w_j$$的条件概率$$P(w_j \mid w_i)$$，在跳元模型中给定词$$w_i$$，我们有：
+In GloVe, the idea is to learn word embeddings based on how frequently words co-occur in a given corpus. The result is a set of word vectors that capture both local context and global statistical information about word relationships.\
+**GloVe（全局向量词表示）** 是斯坦福大学研究人员在 2014 年开发的一种词嵌入技术。与 **word2vec** 类似，GloVe 将单词表示为连续向量空间中的稠密向量，其中语义相似的单词彼此靠近。然而，GloVe 在学习词嵌入的方法上有所不同。word2vec 基于使用神经网络预测局部上下文中的单词，而 GloVe 使用 **全局共现统计** 捕捉整个语料库中单词之间的关系。
 
-&#x20;                                                                          $$q_{ij} = \frac{\exp(\mathbf{u}_j^\top \mathbf{v}i)}{\sum{k \in V} \exp(\mathbf{u}_k^\top \mathbf{v}_i)},$$
+在 GloVe 中，基本思想是基于单词在给定语料库中共同出现的频率学习词嵌入。结果是一组既捕捉局部上下文又包含全局统计信息的词向量。
 
-其中，对于任意索引$$i,j$$，向量$$\mathbf{v}_i$$和$$\mathbf{u}_j$$分别表示词$$w_i$$作为中心词和词$$w_j$$作为上下文词，且$$V = {0, 1, \dots, |V| - 1}$$是词表的索引集。
+#### 2. **How Does GloVe Work? | GloVe 是如何工作的？**
 
-* 考虑词$$w_i$$可能在语料库中出现多次。在整个语料库中，所有以$$w_j$$为中心词的上下文词形成一个词索引的多重集$$C_i$$，该索引允许同一元素的多个实例。对于任何元素，其实例数为其重数。
-* 举例说明，假设词$$w_i$$在语料库中出现两次，并且在两个上下文窗口中以$$w_j$$为中心词的上下文词索引是$$\{k,j,m,k\}$$和 $$\{k,l,k,j\}$$。
-* 因此，多重集$$C_i = \{j, j, k, k, k, k, l, m\}$$，其中元素$$j,k,l,m$$的重数分别为2, 4, 1, 1。
+GloVe uses **co-occurrence matrices** to learn word embeddings. The matrix records how often pairs of words occur together in a large corpus. The intuition behind GloVe is that words that appear in similar contexts should have similar vector representations.
 
-现在，让我们将多重集$$C_i$$中的元素的重数表示为$$x_{ij}$$。
+**Co-Occurrence Matrix | 共现矩阵**
 
-* 这是词$$w_j$$（作为上下文词）和词$$w_i$$（作为中心词）在整个语料库的同一上下文窗口中的全局共现计数。
-* 使用这样的全局语料库统计，跳元模型的损失函数等价于：$$-\sum_{i \in V} \sum_{j \in V} x_{ij} \log q_{ij}.$$
-* 我们用$$x_i$$表示上下文窗口中的所有上下文词的数量，其中$$w_i$$作为它们的中心词出现，这相当于$$|C_i|$$。设$$p_{ij}$$为用于生成上下文词$$w_j$$的条件概率$$x_{ij}/x_i$$。
-* 给定中心词$$w_i$$，前公式可以重写为：$$-\sum_{i \in V} x_i \sum_{j \in V} p_{ij} \log q_{ij}.$$其中，$$\sum_{j \in V} p_{ij} \log q_{ij}$$计算全局语料统计中的条件分布$$p_{ij}$$和模型预测的条件分布$$q_{ij}$$的交叉熵。如上所述，这一损失也按$$x_i$$加权。其中最小化损失将使预测的条件分布接近全局语料统计中的条件分布。
+A **co-occurrence matrix** is built, where each element in the matrix represents how often a word appears in the context of another word within a given window size (e.g., 5 or 10 words). For example, in the sentence "The cat sat on the mat," the words "cat" and "sat" might co-occur frequently in many contexts.
 
-虽然交叉熵损失函数通常用于测量概率分布之间的距离，但在这里可能不是一个好的选择。
+**GloVe Objective Function | GloVe 目标函数**
 
-* 一方面，正如我们在近似训练中提到的，规范$$q_{ij}$$的优化存在于整个词表的求和，这在计算上可能非常昂贵。
-* 另一方面，来自大型语料库的大量罕见事件往往被交叉熵损失摊薄，从而低估了对多的频次。
+GloVe learns word embeddings by minimizing the difference between the actual co-occurrence count and the predicted count from the word vectors. The objective function is designed to ensure that the ratio of co-occurrence probabilities between words is captured in the word vectors:
+
+$$
+J = \sum_{i,j=1}^{V} f(X_{ij}) \left( w_i^T \cdot w_j + b_i + b_j - \log(X_{ij}) \right)^2
+$$
+
+Where:
+
+* $$X_{ij}$$ is the number of times word $$i$$ and word $$j$$ co-occur,
+* $$w_i$$ and $$w_j$$ are the word vectors for words $$i$$ and $$j$$,
+* $$b_i$$ and $$b_j$$ are bias terms for words $$i$$ and $$j$$,
+* $$f(X_{ij})$$ is a weighting function to control the impact of frequent and rare words.
+
+The goal is to learn word vectors $$w_i$$ such that they accurately capture the statistical co-occurrence relationships between words.\
+GloVe 使用 **共现矩阵** 来学习词嵌入。矩阵记录了单词对在大语料库中一起出现的频率。GloVe 背后的直觉是，出现在相似上下文中的单词应该具有相似的向量表示。
+
+**共现矩阵**
+
+构建一个 **共现矩阵**，矩阵中的每个元素表示一个单词在另一个单词的上下文中出现的频率，窗口大小为预定值（例如 5 或 10 个单词）。例如，在句子 “The cat sat on the mat”（猫坐在垫子上）中，单词 “cat” 和 “sat” 可能在许多上下文中频繁共现。
+
+**GloVe 目标函数**
+
+GloVe 通过最小化实际共现次数与从词向量预测的共现次数之间的差异来学习词嵌入。目标函数设计为确保单词之间的共现概率比在词向量中得到准确表示：
+
+$$
+J = \sum_{i,j=1}^{V} f(X_{ij}) \left( w_i^T \cdot w_j + b_i + b_j - \log(X_{ij}) \right)^2
+$$
+
+其中：
+
+* $$X_{ij}$$ 是单词 $$i$$ 和单词 $$j$$ 的共现次数，
+* $$w_i$$ 和 $$w_j$$ 是单词 $$i$$ 和 $$j$$ 的词向量，
+* $$b_i$$ 和 $$b_j$$ 是单词 $$i$$ 和 $$j$$ 的偏置项，
+* $$f(X_{ij})$$ 是控制频繁和稀有单词影响的加权函数。
+
+目标是学习词向量 $$w_i$$，使其准确捕捉单词之间的统计共现关系。
+
+#### 3. **Key Features of GloVe | GloVe 的关键特性**
+
+* **Global Co-Occurrence Statistics | 全局共现统计**: GloVe uses information from the entire corpus to learn word embeddings, capturing global statistical relationships between words. **全局共现统计**：GloVe 使用整个语料库中的信息来学习词嵌入，捕捉单词之间的全局统计关系。
+* **Efficiency | 高效性**: GloVe uses a matrix factorization approach, which is more computationally efficient for large datasets compared to methods that rely on sliding context windows. **高效性**：GloVe 使用矩阵分解方法，与依赖滑动窗口的其他方法相比，对于大数据集的计算效率更高。
+* **Logarithmic Scaling | 对数缩放**: The use of logarithmic scaling in the objective function helps GloVe better handle the wide range of co-occurrence counts, from very frequent to very rare word pairs. **对数缩放**：目标函数中使用对数缩放帮助 GloVe 更好地处理从非常频繁到非常稀有的单词对的共现次数。
+
+#### 4. **Benefits of GloVe | GloVe 的优势**
+
+* **Captures Semantic Relationships | 捕捉语义关系**: GloVe effectively captures semantic relationships between words, such as word analogies (e.g., "king" is to "queen" as "man" is to "woman"). **捕捉语义关系**：GloVe 有效地捕捉单词之间的语义关系，例如词类比（如 "king" 之于 "queen" 正如 "man" 之于 "woman"）。
+* **Better Global Understanding | 更好的全局理解**: Unlike word2vec, which focuses on local context, GloVe incorporates global co-occurrence statistics, leading to embeddings that better capture overall word relationships in the corpus. **更好的全局理解**：与专注于局部上下文的 word2vec 不同，GloVe 融入了全局共现统计，生成的词嵌入更好地捕捉了语料库中的整体单词关系。
+* **Handling Rare Words | 处理稀有单词**: By using global co-occurrence data, GloVe is better at handling rare words compared to models like word2vec, which may struggle when certain words appear infrequently in the local context. **处理稀有单词**：通过使用全局共现数据，GloVe 在处理稀有单词方面表现得更好，相比之下，像 word2vec 这样的模型可能在某些单词在局部上下文中出现频率较低时表现不佳。
+
+#### 5. **Limitations of GloVe | GloVe 的局限性**
+
+* **Context Independence | 上下文独立性**: Like word2vec, GloVe assigns a single vector to each word, meaning it cannot capture different meanings of the same word in different contexts (polysemy). **上下文独立性**：与 word2vec 类似，GloVe 为每个单词分配一个固定的向量，这意味着它无法捕捉同一个单词在不同上下文中的不同含义（多义性）。
+* **Requires Large Datasets | 需要大规模数据集**: GloVe requires large corpora to accurately capture co-occurrence statistics. Small datasets may not provide enough co-occurrence information for the model to learn meaningful word embeddings. **需要大规模数据集**：GloVe 需要大型语料库来准确捕捉共现统计数据。小数据集可能无法提供足够的共现信息来让模型学习到有意义的词嵌入。
+
+#### 6. **Applications of GloVe | GloVe 的应用**
+
+* **Word Similarity and Analogy Tasks | 词语相似性和类比任务**: GloVe embeddings are commonly used for tasks like identifying similar words or solving word analogy problems (e.g., "man" is to "king" as "woman" is to "queen"). **词语相似性和类比任务**：GloVe 嵌入常用于识别相似词或解决词类比问题（如 "man" 之于 "king" 正如 "woman" 之于 "queen"）。
+* **Text Classification | 文本分类**: GloVe vectors can serve as input features for text classification models, helping the model to better understand the semantic content of text data. **文本分类**：GloVe 向量可以作为文本分类模型的输入特征，帮助模型更好地理解文本数据的语义内容。
+* **Sentiment Analysis | 情感分析**: GloVe is used in sentiment analysis tasks to analyze the sentiment of a text by leveraging the learned word embeddings that capture the nuances of positive or negative sentiment. **情感分析**：GloVe 用于情感分析任务，通过利用学习到的词嵌入来分析文本的情感，这些词嵌入能够捕捉到正面或负面情感的细微差别。
+* **Machine Translation | 机器翻译**: GloVe embeddings can be used to align words across languages in machine translation tasks, aiding in the translation process by capturing the relationships between words in different languages. **机器翻译**：GloVe 嵌入可以用于机器翻译任务中的跨语言单词对齐，通过捕捉不同语言中单词之间的关系来帮助翻译过程。
 
 
 
-
-
-### GloVe模型
-
-有鉴于此，GloVe 模型基于平方损失 (Pennington et al., 2014) 对跳元模型做了三个修改：
-
-1. 使用变量 $$p^{'}_{ij} = x_{ij}$$ 和 $$q_{ij} = \exp(\mathbf{u}j^\top \mathbf{v}i)$$ _而非概率分布，并取两者的对数。所以平方损失项是_$$\log p'{ij} - \log q{ij})^2 = \left( \mathbf{u}_j^\top \mathbf{v}i - \log x{ij} \right)^2$$
-2. 为每个词 $$w_i$$ 添加两个标量模型参数：中心词偏置 $$b_i$$ 和上下文词偏置 $$c_i$$。
-3. 用权重函数 $$h(x_{ij})$$ 替换每个损失项的权重，其中 $$h(x)$$ 在 $$[0, 1]$$ 的间隔内递增。
-
-整合代码，训练 GloVe 是为了尽量降低以下损失函数：
-
-$$\sum_{i \in V} \sum_{j \in V} h(x_{ij})\left( \mathbf{u}_j^\top \mathbf{v}i + b_i + c_j - \log x_{ij} \right)^2.$$
-
-对于权重函数，建议的选择是：
-
-* 当 $$x < c$$ (例如 $$c = 100$$) 时，$$h(x) = (x/c)^\alpha$$ (例如 $$\alpha = 0.75$$)；否则 $$h(x) = 1$$。在这种情况下，由于 $$h(0) = 0$$，为了提高计算效率，可以省略任意 $$x_{ij} = 0$$ 的平方损失项。例如，当使用小批量随机梯度下降训练时，在每次迭代中，我们随机抽样一小批量非零的 $$x_{ij}$$ 来计算梯度并更新模型参数。注意，这些非零的 $$x_{ij}$$ 是预先计算的全局语料库统计数据；因此，该模型 GloVe 被称为全局向量。
-* 应该强调的是，当词 $$w_i$$ 出现在词 $$w_j$$ 的上下文窗口时，词 $$w_j$$ 也出现在词 $$w_i$$ 的上下文窗口。因此，$$x_{ij} = x_{ji}$$。与拟合非对称条件概率 $$p_{ij}$$ 的 word2vec 不同，GloVe 拟合对称概率 $$\log x_{ij}$$。因此，在 GloVe 模型中，任意词的中心向量和上下文向量在数学上是等价的。
-* 但在实际应用中，由于初始化值不同，同一个词经过训练后，在这两个向量中可能得到不同的值：GloVe 将它们相加作为输出向量。
-
-
-
-
-
-### 从条件概率比值理解GloVe模型
-
-我们也可以从另一个角度来理解GloVe模型。设 $$p_{ij} = P(w_j \mid w_i)$$ 为生成上下文词 $$w_j$$ 的条件概率，给定 $$w_i$$ 作为语料库中的中心词。`tab_glove` 根据大量语料库的统计数据，列出了给定单词 “ice” 和 “steam” 的共现概率及其比值。
-
-大型语料库中的词-词共现概率及其比值（根据 (Pennington et al., 2014) 中的表1改编）
-
-<figure><img src="../../../.gitbook/assets/Screenshot 2024-09-14 at 11.02.37 PM.png" alt=""><figcaption></figcaption></figure>
-
-从 $$\texttt{tab_glove}$$ 中, 我们可以观察到以下几点：
-
-* 对于与 “ice” 相关但与 “steam” 无关的单词 $$w_k$$，例如 $$w_k = \text{solid}$$，我们预计会有更大的共现概率比值, 例如 8.9%。&#x20;
-* 对于与 “steam” 相关但与 “ice” 无关的单词 $$w_k$$，例如 $$w_k = \text{gas}$$，我们预计较小的共现概率比值, 例如 0.85%。&#x20;
-* 对于同时与 “ice” 和 “steam” 相关的单词 $$w_k$$，例如 $$w_k = \text{water}$$，我们预计其共现概率的比值接近 1, 例如 1.36。
-* 对于与 “ice” 和 “steam” 都不相关的单词 $$w_k$$，例如 $$w_k = \text{fashion}$$，我们预计其共现概率的比值接近 1, 例如 0.96。
-
-由此可见, 共现概率的比值能够直观地表达词与词之间的关系。因此, 我们可以设计三个词向量的函数来拟合这个比值。对于共现概率 $$p_{ij} / p_{ik}$$ 的比值，其中 $$w_i$$ 是中心词, $$w_j$$ 和 $$w_k$$ 是上下文词, 我们希望使用某个函数 $$f$$ 来拟合该比值：$$f(\mathbf{u}_j, \mathbf{u}_k, \mathbf{v}_i) \approx \frac{p_{ij}}{p_{ik}}$$
-
-在 $$f$$ 的许多可能的设计中, 我们只在以下几点中选择了一个合理的选择。因为共现概率的比值是标量, 所以我们要求 $$f$$ 是标量函数, 例如
-
-$$f(\mathbf{u}_j, \mathbf{u}_k, \mathbf{v}_i) = f\left( (\mathbf{u}_j - \mathbf{u}_k)^\top \mathbf{v}_i \right)$$
-
-在 (14.5.5) 中交换词索引 $$j$$ 和 $$k$$, 它必须保持 $$f(x) f(-x) = 1$$, 所以一种可能性是 $$f(x) = \exp(x)$$, 即：
-
-$$f(\mathbf{u}_j, \mathbf{u}_k, \mathbf{v}_i) = \frac{\exp\left( \mathbf{u}_j^\top \mathbf{v}_i \right)}{\exp\left( \mathbf{u}_k^\top \mathbf{v}_i \right)} \approx \frac{p_{ij}}{p_{ik}}$$
-
-现在让我们选择 $$\exp\left( \mathbf{u}_j^\top \mathbf{v}_i \right) \approx \alpha p_{ij}$$_，_其中$$\alpha$$是常数。将 $$p_{ij} = x_{ij} / x_i$$ 代入, 取两边的对数得到
-
-$$\mathbf{u}_j^\top \mathbf{v}_i \approx \log \alpha + \log x_{ij} - \log x_i$$
-
-我们可以使用附加的偏置项来拟合 $$-\log \alpha + \log x_i$$, 如中心词偏置 $$b_i$$ 和上下文词偏置 $$c_j$$，因此：
-
-$$\mathbf{u}_j^\top \mathbf{v}_i + b_i + c_j \sim \log x_{ij}$$
-
-通过对加权平方误差的度量, 得到了 (14.5.4) 的 GloVe 损失函数。
+**GloVe** 是一种通过使用整个语料库的全局共现统计来捕捉单词关系的词嵌入模型。**工作原理**：它构建共现矩阵，并通过最小化实际和预测共现次数之间的差异来学习词嵌入。**优势**：捕捉语义关系，融入全局统计，能够很好地处理稀有单词。**局限性**：为每个单词分配一个向量，无法捕捉多义性，并且需要大规模数据集。**应用**：词语相似性、文本分类、情感分析和机器翻译等。

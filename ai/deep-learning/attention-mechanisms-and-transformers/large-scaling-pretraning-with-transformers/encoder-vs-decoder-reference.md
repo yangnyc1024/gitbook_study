@@ -1,4 +1,8 @@
-# Encoder vs Decoder
+---
+description: Reference
+---
+
+# Encoder vs Decoder Reference
 
 {% embed url="https://www.53ai.com/news/qianyanjishu/1539.html" %}
 
