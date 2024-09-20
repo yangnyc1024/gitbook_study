@@ -19,6 +19,7 @@
     * [Handle Bias Data](machine-learning/data-and-feature-engineering/handle-bias-data.md)
     * [Cold Start Problem](machine-learning/data-and-feature-engineering/cold-start-problem.md)
 * [Deep Learning](deep-learning/README.md)
+  * [Summary v2](deep-learning/summary-v2.md)
   * [Basic Neural Network](deep-learning/basic-neural-network/README.md)
     * [From Linear to Deep](deep-learning/basic-neural-network/from-linear-to-deep.md)
     * [Perceptron and Activation Function](deep-learning/basic-neural-network/perceptron-and-activation-function.md)
