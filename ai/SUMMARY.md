@@ -101,6 +101,7 @@
   * [Sampling/ABtesting/GradientMethod](statistics-and-optimization/sampling-abtesting-gradientmethod.md)
   * [Gradient Decent Deep Dive](statistics-and-optimization/gradient-decent-deep-dive.md)
 * [Machine Learning System Design](machine-learning-system-design.md)
+  * [Extra Reading](machine-learning-system-design/extra-reading.md)
   * [Introduction](machine-learning-system-design/introduction.md)
 * [AI Risk and UQ](ai-risk-and-uq/README.md)
   * [AI Risk](ai-risk-and-uq/ai-risk/README.md)
