@@ -96,6 +96,7 @@
   * [Llama 3架构](genai/llama-3-jia-gou.md)
   * [GenAI Paper Must Read](genai/genai-paper-must-read.md)
   * [GenAI六个阶段](genai/genai-liu-ge-jie-duan.md)
+  * [Fine-Tuning Generation Models](genai/fine-tuning-generation-models.md)
 * [Statistics and Optimization](statistics-and-optimization/README.md)
   * [A/B testing](statistics-and-optimization/a-b-testing.md)
   * [Sampling/ABtesting/GradientMethod](statistics-and-optimization/sampling-abtesting-gradientmethod.md)
