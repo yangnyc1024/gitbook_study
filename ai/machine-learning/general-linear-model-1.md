@@ -68,7 +68,7 @@ $$
 
 <figure><img src="../.gitbook/assets/linear_regression_noise.png" alt="" width="375"><figcaption></figcaption></figure>
 
-1. 别忘了我们要使用model里的assumption： p(y|x) 是 $$mean=\mu=f(x)$$(和$$x$$有关), $$variance=\sigma^2$$（和$$x$$无关）的normal distribution（or we consider $\varepsilon \sim N(0,\sigma^2)$）
+1. 别忘了我们要使用model里的assumption： p(y|x) 是 $$mean=\mu=f(x)$$(和$$x$$有关), $$variance=\sigma^2$$（和$$x$$无关）的normal distribution（or we consider $$\varepsilon \sim N(0,\sigma^2)$$）
 2. 推导\*\*(面试必考题)\*\*
    1. we know that $$Y\vert X \sim N(\bar{\beta}_0+\bar{\beta}_1X, \sigma^2)$$
    2. $$
@@ -80,7 +80,7 @@ $$
 
     under the assumption $$(X_1,Y_1),\cdots, (X_n,Y_n)$$ are independent
 
-    where $$L(\bar{\beta}_0,\bar{\beta}_1,\sigma^2)=p(Y_1,\cdots,Y_n\vert X_1,\cdots,X_n)=p(Y_1\vert X_1,\cdots,X_n)\cdots p(Y_n\vert X_1,\cdots,X_n) =p(Y_1 \vert X_1)p(Y_2\vert X_2)\cdots p(Y_n\vert X_n)$$
+    where $$L(\bar{\beta}_0,\bar{\beta}_1,\sigma^2)=p(Y_1,\cdots,Y_n\vert X_1,\cdots,X_n)=p(Y_1\vert X_1,\cdots,X_n)\cdots p(Y_n\vert X_1,\cdots,X_n) =p(Y_1 \vert X_1)p(Y_2\vert X_2)\cdots p(Y_n\vert X_n)$$$$L(\bar{\beta}_0,\bar{\beta}_1,\sigma^2)=p(Y_1,\cdots,Y_n\vert X_1,\cdots,X_n)=p(Y_1\vert X_1,\cdots,X_n)\cdots p(Y_n\vert X_1,\cdots,X_n) =p(Y_1 \vert X_1)p(Y_2\vert X_2)\cdots p(Y_n\vert X_n)$$
 4.  the corresponding the log function:(我只关心parameter，log函数不影响单调等数学性质)
 
     $$
