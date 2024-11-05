@@ -62,6 +62,7 @@
       * [The Bahdanau Attention Mechanism](deep-learning/attention-mechanisms-and-transformers/attention-is-all-you-need/the-bahdanau-attention-mechanism.md)
       * [Multi-Head Attention](deep-learning/attention-mechanisms-and-transformers/attention-is-all-you-need/multi-head-attention.md)
       * [Self-Attention](deep-learning/attention-mechanisms-and-transformers/attention-is-all-you-need/self-attention.md)
+      * [Attention的实现](deep-learning/attention-mechanisms-and-transformers/attention-is-all-you-need/attention-de-shi-xian.md)
     * [The Transformer Architecture](deep-learning/attention-mechanisms-and-transformers/the-transformer-architecture/README.md)
       * [Extra Reading](deep-learning/attention-mechanisms-and-transformers/the-transformer-architecture/extra-reading.md)
       * [最短的最大路径长度](deep-learning/attention-mechanisms-and-transformers/the-transformer-architecture/zui-duan-de-zui-da-lu-jing-chang-du.md)
