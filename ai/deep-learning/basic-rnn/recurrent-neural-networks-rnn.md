@@ -8,10 +8,10 @@
 
 * 我们介绍了$$n$$元语法模型， 其中单词$$x_t$$在时间步$$t$$的条件概率仅取决于前面$$n-1$$个单词。 对于时间步$$t-(n-1)$$之前的单词， 如果我们想将其可能产生的影响合并到$$x_t$$上， 需要增加$$n$$，然而模型参数的数量也会随之呈指数增长， 因为词表$$|\mathcal{V}|$$需要存储$$|\mathcal{V}|^n$$个数字，&#x20;
 * 因此与其将$$P(x_t | x_{t-1}, \cdots, x_1)$$模型化， 不如使用隐变量模型$$P(x_t|x_{t-1},\cdots, x_1) \approx P(x_t |h_{t-1})$$
-* 其中$$h_{t-1}$$是_隐状态_（hidden state）， 也称为_隐藏变量_（hidden variable）， 它存储了到时间步$$t-1$$的序列信息。 通常，我们可以基于当前输入$$x_t$$和先前隐状态$$h_{t-1}$$ 来计算时间步$$t$$处的任何时间的隐状态：$$h_{t-1} = f(x_t, h_{t-1})$$
+* 其中$$h_{t-1}$$&#x662F;_&#x9690;状态_（hidden state）， 也称&#x4E3A;_&#x9690;藏变量_（hidden variable）， 它存储了到时间步$$t-1$$的序列信息。 通常，我们可以基于当前输入$$x_t$$和先前隐状态$$h_{t-1}$$ 来计算时间步$$t$$处的任何时间的隐状态：$$h_{t-1} = f(x_t, h_{t-1})$$
 * 对于函数$$f$$，隐变量模型不是近似值。 毕竟$$h_t$$是可以仅仅存储到目前为止观察到的所有数据， 然而这样的操作可能会使计算和存储的代价都变得昂贵。
 
-### Neural Networks without Hidden States[¶](https://d2l.ai/chapter\_recurrent-neural-networks/rnn.html#neural-networks-without-hidden-states)
+### Neural Networks without Hidden States[¶](https://d2l.ai/chapter_recurrent-neural-networks/rnn.html#neural-networks-without-hidden-states)
 
 * Let’s take a look at an MLP with a single hidden layer.&#x20;
 * Let the hidden layer’s activation function be $$\phi$$. Given a minibatch of examples $$X \in \mathbb{R}^{n \times d }$$ with batch size $$n$$ and $$d$$ inputs, the hidden layer output $$H \in \mathbb{R}^{n \times h}$$ is calculated as
@@ -50,7 +50,7 @@ $$O = H W_{hq} +b _{q}$$
 
 ### &#x20;基于循环神经网络的字符级语言模型
 
-* 我们的目标是根据过去的和当前的词元预测下一个词元， 因此我们将原始序列移位一个词元作为标签。 Bengio等人首先提出使用神经网络进行语言建模 ([Bengio _et al._, 2003](https://zh.d2l.ai/chapter\_references/zreferences.html#id8))。&#x20;
+* 我们的目标是根据过去的和当前的词元预测下一个词元， 因此我们将原始序列移位一个词元作为标签。 Bengio等人首先提出使用神经网络进行语言建模 ([Bengio _et al._, 2003](https://zh.d2l.ai/chapter_references/zreferences.html#id8))。&#x20;
 * 设小批量大小为1，批量中的文本序列为“machine”。 为了简化后续部分的训练，我们考虑使用 _字符级语言模型_（character-level language model）， 将文本词元化为字符而不是单词。
 *
 
@@ -58,7 +58,7 @@ $$O = H W_{hq} +b _{q}$$
 
 ### 通过时间反向传播
 
-* &#x20;循环神经网络中的前向传播相对简单。 _通过时间反向传播_（backpropagation through time，BPTT） ([Werbos, 1990](https://zh.d2l.ai/chapter\_references/zreferences.html#id182))实际上是循环神经网络中反向传播技术的一个特定应用。&#x20;
+* &#x20;循环神经网络中的前向传播相对简单。 _通过时间反向传播_（backpropagation through time，BPTT） ([Werbos, 1990](https://zh.d2l.ai/chapter_references/zreferences.html#id182))实际上是循环神经网络中反向传播技术的一个特定应用。&#x20;
 * 它要求我们将循环神经网络的计算图一次展开一个时间步， 以获得模型变量和参数之间的依赖关系。 然后，基于链式法则，应用反向传播来计算和存储梯度。 由于序列可能相当长，因此依赖关系也可能相当长。
 
 #### Analysis of Gradients in RNNs循环神经网络的梯度分析

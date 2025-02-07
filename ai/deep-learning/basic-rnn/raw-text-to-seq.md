@@ -1,4 +1,4 @@
-# Basic Raw Text to Seq
+# Raw Text to Seq
 
 Typical preprocessing pipelines execute the following steps:
 
@@ -25,7 +25,7 @@ Typical preprocessing pipelines execute the following steps:
 ### Vocabulary
 
 * _vocabularies_, i.e., objects that associate each distinct token value with a unique index
-* &#x20;我们先将训练集中的所有文档合并在一起，对它们的唯一词元进行统计， 得到的统计结果称之为_语料_（corpus）。 然后根据每个唯一词元的出现频率，为其分配一个数字索引。
+* &#x20;我们先将训练集中的所有文档合并在一起，对它们的唯一词元进行统计， 得到的统计结果称之&#x4E3A;_&#x8BED;料_（corpus）。 然后根据每个唯一词元的出现频率，为其分配一个数字索引。
 * 很少出现的词元通常被移除，这可以降低复杂性。 另外，语料库中不存在或已删除的任何词元都将映射到一个特定的未知词元“\<unk>”。 我们可以选择增加一个列表，用于保存那些被保留的词元， 例如：填充词元（“\<pad>”）； 序列开始词元（“\<bos>”）； 序列结束词元（“\<eos>”）。
 
 

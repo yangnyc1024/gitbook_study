@@ -10,20 +10,20 @@
 * 首先，考虑一个相对简单的状况， 即只使用非自主性提示。&#x20;
 * 要想将选择偏向于感官输入， 则可以简单地使用参数化的全连接层， 甚至是非参数化的最大汇聚层或平均汇聚层。
 * 因此，“是否包含自主性提示”将注意力机制与全连接层或汇聚层区别开来。&#x20;
-  * 在注意力机制的背景下，自主性提示被称为_查询_（query）。 给定任何查询，注意力机制通过_注意力汇聚_（attention pooling） 将选择引导至_感官输入_（sensory inputs，例如中间特征表示）。&#x20;
-  * 在注意力机制中，这些感官输入被称为_值_（value）。&#x20;
-  * 更通俗的解释，每个值都与一个_键_（key）配对， 这可以想象为感官输入的非自主提示。如图所示，可以通过设计注意力汇聚的方式， 便于给定的查询（自主性提示）与键（非自主性提示）进行匹配， 这将引导得出最匹配的值（感官输入）。
+  * 在注意力机制的背景下，自主性提示被称&#x4E3A;_&#x67E5;询_（query）。 给定任何查询，注意力机制通&#x8FC7;_&#x6CE8;意力汇聚_（attention pooling） 将选择引导&#x81F3;_&#x611F;官输入_（sensory inputs，例如中间特征表示）。&#x20;
+  * 在注意力机制中，这些感官输入被称&#x4E3A;_&#x503C;_（value）。&#x20;
+  * 更通俗的解释，每个值都与一&#x4E2A;_&#x952E;_（key）配对， 这可以想象为感官输入的非自主提示。如图所示，可以通过设计注意力汇聚的方式， 便于给定的查询（自主性提示）与键（非自主性提示）进行匹配， 这将引导得出最匹配的值（感官输入）。
 *
 
     <figure><img src="../../../.gitbook/assets/Screenshot 2024-02-14 at 2.33.19 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Nadaraya-Watson kernel regression & Gaussian Kernel
 
-Nadaraya ([Nadaraya, 1964](https://zh.d2l.ai/chapter\_references/zreferences.html#id114))和 Watson ([Watson, 1964](https://zh.d2l.ai/chapter\_references/zreferences.html#id180))提出了一个更好的想法， 根据输入的位置对输出$$y_i$$进行加权：$$f(x) = \sum_{i = 1}^{n} \frac{K(x-x_i)}{\sum_{j = 1}^nK(x- x_j)} y_i$$， 其中$$K$$是_核_（kernel）。&#x20;
+Nadaraya ([Nadaraya, 1964](https://zh.d2l.ai/chapter_references/zreferences.html#id114))和 Watson ([Watson, 1964](https://zh.d2l.ai/chapter_references/zreferences.html#id180))提出了一个更好的想法， 根据输入的位置对输出$$y_i$$进行加权：$$f(x) = \sum_{i = 1}^{n} \frac{K(x-x_i)}{\sum_{j = 1}^nK(x- x_j)} y_i$$， 其中$$K$$&#x662F;_&#x6838;_（kernel）。&#x20;
 
 * 公式所描述的估计器被称为 _Nadaraya-Watson核回归_（Nadaraya-Watson kernel regression）。
 
-但受此启发， 我们可以从之前图中的注意力机制框架的角度 重写这个核公式， 成为一个更加通用的_注意力汇聚_（attention pooling）公式输出
+但受此启发， 我们可以从之前图中的注意力机制框架的角度 重写这个核公式， 成为一个更加通用&#x7684;_&#x6CE8;意力汇聚_（attention pooling）公式输出
 
 &#x20;                                                                          $$f(x) = \sum_{i = 1}^{n} \alpha(x, x_i)y_i$$
 

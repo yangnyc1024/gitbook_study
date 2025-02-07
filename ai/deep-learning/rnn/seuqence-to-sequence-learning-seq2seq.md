@@ -92,7 +92,7 @@ Without attention, the model might struggle to accurately translate longer sente
 
 ### Introduction
 
-从上一个section里面我们知道，机器翻译的输入和输出序列都是长度可变的，为了解决这个问题，我们使用了decoder-ecoder模型，透过两个循环神经网络的编码器和解码器，透过一个hidden的中间层，将前后两个序列（语言）练习在一起，以至于我们可以用于_序列到序列_（sequence to sequence，seq2seq）类的学习任务
+从上一个section里面我们知道，机器翻译的输入和输出序列都是长度可变的，为了解决这个问题，我们使用了decoder-ecoder模型，透过两个循环神经网络的编码器和解码器，透过一个hidden的中间层，将前后两个序列（语言）练习在一起，以至于我们可以用&#x4E8E;_&#x5E8F;列到序列_（sequence to sequence，seq2seq）类的学习任务
 
 * 遵循decoder-ecoder的设计原则，RNN的编码器使用长度可以改变的序列作为输入，将其转换为固定形状的隐状态
 * 为了可以连续生成输出的序列的词元，独立的RNN解码器是基于

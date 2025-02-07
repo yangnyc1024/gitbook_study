@@ -89,8 +89,8 @@ After passing through global average pooling, the network predicts that the imag
 ### NiN模型
 
 * NiN使用窗口形状为$$11×11$$、$$5×5$$和$$3×3$$的卷积层，输出通道数量与AlexNet中的相同。 每个NiN块后有一个最大汇聚层，汇聚窗口形状为$$3×3$$，步幅为2。
-* NiN和AlexNet之间的一个显著区别是NiN完全取消了全连接层。 相反，NiN使用一个NiN块，其输出通道数等于标签类别的数量。最后放一个_全局平均汇聚层_（global average pooling layer），生成一个对数几率 （logits）。
+* NiN和AlexNet之间的一个显著区别是NiN完全取消了全连接层。 相反，NiN使用一个NiN块，其输出通道数等于标签类别的数量。最后放一&#x4E2A;_&#x5168;局平均汇聚层_（global average pooling layer），生成一个对数几率 （logits）。
 * NiN设计的一个优点是，它显著减少了模型所需参数的数量。然而，在实践中，这种设计有时会增加训练模型的时间。
 * LeNet、AlexNet和VGG都有一个共同的设计模式：通过一系列的卷积层与汇聚层来提取空间结构特征；然后通过全连接层对特征的表征进行处理。 AlexNet和VGG对LeNet的改进主要在于如何扩大和加深这两个模块。
-* 或者，可以想象在这个过程的早期使用全连接层。然而，如果使用了全连接层，可能会完全放弃表征的空间结构。 _网络中的网络_（_NiN_）提供了一个非常简单的解决方案：在每个像素的通道上分别使用多层感知机 ([Lin _et al._, 2013](https://zh.d2l.ai/chapter\_references/zreferences.html#id93))
+* 或者，可以想象在这个过程的早期使用全连接层。然而，如果使用了全连接层，可能会完全放弃表征的空间结构。 _网络中的网络_（_NiN_）提供了一个非常简单的解决方案：在每个像素的通道上分别使用多层感知机 ([Lin _et al._, 2013](https://zh.d2l.ai/chapter_references/zreferences.html#id93))
 

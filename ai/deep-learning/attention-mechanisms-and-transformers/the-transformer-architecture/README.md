@@ -26,8 +26,8 @@ Transformer作为decoder-encoder的一个实例，可以看到其如下整体架
 #### Transformer的编码器
 
 * 从宏观角度来看，Transformer的编码器是由多个相同的层叠加而成的，每个层都有两个子层（子层表示为$$sublayer$$sublayer。
-  * 第一个子层是_<mark style="color:blue;">多头自注意力</mark>_<mark style="color:blue;">（multi-head self-attention）</mark>汇聚；
-  * 第二个子层是_<mark style="color:orange;">基于位置的前馈网络</mark>_<mark style="color:orange;">（positionwise feed-forward network）</mark>。
+  * 第一个子层&#x662F;_<mark style="color:blue;">多头自注意力</mark>_<mark style="color:blue;">（multi-head self-attention）</mark>汇聚；
+  * 第二个子层&#x662F;_<mark style="color:orange;">基于位置的前馈网络</mark>_<mark style="color:orange;">（positionwise feed-forward network）</mark>。
   * 具体来说，在计算编码器的自注意力时，查询、键和值都来自前一个编码器层的输出。
 * 自注意力时，查询、键和值都来自前一个编码器层的输出。
 * 受 7.6 节中残差网络的启发，每个子层都采用了残差连接 (residual connection)。在 Transformer 中，对于序列中任何位置的任何输入 $$\mathbf{x} \in \mathbb{R}^d$$，都要求满足 $$sublayer(\mathbf{x}) \in \mathbb{R}^d$$，以便残差连接 $$\mathbf{x} + sublayer(\mathbf{x}) \in \mathbb{R}^d$$。
@@ -39,10 +39,10 @@ Transformer作为decoder-encoder的一个实例，可以看到其如下整体架
 #### Transformers的解码器
 
 * Transformer解码器也是由多个相同的层叠加而成的，并且层中使用了残差连接和层规范化。
-* 除了编码器中描述的两个子层之外，解码器还在这两个子层之间插入了第三个子层，称为_编码器－解码器注意力_（encoder-decoder attention）层。
+* 除了编码器中描述的两个子层之外，解码器还在这两个子层之间插入了第三个子层，称&#x4E3A;_&#x7F16;码器－解码器注意力_（encoder-decoder attention）层。
   * 在编码器－解码器注意力中，查询来自前一个解码器层的输出，而键和值来自整个编码器的输出。
   * 在解码器自注意力中，查询、键和值都来自上一个解码器层的输出。但是，解码器中的每个位置只能考虑该位置之前的所有位置。
-  * 这种_掩蔽_（masked）注意力保留了_自回归_（auto-regressive）属性，确保预测仅依赖于已生成的输出词元。
+  * 这&#x79CD;_&#x63A9;蔽_（masked）注意力保留&#x4E86;_&#x81EA;回归_（auto-regressive）属性，确保预测仅依赖于已生成的输出词元。
 
 ### Part 0 基于缩放点积多头注意力 & 位置编码
 
@@ -50,13 +50,13 @@ Transformer作为decoder-encoder的一个实例，可以看到其如下整体架
 
 ### Part 1基于位置的前馈网络Positionwise Feed-Forward Networks
 
-* 基于位置的前馈网络对序列中的所有位置的表示进行变换时使用的是同一个多层感知机（MLP），这就是称前馈网络是_基于位置的_（positionwise）的原因。
+* 基于位置的前馈网络对序列中的所有位置的表示进行变换时使用的是同一个多层感知机（MLP），这就是称前馈网络&#x662F;_&#x57FA;于位置的_（positionwise）的原因。
 * 在实现中，输入`X`的形状（批量大小，时间步数或序列长度，隐单元数或特征维度）将被一个两层的感知机转换成形状为（批量大小，时间步数，`ffn_num_outputs`）的输出张量。
 * 当改变张量的最里层维度的尺寸，会改变成基于位置的前馈网络的输出尺寸。因为用同一个多层感知机对所有位置上的输入进行变换，所以当所有这些位置的输入相同时，它们的输出也是相同的。
 
 ### Part 2残差连接和层规范化Residual Connection and Layer Normalization
 
-* 现在让我们关注图中_加法和规范化_（add\&norm）组件。
+* 现在让我们关注图&#x4E2D;_&#x52A0;法和规范化_（add\&norm）组件。
 * 正如在本节开头所述，这是由残差连接和紧随其后的层规范化组成的。两者都是构建有效的深度架构的关键。
 * &#x20;在一个小批量的样本内基于批量规范化对数据进行重新中心化和重新缩放的调整
 * 层规范化和批量规范化的目标相同，但层规范化是基于特征维度进行规范化。

@@ -206,7 +206,7 @@ step1:计算协方差矩阵： A=10\*10
 
 step2:对协方差矩阵做eigen-decomposition，即 $$AQ= Q\Sigma$$
 
-假设我们要取5个features则$$\Sigma= 55$$_,即特征值top 5, where Q= 10_5，
+假设我们要取5个features则$$\Sigma= 55$$_,即特征值top 5, where Q= 1&#x30;_&#x35;，
 
 step3: 用投影矩阵Q对data做降维
 

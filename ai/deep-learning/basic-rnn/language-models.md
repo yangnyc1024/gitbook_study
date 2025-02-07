@@ -15,8 +15,8 @@ $$P(deep, learning, is, fun) = P(deep)P(learning | deep) P(is| deep, learning) P
 
 #### Markov Models and N-grams
 
-* 在讨论包含深度学习的解决方案之前，我们需要了解更多的概念和术语。 回想一下我们在 [8.1节](https://zh.d2l.ai/chapter\_recurrent-neural-networks/sequence.html#sec-sequence)中对马尔可夫模型的讨论， 并且将其应用于语言建模。 如果$$P(x_{t+1} | x_{t} , \cdots, x_1) = P(x_{t+1}|x_t)$$， 则序列上的分布满足一阶马尔可夫性质。 阶数越高，对应的依赖关系就越长。 这种性质推导出了许多可以应用于序列建模的近似公式
-* 通常，涉及一个、两个和三个变量的概率公式分别被称为 _一元语法_（unigram）、_二元语法_（bigram）和_三元语法_（trigram）模型。 下面，我们将学习如何去设计更好的模型。
+* 在讨论包含深度学习的解决方案之前，我们需要了解更多的概念和术语。 回想一下我们在 [8.1节](https://zh.d2l.ai/chapter_recurrent-neural-networks/sequence.html#sec-sequence)中对马尔可夫模型的讨论， 并且将其应用于语言建模。 如果$$P(x_{t+1} | x_{t} , \cdots, x_1) = P(x_{t+1}|x_t)$$， 则序列上的分布满足一阶马尔可夫性质。 阶数越高，对应的依赖关系就越长。 这种性质推导出了许多可以应用于序列建模的近似公式
+* 通常，涉及一个、两个和三个变量的概率公式分别被称为 _一元语法_（unigram）、_二元语法_（bigram）&#x548C;_&#x4E09;元语法_（trigram）模型。 下面，我们将学习如何去设计更好的模型。
 
 #### Word Frequency
 
@@ -37,8 +37,8 @@ We defined entropy, surprisal, and cross-entropy混乱程度来考虑问题
 *
 
     <figure><img src="../../.gitbook/assets/Screenshot 2024-02-13 at 5.17.16 PM.png" alt="" width="375"><figcaption></figcaption></figure>
-* &#x20;事实上，他们都一样的好。 然而，如果我们只选择一个偏移量， 那么用于训练网络的、所有可能的子序列的覆盖范围将是有限的。 因此，我们可以从随机偏移量开始划分序列， 以同时获得_覆盖性_（coverage）和_随机性_（randomness）
-* 下面，我们将描述如何实现_随机采样_（random sampling）和 _顺序分区_（sequential partitioning）策略。
+* &#x20;事实上，他们都一样的好。 然而，如果我们只选择一个偏移量， 那么用于训练网络的、所有可能的子序列的覆盖范围将是有限的。 因此，我们可以从随机偏移量开始划分序列， 以同时获&#x5F97;_&#x8986;盖性_（coverage）&#x548C;_&#x968F;机性_（randomness）
+* 下面，我们将描述如何实&#x73B0;_&#x968F;机采样_（random sampling）和 _顺序分区_（sequential partitioning）策略。
 
 #### random sampling
 

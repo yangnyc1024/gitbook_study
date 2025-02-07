@@ -130,8 +130,8 @@ This structure enhances the model’s capacity to capture diverse features witho
 
 ## Extra Reading
 
-* 只有当较复杂的函数类包含较小的函数类时，我们才能确保提高它们的性能。 对于深度神经网络，如果我们能将新添加的层训练成_恒等映射_（identity function）$$f(x) = x$$，新模型和原模型将同样有效。 同时，由于新模型可能得出更优的解来拟合训练数据集，因此添加层似乎更容易降低训练误差。
-* 针对这一问题，何恺明等人提出了_残差网络_（ResNet） ([He _et al._, 2016](https://zh.d2l.ai/chapter\_references/zreferences.html#id60))。 它在2015年的ImageNet图像识别挑战赛夺魁，并深刻影响了后来的深度神经网络的设计。
+* 只有当较复杂的函数类包含较小的函数类时，我们才能确保提高它们的性能。 对于深度神经网络，如果我们能将新添加的层训练&#x6210;_&#x6052;等映射_（identity function）$$f(x) = x$$，新模型和原模型将同样有效。 同时，由于新模型可能得出更优的解来拟合训练数据集，因此添加层似乎更容易降低训练误差。
+* 针对这一问题，何恺明等人提出&#x4E86;_&#x6B8B;差网络_（ResNet） ([He _et al._, 2016](https://zh.d2l.ai/chapter_references/zreferences.html#id60))。 它在2015年的ImageNet图像识别挑战赛夺魁，并深刻影响了后来的深度神经网络的设计。
 * &#x20;残差网络的核心思想是：每个附加层都应该更容易地包含原始函数作为其元素之一。 于是，_残差块_（residual blocks）便诞生了，这个设计对如何建立深层神经网络产生了深远的影响。 凭借它，ResNet赢得了2015年ImageNet大规模视觉识别挑战赛。
 
 #### Residual Block

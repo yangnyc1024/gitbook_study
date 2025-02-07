@@ -81,7 +81,7 @@ $$f(\mathbf{u}_j, \mathbf{u}_k, \mathbf{v}_i) = f\left( (\mathbf{u}_j - \mathbf{
 
 $$f(\mathbf{u}_j, \mathbf{u}_k, \mathbf{v}_i) = \frac{\exp\left( \mathbf{u}_j^\top \mathbf{v}_i \right)}{\exp\left( \mathbf{u}_k^\top \mathbf{v}_i \right)} \approx \frac{p_{ij}}{p_{ik}}$$
 
-现在让我们选择 $$\exp\left( \mathbf{u}_j^\top \mathbf{v}_i \right) \approx \alpha p_{ij}$$_，_其中$$\alpha$$是常数。将 $$p_{ij} = x_{ij} / x_i$$ 代入, 取两边的对数得到
+现在让我们选择 $$\exp\left( \mathbf{u}_j^\top \mathbf{v}_i \right) \approx \alpha p_{ij}$$_，_&#x5176;中$$\alpha$$是常数。将 $$p_{ij} = x_{ij} / x_i$$ 代入, 取两边的对数得到
 
 $$\mathbf{u}_j^\top \mathbf{v}_i \approx \log \alpha + \log x_{ij} - \log x_i$$
 

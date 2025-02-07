@@ -119,12 +119,12 @@ GoogLeNet 引入了 **Inception 模块**，这是一个并行应用不同卷积�
 
 ## Extra Reading
 
-* 在2014年的ImageNet图像识别挑战赛中，一个名叫_GoogLeNet_ ([Szegedy _et al._, 2015](https://zh.d2l.ai/chapter\_references/zreferences.html#id162))的网络架构大放异彩。 GoogLeNet吸收了NiN中串联网络的思想，并在此基础上做了改进。&#x20;
+* 在2014年的ImageNet图像识别挑战赛中，一个名&#x53EB;_&#x47;oogLeNet_ ([Szegedy _et al._, 2015](https://zh.d2l.ai/chapter_references/zreferences.html#id162))的网络架构大放异彩。 GoogLeNet吸收了NiN中串联网络的思想，并在此基础上做了改进。&#x20;
 * 这篇论文的一个重点是解决了什么样大小的卷积核最合适的问题。 毕竟，以前流行的网络使用小到$$1×1$$，大到$$11×11$$的卷积核。 本文的一个观点是，有时使用不同大小的卷积核组合是有利的。
 
 #### Inception 块
 
-* 在GoogLeNet中，基本的卷积块被称为_Inception块_（Inception block）。这很可能得名于电影《盗梦空间》（Inception），因为电影中的一句话“我们需要走得更深”（“We need to go deeper”）。
+* 在GoogLeNet中，基本的卷积块被称&#x4E3A;_&#x49;nception块_（Inception block）。这很可能得名于电影《盗梦空间》（Inception），因为电影中的一句话“我们需要走得更深”（“We need to go deeper”）。
 *
 
     <figure><img src="../../.gitbook/assets/Screenshot 2024-02-05 at 3.07.24 PM.png" alt=""><figcaption></figcaption></figure>
@@ -150,7 +150,7 @@ GoogLeNet 引入了 **Inception 模块**，这是一个并行应用不同卷积�
 
 #### Inception块
 
-* 在GoogLeNet中，基本的卷积块被称为_Inception块_（Inception block）。这很可能得名于电影《盗梦空间》（Inception），因为电影中的一句话“我们需要走得更深”（“We need to go deeper”）。
+* 在GoogLeNet中，基本的卷积块被称&#x4E3A;_&#x49;nception块_（Inception block）。这很可能得名于电影《盗梦空间》（Inception），因为电影中的一句话“我们需要走得更深”（“We need to go deeper”）。
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-02-05 at 3.24.22 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 

@@ -72,7 +72,7 @@ $$
 
 Step 1: Choose model
 
-In (binary) Logistic Regression, $$Y$$ follows Bernoulli distribution**(**$$y$$**和**$$p$$**的bernoulli关系)**
+In (binary) Logistic Regression, $$Y$$ follows Bernoulli distributio&#x6E;**(**$$y$$**和**$$p$$**的bernoulli关系)**
 
 $$
 P(Y=y_i\vert X) = p^{y_i}(1-p)^{1-y_i}, \ 0<p<1,\ y_i=0,1
@@ -116,7 +116,7 @@ $$
 
 **2.2.2 linear regression VS logistics regression**
 
-当自变量$$x$$ 给定时，我们对$$y$$ 的distribution的假设**(这块需要rethink）**
+当自变量$$x$$ 给定时，我们对$$y$$ 的distribution的假&#x8BBE;**(这块需要rethink）**
 
 1. Linear regression的assumption 是： $$p(y \vert x)$$是$$mean=f(x)=ax+b$$,$$variance= \sigma^2$$(一个与$$x$$无关的值)的normal distribution
 2. logistic regression的assumption 是:$$y$$服从 $$p=\frac{1}{1+e^{-ax+b}}$$ Bernoulli distribution
