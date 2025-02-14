@@ -1,4 +1,4 @@
-# xAI with tree Model
+# xAI
 
 Explainable
 
@@ -15,3 +15,11 @@ Explainable
 {% embed url="https://christophm.github.io/interpretable-ml-book/shap.html" %}
 
 {% embed url="https://zhuanlan.zhihu.com/p/85791430" %}
+
+
+
+
+
+What is global surrogate?
+
+What is PDP?
