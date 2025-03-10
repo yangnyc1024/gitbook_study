@@ -17,11 +17,27 @@ The final state $$h_t$$ of the encoder is known as the context variable or the c
 
 $$c= m(h_1, \cdots, h_T)$$
 
+where $$m$$ is the mapping function and, in the simplest case, maps the context variable to the last hidden state
+
+$$c = m(h_1, \cdots, h_T) = h_T$$
+
+Adding more complexity to the architecture, the encoders can be bidirectional; thus the hidden state would not only depend on the previous hidden state $$h_{t-1}$$ and input $$x_t$$, but also on the following state $$h_{t+1}$$
 
 
 
+<figure><img src="../.gitbook/assets/Screenshot 2025-03-09 at 11.53.55 PM.png" alt=""><figcaption></figcaption></figure>
 
 
+
+### Decoder
+
+upon obtaining the context vector $$c$$ from the encoder, the decoder starts to generate the output sequence $$y = (y_1, y_2, \cdots, y_U)$$, where $$U$$ may differ from $$T$$. Similar to the encoder, the decoder's hidden state at any time $$t$$ is given by&#x20;
+
+$$s_{t^{'}} = g(s_{t-1}, y_{t^{'} - 1}, c)$$
+
+The hidden state of decoder flows to an output layer and the conditional distribution of the nxt token at $$t^{'}$$ is given by
+
+$$P(y_{t'} | y_{t^{'} - 1}, \cdots, y_1, c) = \text{softmax} (s_{t-1}, y_{t^{'} - 1} , c)$$
 
 
 
