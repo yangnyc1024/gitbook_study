@@ -101,7 +101,7 @@
     * [Encoder-Decoder Architecture](genai/language-models-pre-training/encoder-decoder-architecture.md)
     * [Encoder Deep Dive](genai/language-models-pre-training/zhong-wen-li-jie-encoderdecoder.md)
     * [Decoder Deep Dive](genai/language-models-pre-training/decoder-deep-dive.md)
-    * [Extra](genai/language-models-pre-training/extra.md)
+    * [Encoder VS Decoder](genai/language-models-pre-training/encoder-vs-decoder.md)
   * [Example: Llama 3 8B架构](genai/example-llama-3-8b-jia-gou.md)
   * [Fine-Tuning Generation Models](genai/fine-tuning-generation-models.md)
   * [RAG and Adavance RAG](genai/rag-and-adavance-rag.md)

@@ -1,8 +1,8 @@
 ---
-description: Extra Info
+description: Decoder
 ---
 
-# Extra
+# Encoder VS Decoder
 
 ## **Encoder 和 Decoder 的数学区别**
 

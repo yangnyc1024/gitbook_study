@@ -51,9 +51,27 @@ $$P(y_{t'} | y_{t^{'} - 1}, \cdots, y_1, c) = \text{softmax} (s_{t-1}, y_{t^{'} 
 
 
 
+\
+
+
+### Encoder-Decoder Model Training and Loss Function
+
+The encoder-decoder model is trained end-to-end through supervised learning. The standard loss function employed is the categorical cross-entropy between the predicted output sequence and the actual output. This can be represented as:
+
+> 编码-解码模型通过监督学习进行端到端训练。标准损失函数是预测输出序列和实际输出之间的**分类交叉熵**。其数学表达式如下：
+
+$$\mathcal{L} = - \sum_{t=1}^{U} \log p(y_t | y_{t-1}, \dots, y_1, \mathbf{c})$$
+
+Optimization of the model parameters typically employs gradient descent variants, such as the Adam or RMSprop algorithms.
+
+> 模型参数的优化通常采用梯度下降的变体，例如 **Adam** 或 **RMSprop** 算法。
 
 
 
+## Issue
+
+* Recurrent Neu- ral Networks (RNNs), the foundational architecture for many encoder-decoder mod- els, have shortcomings, such as susceptibility to <mark style="color:blue;">vanishing and exploding gradients</mark> (Hochreiter, 1998).&#x20;
+* Additionally, the sequential dependency intrinsic to RNNs com- plicates parallelization, thereby imposing <mark style="color:blue;">computational constraints.</mark>
 
 ## Reference
 
