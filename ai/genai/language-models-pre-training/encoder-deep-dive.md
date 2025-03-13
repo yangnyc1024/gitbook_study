@@ -1,8 +1,4 @@
----
-description: encoderdecoder
----
-
-# 中文理解encoder-decoder
+# Encoder Deep Dive
 
 ## 编码器（Encoder）
 
