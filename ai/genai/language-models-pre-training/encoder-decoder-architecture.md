@@ -1,4 +1,8 @@
-# Language Models Pre-training
+---
+description: o
+---
+
+# Encoder-Decoder Architecture
 
 ## Encoder- Decoder Architecture
 
@@ -25,13 +29,19 @@ Adding more complexity to the architecture, the encoders can be bidirectional; t
 
 
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-03-09 at 11.53.55 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-03-09 at 11.53.55 PM.png" alt=""><figcaption></figcaption></figure>
+
+hidden state是一个已知的所有的context vector，
+
+
+
+
 
 
 
 ### Decoder
 
-upon obtaining the context vector $$c$$ from the encoder, the decoder starts to generate the output sequence $$y = (y_1, y_2, \cdots, y_U)$$, where $$U$$ may differ from $$T$$. Similar to the encoder, the decoder's hidden state at any time $$t$$ is given by&#x20;
+Upon obtaining the context vector from the encoder, the decoder starts to generate the output sequence $$y = (y_1, y_2, \cdots, y_U)$$, where $$U$$ may differ from $$T$$. Similar to the encoder, the decoder's hidden state at any time $$t$$ is given by&#x20;
 
 $$s_{t^{'}} = g(s_{t-1}, y_{t^{'} - 1}, c)$$
 
