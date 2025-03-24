@@ -1,6 +1,6 @@
 # SHAP value
 
-## What is SHAP value?
+## Raising a question
 
 We are interested in understanding how each feature contributes to a prediction. In linear models, this is relatively straightforward to compute. Consider a linear model:
 
@@ -24,7 +24,9 @@ $$
 = \hat{f}(x) - \mathbb{E}(f(X))
 $$
 
-In other words, the total contribution of input $$x$$ is equal to the prediction minus the average prediction. Since we often work with non-linear models (e.g., ensemble methods), we require a more general approach. We adopt the **Shapley value** from cooperative game theory to attribute the prediction of any machine learning model to individual feature contributions.
+In other words, the total contribution of input $$x$$ is equal to the prediction minus the average prediction.&#x20;
+
+**Since we often work with non-linear models (e.g., ensemble methods), we require a more general approach.** We adopt the **Shapley value** from cooperative game theory to attribute the prediction of any machine learning model to individual feature contributions.
 
 The Shapley value of feature $$j$$ for an instance is defined as:
 
@@ -50,9 +52,17 @@ $$
 val_x(S) = \int_{\mathbb{R}} \int_{\mathbb{R}} f(x_1, X_2, x_3, X_4) \, dP_{X_2, X_4} - \mathbb{E}_X[\hat{f}(X)]
 $$
 
+SHAP specifies the explanation as:
 
+$$
+g(\mathbf{z}') = \phi_0 + \sum_{j=1}^{M} \phi_j z'_j
+$$
 
+where:
 
+* $$g$$ is the explanation model,
+* $$\mathbf{z}' = (z'_1, \ldots, z'_M)^T \in \{0,1\}^M$$is the coalition vector,
+* $$M$$ is the maximum coalition size, and $$\phi_j \in \mathbb{R}$$ is the feature attribution for feature $$j$$, the Shapley values.
 
 ## What is baseline?
 
