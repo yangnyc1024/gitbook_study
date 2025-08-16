@@ -105,6 +105,7 @@
     * [Attention Mechanism](genai/language-models-pre-training/attention-mechanism.md)
     * [Transformers](genai/language-models-pre-training/transformers.md)
   * [Example: Llama 3 8B架构](genai/example-llama-3-8b-jia-gou.md)
+  * [MoE layer](genai/moe-layer.md)
   * [Fine-Tuning Generation Models](genai/fine-tuning-generation-models.md)
   * [RAG and Adavance RAG](genai/rag-and-adavance-rag.md)
   * [AI Agent](genai/ai-agent.md)
