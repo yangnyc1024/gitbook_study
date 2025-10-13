@@ -116,6 +116,7 @@
 * [Machine Learning System Design](machine-learning-system-design.md)
   * [Extra Reading](machine-learning-system-design/extra-reading.md)
   * [Introduction](machine-learning-system-design/introduction.md)
+  * [Anomaly Detection](machine-learning-system-design/anomaly-detection.md)
 * [Responsible AI](responsible-ai/README.md)
   * [AI Risk and Uncertainty](responsible-ai/ai-risk-and-uncertainty/README.md)
     * [What is AI risk](responsible-ai/ai-risk-and-uncertainty/what-is-ai-risk.md)
