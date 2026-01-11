@@ -93,4 +93,4 @@ Additionally, the **decoder** uses Multi-Head Attention to focus on different pa
 * 其中，可学习的参数包括 $$\mathbf{W}_i^{(q)} \in \mathbb{R}^{p_q \times d_q}$$、$$\mathbf{W}_i^{(k)} \in \mathbb{R}^{p_k \times d_k}$$ 和 $$\mathbf{W}_i^{(v)} \in \mathbb{R}^{p_v \times d_v}$$，以及代表注意力汇聚的函数 $$f$$。$$f$$ 可以是 **加性注意力** 和 **缩放点积注意力**。
 * 多头注意力的输出需要经过另一个线性转换，它对应着 $$h$$ 个头连接后的结果，因此其可学习参数是 $$\mathbf{W}_o \in \mathbb{R}^{p_o \times h p_v}$$：
 
-$$\mathbf{W}_o \begin{bmatrix} \mathbf{h}_1 \ \vdots \ \mathbf{h}_h \end{bmatrix} \in \mathbb{R}^{p_o}.$$\
+$$\mathbf{W}_o \begin{bmatrix} \mathbf{h}_1 \ \vdots \ \mathbf{h}_h \end{bmatrix} \in \mathbb{R}^{p_o}.$$<br>

@@ -41,8 +41,7 @@ $$\hat{y}^{(2)}_i = f_1(x_i) + f_2(x_i) = \hat{y}^{(1)}_i + f_2(x_i)$$
 
 The objective function of the above model can be defined as:
 
-$$obj^{(t)} = \sum_{i=1}^{n} l(y_i, \hat{y}^{(t)}_i) + \sum_{i=1}^{t} \Omega(f_i) = \sum_{i=1}^{n} l(y_i, \hat{y}^{(t-1)}_i + f_t(x_i)) + \Omega(f_t) + constant$$\
-
+$$obj^{(t)} = \sum_{i=1}^{n} l(y_i, \hat{y}^{(t)}_i) + \sum_{i=1}^{t} \Omega(f_i) = \sum_{i=1}^{n} l(y_i, \hat{y}^{(t-1)}_i + f_t(x_i)) + \Omega(f_t) + constant$$<br>
 
 $$obj^{(t)} = \sum_{i=1}^{n} (y_i - (\hat{y}^{(t-1)}_i + f_t(x_i)))^2 + \sum_{i=1}^{t} \Omega(f_i) = \sum_{i=1}^{n} [2(y_i - \hat{y}^{(t-1)}_i) f_t(x_i) + f_t(x_i)^2] + \Omega(f_t) + constant ]$$
 
@@ -86,7 +85,7 @@ $$G_j = \sum_{i \in I_j} g_i$$
 
 $$H_j = \sum_{i \in I_j} h_i$$
 
-In this equation, w\_j are independent of each other, the best ![w\_j](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-0a9d7fe27854af070301d3307810c89f\_l3.svg) for a given structure q(x) and the best objective reduction we can get is:
+In this equation, w\_j are independent of each other, the best ![w\_j](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-0a9d7fe27854af070301d3307810c89f_l3.svg) for a given structure q(x) and the best objective reduction we can get is:
 
 $$w_j^* = -\frac{G_j}{H_j + \lambda}$$&#x20;
 
@@ -152,5 +151,5 @@ Reference
 
 * [https://mayuanucas.github.io/xgboost-lightgbm/](https://mayuanucas.github.io/xgboost-lightgbm/)
 * [https://github.com/NLP-LOVE/ML-NLP/tree/master/Machine%20Learning/3.3%20XGBoost](https://github.com/NLP-LOVE/ML-NLP/tree/master/Machine%20Learning/3.3%20XGBoost)
-* [https://blog.csdn.net/v\_JULY\_v/article/details/81410574](https://blog.csdn.net/v\_JULY\_v/article/details/81410574)
+* [https://blog.csdn.net/v\_JULY\_v/article/details/81410574](https://blog.csdn.net/v_JULY_v/article/details/81410574)
 * [https://www.geeksforgeeks.org/xgboost/](https://www.geeksforgeeks.org/xgboost/)

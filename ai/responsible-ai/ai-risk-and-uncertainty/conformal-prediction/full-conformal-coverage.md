@@ -6,5 +6,5 @@
 
 we wanna to use all data, but just a few for training
 
-Limitations of full-conformal inference\
-
+Limitations of full-conformal inference<br>
+-------------------------------------------

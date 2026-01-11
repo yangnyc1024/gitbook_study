@@ -26,9 +26,8 @@
   * Understand your customer
   * Higher Values
   * Ease of Analysis
-* Product iteration process, how to apply it?\
-
-  * ![](https://api2.mubu.com/v3/document\_image/6ba4ea70-c709-40df-b386-86a39fa0ec5f-12267179.jpg)
+* Product iteration process, how to apply it?<br>
+  * ![](https://api2.mubu.com/v3/document_image/6ba4ea70-c709-40df-b386-86a39fa0ec5f-12267179.jpg)
   * Research and observe
     * Research the behavior of the users and understand where they tend to bounce off the path leading to the goal. Then identify the problem: for example 'The signup form has too many fields leading to a high abandonment rate'
   * A/B Testing
@@ -69,20 +68,16 @@
   * feature usage这个feature有多少人用
   * user churn 流失
   * net promoter score用户对这个的口碑（比如说tesla车主，）
-* methodology（海盗&心模型）\
-
-  * ![](https://api2.mubu.com/v3/document\_image/e9e42891-aa4d-494c-8fb6-f3187ffec16c-12267179.jpg)\
-
-  * ![](https://api2.mubu.com/v3/document\_image/d3f62818-c02f-44b3-b3b2-1a2441a6873c-12267179.jpg)\
-
+* methodology（海盗&心模型）<br>
+  * ![](https://api2.mubu.com/v3/document_image/e9e42891-aa4d-494c-8fb6-f3187ffec16c-12267179.jpg)<br>
+  * ![](https://api2.mubu.com/v3/document_image/d3f62818-c02f-44b3-b3b2-1a2441a6873c-12267179.jpg)<br>
 
 ### Random Experiment
 
 * (随机分配到不同组)In randomized experiments, users are randomly allocated to two different groups(experiment vs control). where the experiment group has a treatment(new design or feature) that the control does not (control has the current design)
 * （随机分配independent/distibution）Randomization makes the allocation independent of the potential outcome and makes the users in the experiment group and those in the control group identical in distribution
-* Therefore the mean difference in metric can only be attributed to the treatment\
-
-* ![](https://api2.mubu.com/v3/document\_image/e0b92792-b9e4-47da-a33d-4362d9fd0b9e-12267179.jpg)
+* Therefore the mean difference in metric can only be attributed to the treatment<br>
+* ![](https://api2.mubu.com/v3/document_image/e0b92792-b9e4-47da-a33d-4362d9fd0b9e-12267179.jpg)
 
 ### What can we go wrong?
 

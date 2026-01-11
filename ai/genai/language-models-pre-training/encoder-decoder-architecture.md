@@ -51,8 +51,7 @@ $$P(y_{t'} | y_{t^{'} - 1}, \cdots, y_1, c) = \text{softmax} (s_{t-1}, y_{t^{'} 
 
 
 
-\
-
+<br>
 
 ### Encoder-Decoder Model Training and Loss Function
 

@@ -51,12 +51,9 @@
 
 ### Picture says everything！
 
-* ![](https://api2.mubu.com/v3/document\_image/02203cc0-d253-495b-a1fc-fced24b23970-12267179.jpg)![](https://api2.mubu.com/v3/document\_image/bfe7a62e-504b-485b-9aa9-73d09df8d65c-12267179.jpg)![](https://api2.mubu.com/v3/document\_image/35a19fc3-92d1-4c3f-84fd-27c7aa30b4e6-12267179.jpg)\
-
-* ![](https://api2.mubu.com/v3/document\_image/f4f42fb5-d2a5-41e0-bebf-df0dcfd6464b-12267179.jpg)\
-
-* ![](https://api2.mubu.com/v3/document\_image/8086194b-6f59-454d-81c0-c51a23d8c2d1-12267179.jpg)![](https://api2.mubu.com/v3/document\_image/a9e78338-6d68-4077-b55a-6893d9a37aeb-12267179.jpg)\
-
+* ![](https://api2.mubu.com/v3/document_image/02203cc0-d253-495b-a1fc-fced24b23970-12267179.jpg)![](https://api2.mubu.com/v3/document_image/bfe7a62e-504b-485b-9aa9-73d09df8d65c-12267179.jpg)![](https://api2.mubu.com/v3/document_image/35a19fc3-92d1-4c3f-84fd-27c7aa30b4e6-12267179.jpg)<br>
+* ![](https://api2.mubu.com/v3/document_image/f4f42fb5-d2a5-41e0-bebf-df0dcfd6464b-12267179.jpg)<br>
+* ![](https://api2.mubu.com/v3/document_image/8086194b-6f59-454d-81c0-c51a23d8c2d1-12267179.jpg)![](https://api2.mubu.com/v3/document_image/a9e78338-6d68-4077-b55a-6893d9a37aeb-12267179.jpg)<br>
 
 ### Why ensemble method
 
@@ -124,15 +121,14 @@
     * Gradient boosting can be seen as gradient descent on function space.
     * In gradient descent we fixed the function and update the parameters(theta) by substracting the derivative of loss on thetaIn gradient boosting, we fixed the training algorithm and updated the model by adding the derivative of the loss on our model.
     * Gradient boosting is a framework where you can plug in any training algorithm and any loss function (as long as it is differentiable). Adaboost is one especial case of gradient boosting. It uses exponential loss
-    * adaboost和xtboosting你需要懂，为了面试\
-
+    * adaboost和xtboosting你需要懂，为了面试<br>
 * How is the performance of this model?
 * How can we compare this model with others model?
 
 ## Gradient Descent
 
 * example
-* ![](https://api2.mubu.com/v3/document\_image/861b158f-b385-4da2-85c0-b3d58b4499f6-12267179.jpg)
+* ![](https://api2.mubu.com/v3/document_image/861b158f-b385-4da2-85c0-b3d58b4499f6-12267179.jpg)
 * learning rate/standardization
 * stochastic gradient descent
 * Bagging VS Boosting
@@ -145,8 +141,7 @@
 
 * 用你周围人的结果决定你
 * K denotes the k labels that are 'closest' to your target sample
-* the higher K is, the smoother(most robust) your model can be.\
-
+* the higher K is, the smoother(most robust) your model can be.<br>
 
 ### How to determine this model?
 

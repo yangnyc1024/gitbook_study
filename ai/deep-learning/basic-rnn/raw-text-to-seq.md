@@ -36,8 +36,7 @@ Typical preprocessing pipelines execute the following steps:
   1. 为了简化后面章节中的训练，我们使用字符（而不是单词）实现文本词元化；
   2. 时光机器数据集中的每个文本行不一定是一个句子或一个段落，还可能是一个单词，因此返回的`corpus`仅处理为单个列表，而不是使用多词元列表构成的一个列表。
 
-\
-
+<br>
 
 
 
