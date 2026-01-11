@@ -1,4 +1,4 @@
-# Fine Tune
+# Fine-Tuning Generation Models
 
 ### FoundModel——LLM训练三步走：预训练、监督微调和偏好
 
@@ -132,3 +132,4 @@ SFT 和 DPO 相结合是一个很好的方法，可以先对模型进行微调�
 ### Reference
 
 * 图解大模型
+
