@@ -107,7 +107,7 @@
   * [Example: Llama 3 8B架构](genai/example-llama-3-8b-jia-gou.md)
   * [MoE layer](genai/moe-layer.md)
   * [Fine-Tuning Generation Models](genai/fine-tuning-generation-models/README.md)
-    * [SPF(supervisesd fine-tuning)](genai/fine-tuning-generation-models/spf-supervisesd-fine-tuning.md)
+    * [Fine Tune](genai/fine-tuning-generation-models/fine-tune.md)
   * [RAG and Adavance RAG](genai/rag-and-adavance-rag.md)
   * [AI Agent](genai/ai-agent.md)
 * [Statistics and Optimization](statistics-and-optimization/README.md)
